@@ -1,0 +1,181 @@
+:root {
+    /* Palette Colours */
+    --body-colour : #E9ECEF;
+    --bg-colour: #CED4DA ;
+    --hover-colour : #343A40;
+    --text-colour : #495057;
+    --important-colour : #212529;
+
+    /* SVG Link Filters */
+    --svg-filter-1: invert(28%) sepia(8%) saturate(689%) hue-rotate(169deg) brightness(96%) contrast(86%);
+    --svg-filter-2: invert(19%) sepia(10%) saturate(682%) hue-rotate(169deg) brightness(97%) contrast(88%);
+}
+
+body {
+    background-color: var(--body-colour);
+    color: var(--text-colour);
+    font-family: Arial, Helvetica, sans-serif;
+
+    /* margin: 0; */
+}
+
+a {
+    color: var(--text-colour);
+}
+a:hover {
+    color: var(--hover-colour);
+}
+
+b {
+    color: var(--important-colour);
+}
+
+.title-border {
+    display: flex; 
+
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    height: 100vh;
+    background-color: var(--bg-colour);
+}
+
+.title-text {
+    font-size: 22vw;
+    color: var(--important-colour);
+}
+
+.section-container {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.section-title {
+    font-size: 64px;
+    color: var(--text-colour);
+}
+
+.section-window-container {
+    display: grid;
+
+    gap: 16px;
+    grid-template-columns: repeat(1,1fr);
+}
+.section-window {
+    text-align: center;
+
+    border-radius: 1.25em;
+
+    background-color: var(--bg-colour);
+}
+.section-window img {
+    width: 50%;
+
+    filter: grayscale(25%);
+}
+
+.section-window p {
+    font-size: 32px;
+}
+
+.rounded {
+    border-radius: 1.25em;
+}
+
+.project-logo {
+    border-radius: 25%; 
+    padding: 16px;
+}
+
+.links {
+    position: relative;
+}
+
+.links a {
+    font-size: 32px;
+}
+.links a img {
+    height: 32px;
+    width: 32px;
+    filter: var(--svg-filter-1);
+}
+
+.links a img:hover {
+    filter: var(--svg-filter-2);
+}
+.links a .svg {
+    transform: translateY(0.15em);
+}
+
+.section-window .link-img {
+    padding-bottom: 6px;
+    transition: all 0.25s;
+    width: 50%;
+}
+.link-img:hover {
+    scale: 110%
+}
+
+.fiverr img {
+    width: 50%;
+}
+
+button {
+  appearance: none;
+  background-color: #FAFBFC;
+  border: 1px solid rgba(27, 31, 35, 0.15);
+  border-radius: 6px;
+  box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0, rgba(255, 255, 255, 0.25) 0 1px 0 inset;
+  box-sizing: border-box;
+  color: #24292E;
+  cursor: pointer;
+  display: inline-block;
+  font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  list-style: none;
+  padding: 6px 16px;
+  position: relative;
+  transition: background-color 0.2s cubic-bezier(0.3, 0, 0.5, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+  white-space: nowrap;
+  word-wrap: break-word;
+}
+
+button:hover {
+  background-color: var(--bg-colour);
+  text-decoration: none;
+  transition-duration: 0.1s;
+}
+
+button:disabled {
+  background-color: #FAFBFC;
+  border-color: rgba(27, 31, 35, 0.15);
+  color: #959DA5;
+  cursor: default;
+}
+
+button:active {
+  background-color: #EDEFF2;
+  box-shadow: rgba(225, 228, 232, 0.2) 0 1px 0 inset;
+  transition: none 0s;
+}
+
+button:focus {
+  outline: 1px transparent;
+}
+
+button:before {
+  display: none;
+}
+
+button:-webkit-details-marker {
+  display: none;
+}
