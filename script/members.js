@@ -77,7 +77,7 @@ let members = new Array();
 members.push(new Member("duzo", "hi", "https://duzo.is-a.dev/img/self.jpg", "https://duzo.is-a.dev/", "duzos"))
 members.push(new Member("loqor", "LOQOR WRITE SOMETHING HERE PLEASE TODO", "https://loqor.dev/img/self.png", "https://loqor.dev/", "loqor"))
 members.push(new Member("theo", "theo theo theo", "https://theo.is-a.dev/assets/portrait.png", "https://theo.is-a.dev/", "DrTheodor"))
-
+members.push(new Member("maketendo", "i tried to put the perfectest face", "img/team/maketendo.png", "https://modrinth.com/user/Maketendo", "MaketendoDev"))
 
 function updateMembersWindow() {
     let element = document.getElementById("members");
