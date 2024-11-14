@@ -78,6 +78,9 @@ members.push(new Member("duzo", "hi", "https://duzo.is-a.dev/img/self.jpg", "htt
 members.push(new Member("loqor", "LOQOR WRITE SOMETHING HERE PLEASE TODO", "https://loqor.dev/img/self.png", "https://loqor.dev/", "loqor"))
 members.push(new Member("theo", "theo theo theo", "https://theo.is-a.dev/assets/portrait.png", "https://theo.is-a.dev/", "DrTheodor"))
 members.push(new Member("maketendo", "i tried to put the perfectest face", "img/team/maketendo.png", "https://modrinth.com/user/Maketendo", "MaketendoDev"))
+members.push(new Member("westankrang", "In the words of Neil Armstrong: 'hippity hoppity hippity hoppity'", "img/team/westankrang.png", "https://modrinth.com/user/westankrang", "Westankrang"))
+members.push(new Member("classic", "classicy", "https://cdn.discordapp.com/avatars/488155976520695839/5858bf1ca1f8f38200cbf315e6eda88f.webp", "", "classicooflol"))
+members.push(new Member("tright", "trighty", "https://cdn.discordapp.com/avatars/594886666662182932/9b21e470be201a709616759108c57d14.webp", "", "Tr1ght"))
 
 function updateMembersWindow() {
     let element = document.getElementById("members");
