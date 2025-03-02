@@ -79,7 +79,9 @@ main {
 
 
 .title-border {
-    display: flex; 
+    display: flex;
+    flex-direction: column;
+    text-align: center;
 
     justify-content: center;
     align-items: center;
@@ -89,7 +91,8 @@ main {
 }
 
 .title-text {
-    font-size: 22vw;
+    position: relative;
+    font-size: 15vw;
     color: var(--important-colour);
 }
 
@@ -131,6 +134,7 @@ main {
 
 .rounded {
     border-radius: 1.25em;
+    margin-top: 14.5px;
 }
 
 .project-logo {
