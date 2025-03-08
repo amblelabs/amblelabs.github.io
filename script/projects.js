@@ -218,6 +218,8 @@ class ModrinthProject extends MinecraftProject {
 
 let projects = new Array();
 projects.push(new ModrinthProject("ait", "adventures-in-time", 856138))
+projects.push(new ModrinthProject("amblekit", "amblekit", 1204806))
+projects.push(new ModrinthProject("stargates", "stargate", 1204812))
 projects.push(new ModrinthProject("k9-mod", "k9", 866639))
 
 function updateModrinthProjects(user, array) {

@@ -79,7 +79,8 @@ members.push(new Member("loqor", "LOQOR WRITE SOMETHING HERE PLEASE TODO", "http
 members.push(new Member("theo", "theo theo theo", "https://theo.is-a.dev/_astro/about.COABh8ki_Z1DJ0Bk.webp", "https://theo.is-a.dev/", "DrTheodor"))
 members.push(new Member("maketendo", "i tried to put the perfectest face", "img/team/maketendo.png", "https://modrinth.com/user/Maketendo", "MaketendoDev"))
 members.push(new Member("westankrang", "In the words of Neil Armstrong: 'hippity hoppity hippity hoppity'", "img/team/westankrang.png", "https://modrinth.com/user/westankrang", "Westankrang"))
-members.push(new Member("classic", "classicy", "https://www.alleganyco.gov/wp-content/uploads/unknown-person-icon-Image-from.png", "", "classicooflol"))
+members.push(new Member("classic", "classicy", "img/team/classic.png", "https://modrinth.com/user/BabaBooey", "classicooflol"))
+members.push(new Member("Saturn", "i am as large as a planet", "img/team/saturn.png", "https://modrinth.com/user/idkuhh", "Saturnorsomthing"))
 members.push(new Member("tright", "trighty", "https://www.alleganyco.gov/wp-content/uploads/unknown-person-icon-Image-from.png", "", "Tr1ght"))
 
 function updateMembersWindow() {
