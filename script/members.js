@@ -81,7 +81,7 @@ members.push(new Member("maketendo", "i tried to put the perfectest face", "img/
 members.push(new Member("westankrang", "In the words of Neil Armstrong: 'hippity hoppity hippity hoppity'", "img/team/westankrang.png", "https://modrinth.com/user/westankrang", "Westankrang"))
 members.push(new Member("classic", "classicy", "img/team/classic.png", "https://modrinth.com/user/BabaBooey", "classicooflol"))
 members.push(new Member("Saturn", "i am as large as a planet", "img/team/saturn.png", "https://modrinth.com/user/idkuhh", "Saturnorsomthing"))
-members.push(new Member("AddieDaBaddie", "Zhe bluetooth device has connected a successfully", "img/team/addie.png", "https://addieastarr.carrd.co", "Addie"))
+members.push(new Member("AddieDaBaddie", "Zhe bluetooth device has connected a successfully", "img/team/addie.png", "https://addi3.github.io/index", "Addie"))
 members.push(new Member("tright", "trighty", "https://www.alleganyco.gov/wp-content/uploads/unknown-person-icon-Image-from.png", "", "Tr1ght"))
 
 function updateMembersWindow() {
