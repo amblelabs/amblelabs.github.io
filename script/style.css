@@ -121,7 +121,6 @@ h2 {
   border-radius: 30%;
 }
 
- /* The switch - the box around the slider */
 .switch {
   position: relative;
   display: inline-block;
@@ -129,14 +128,12 @@ h2 {
   height: 34px;
 }
 
-/* Hide default HTML checkbox */
 .switch input {
   opacity: 0;
   width: 0;
   height: 0;
 }
 
-/* The slider */
 .slider {
   position: absolute;
   cursor: pointer;
@@ -175,7 +172,6 @@ input:checked + .slider:before {
   transform: translateX(26px);
 }
 
-/* Rounded sliders */
 .slider.round {
   border-radius: 34px;
 }
@@ -183,3 +179,56 @@ input:checked + .slider:before {
 .slider.round:before {
   border-radius: 50%;
 } 
+
+* {
+  box-sizing: border-box;
+}
+
+.column {
+  float: left;
+  width: 25%;
+  padding: 0 10px;
+}
+
+.row {
+  margin: 0 -5px;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  text-align: center;
+  background-color: #383838;
+  border-radius: 5%;
+  
+  height: 410px; 
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; 
+  align-items: center;        
+}
+
+.card img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
+
+  .card {
+    height: 250px;
+  }
+}
+
