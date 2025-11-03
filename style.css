@@ -1,5 +1,4 @@
 :root {
-    /* Palette Colours */
     --body-colour : linear-gradient(#FF9100, #FFCA00);;
     --bg-colour: rgba(246, 222, 130, 0.6);
     --bg-border-colour: rgba(216, 131, 39, 0.8);
@@ -7,13 +6,11 @@
     --text-colour : rgba(164, 64, 30, 0.75);
     --important-colour : rgba(229, 78, 27, 0.8);
 
-    /* SVG Link Filters */
     --svg-filter-1: invert(28%) sepia(8%) saturate(689%) hue-rotate(169deg) brightness(96%) contrast(86%);
     --svg-filter-2: invert(19%) sepia(10%) saturate(682%) hue-rotate(169deg) brightness(97%) contrast(88%);
 }
 
 body {
-    /* background-image: var(--body-colour); */
     color: var(--text-colour);
     font-family: Arial, Helvetica, sans-serif;
 

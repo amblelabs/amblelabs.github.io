@@ -1,102 +1,318 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>AMBLE LABS</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="style.css">
-    <script src="https://kit.fontawesome.com/2b1db366f1.js" crossorigin="anonymous"></script>
-    <script src="./script/projects.js"></script>
-    <script src="./script/members.js"></script>
-    <script src="./script/windows.js"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AmbleLabs</title>
+    <link rel="stylesheet" href="script/style.css">
+    <style>
+
+
+</style>
+
+<p style="color: aliceblue;">Saturn Mode</p>
+
+  <label class="switch">
+    <input type="checkbox" id="fontSwitch">
+    <span class="slider round"></span>
+  </label>
+
+
+  <script>
+    const fontSwitch = document.getElementById('fontSwitch');
+
+    fontSwitch.addEventListener('change', function() {
+      if (this.checked) {
+        if (!document.getElementById('comicReliefFont')) {
+          const link = document.createElement('link');
+          link.href = "https://fonts.googleapis.com/css2?family=Comic+Relief:wght@400;700&display=swap";
+          link.rel = "stylesheet";
+          link.id = "comicReliefFont";
+          document.head.appendChild(link);
+
+          link.onload = () => {
+            document.body.style.fontFamily = "'Comic Relief', cursive";
+          };
+        } else {
+          document.body.style.fontFamily = "'Comic Relief', cursive";
+        }
+      } else {
+        document.body.style.fontFamily = "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif";
+      }
+    });
+  </script>
+
 </head>
 <body>
-<div class="parallax">
-    <div class="parallax__layer parallax__layer--back">
-        <div class="gradient" style="height: 140%"></div>
-    </div>
-    <div class="parallax__layer parallax__layer--base">
-        <main>
-            <div class="title-border">
-                <h1 class="title-text">AMBLE <br>LABS</br></h1>
-            </div>
+    <center>
+    <h1 style="color:rgb(202, 202, 202)">Amble Labs</h1>
+<div class="container">
+  <img src="img/amblelabs_icon.svg" alt="Avatar" class="image">
+  <div class="overlay">
+    <img src="img/amblelabs_icon.gif" alt="Avatar" class="image">
+  </div>
+</div>
 
-            <div class="section-container">
-                <h1 class="section-title">Who are we?</h1>
-            </div>
-            <div class="section-window-container">
-                <div class="section-window">
-                    <h1>info</h1>
-                    <p>Amble Labs is a collection of developers and artists primarily aimed at bringing stunning mods,
-                        visuals and packed features into Minecraft</p>
-                </div>
-                <div class="section-window">
-                    <img class="rounded"
-                         src="https://avatars.githubusercontent.com/u/179263212?s=400&u=ca7b31bb6025643e7f8dbbb907a9a305b110edee&v=4">
-                </div>
-            </div>
+    <h3 style="color:rgb(202, 202, 202)">We are Amble Labs! A Minecraft Mod and Game Development studio.</h3>
+    </center>
+    </body>
 
-            <div class="section-container">
-                <h1 class="section-title">Commissions</h1>
-            </div>
-            <br>
-            <div class="section-window-container">
-                <div class="section-window">
-                    <h1>We do commissions!</h1>
-                    <p>
-                        Find out more <a href="./commision/job.html">here</a>
-                    </p>
-                </div>
-            </div>
+<div class="section">    
 
-            <div class="section-container">
-                <h1 class="section-title">Projects</h1>
-            </div>
-            <br>
-            <div class="section-window-container">
-                <div class="section-window" style="background-color: transparent; display: none;">
-                    <button id="toggleProjects" onclick="toggleProjects(true)"></button>
-                    <button id="rerollProjects" onclick="updateProjectsWindow()"><i class="fa-solid fa-dice"></i>
-                    </button>
-                </div>
-            </div>
-            <br>
-            <div class="section-window-container " id="projects"></div>
+    <div class="tab">
+        
+  <button class="tablinks" onclick="opentab(event, 'Home')" style="color: rgb(202,202,202)" id="defaultOpen">Home</button>
+  <button class="tablinks" onclick="opentab(event, 'Members')" style="color: rgb(202,202,202)">Members</button>
+ <button class="tablinks" onclick="opentab(event, 'Links')" style="color: rgb(202,202,202)">Links</button>
+</div>
 
-            <div class="section-container">
-                <h1 class="section-title">Members</h1>
-            </div>
-            <br>
-            <div class="section-window-container " id="members"></div>
+<div id="Home" class="tabcontent">
+    <a style="color: aliceblue;">THIS PAGE IS STILL WIP!</a>
+<center>
+    <iframe width="860" height="615" src="https://www.youtube.com/embed/5Wvh-TaVLm8?si=yk2Gp6oj37jZzhqm" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</center>
+</div>
 
-            <div class="section-container">
-                <h1 class="section-title">Contact</h1>
-            </div>
-            <div class="section-window-container">
-                <div class="section-window">
-                    <h1>Links</h1>
-                    <p>
-                        <b>|</b>
-                        <a href=" https://discord.gg/ZXQdFxTNKh"><i class="fa-brands fa-discord"></i></a> <b>|</b>
-                        <a href="https://github.com/amblelabs"><i class="fa-brands fa-github"></i></a> <b>|</b>
-                        <a href="https://modrinth.com/organization/amble-labs">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="31" height="31" viewBox="0 -0.50 25 25" style="vertical-align: middle;">
-                                <path fill="currentColor"
-                                      d="M12.252.004a11.78 11.768 0 0 0-8.92 3.73a11 10.999 0 0 0-2.17 3.11a11.37 11.359 0 0 0-1.16 5.169c0 1.42.17 2.5.6 3.77c.24.759.77 1.899 1.17 2.529a12.3 12.298 0 0 0 8.85 5.639c.44.05 2.54.07 2.76.02c.2-.04.22.1-.26-1.7l-.36-1.37l-1.01-.06a8.5 8.489 0 0 1-5.18-1.8a5.34 5.34 0 0 1-1.3-1.26c0-.05.34-.28.74-.5a37.572 37.545 0 0 1 2.88-1.629c.03 0 .5.45 1.06.98l1 .97l2.07-.43l2.06-.43l1.47-1.47c.8-.8 1.48-1.5 1.48-1.52c0-.09-.42-1.63-.46-1.7c-.04-.06-.2-.03-1.02.18c-.53.13-1.2.3-1.45.4l-.48.15l-.53.53l-.53.53l-.93.1l-.93.07l-.52-.5a2.7 2.7 0 0 1-.96-1.7l-.13-.6l.43-.57c.68-.9.68-.9 1.46-1.1c.4-.1.65-.2.83-.33c.13-.099.65-.579 1.14-1.069l.9-.9l-.7-.7l-.7-.7l-1.95.54c-1.07.3-1.96.53-1.97.53c-.03 0-2.23 2.48-2.63 2.97l-.29.35l.28 1.03c.16.56.3 1.16.31 1.34l.03.3l-.34.23c-.37.23-2.22 1.3-2.84 1.63c-.36.2-.37.2-.44.1c-.08-.1-.23-.6-.32-1.03c-.18-.86-.17-2.75.02-3.73a8.84 8.839 0 0 1 7.9-6.93c.43-.03.77-.08.78-.1c.06-.17.5-2.999.47-3.039c-.01-.02-.1-.02-.2-.03Zm3.68.67c-.2 0-.3.1-.37.38c-.06.23-.46 2.42-.46 2.52c0 .04.1.11.22.16a8.51 8.499 0 0 1 2.99 2a8.38 8.379 0 0 1 2.16 3.449a6.9 6.9 0 0 1 .4 2.8c0 1.07 0 1.27-.1 1.73a9.37 9.369 0 0 1-1.76 3.769c-.32.4-.98 1.06-1.37 1.38c-.38.32-1.54 1.1-1.7 1.14c-.1.03-.1.06-.07.26c.03.18.64 2.56.7 2.78l.06.06a12.07 12.058 0 0 0 7.27-9.4c.13-.77.13-2.58 0-3.4a11.96 11.948 0 0 0-5.73-8.578c-.7-.42-2.05-1.06-2.25-1.06Z"/>
-                            </svg>
-                        </a>
-                    </p>
-                </div>
-                <div class="section-window">
-                    <h1>Credits</h1>
-                    <p>
-                        jeryn for ait - duzo
-                    </p>
-                </div>
-            </div>
-        </main>
-    </div>
+<div id="Members" class="tabcontent">
+    <h2 style="color:aliceblue">Meet the amazing team that develops the mods!</h2>
+
+   <u style="color:aliceblue"><h2 >Devs:</h2></u>
+
+<body>
+    <hr width="100%;" color="#707070" size="2">
 </body>
-</html>
+
+
+<h3 style="color: aliceblue;">Loqor</h3>
+<img src="img/team/loqor.svg" alt="Avatar" class="avatar">
+<a href="https://loqor.dev/"><p style="color: rgb(106, 157, 202);">https://loqor.dev/</p></a>
+<p style="color: aliceblue;">""</p>
+<body>
+    <hr width="100%;" color="#707070" size="2">
+</body>
+
+
+<h3 style="color: aliceblue;">Theo</h3>
+<img src="img/team/theo.svg" alt="Avatar" class="avatar">
+<a href="https://theo.is-a.dev/"><p style="color: rgb(106, 157, 202);">https://theo.is-a.dev/</p></a>
+<p style="color: aliceblue;">"theoretical"</p>
+<body>
+    <hr width="100%;" color="#707070" size="2">
+</body>
+
+
+<h3 style="color: aliceblue;">Duzo</h3>
+<img src="img/team/duzo.svg" alt="Avatar" class="avatar">
+<a href="https://duzo.is-a.dev/"><p style="color: rgb(106, 157, 202);">https://duzo.is-a.dev/</p></a>
+<p style="color: aliceblue;">""</p>
+<body>
+    <hr width="100%;" color="#707070" size="2">
+</body>
+
+
+<h3 style="color: aliceblue;">Saturn</h3>
+<img src="img/team/saturn.svg" alt="Avatar" class="avatar">
+<p style="color: aliceblue;">""</p>
+<body>
+    <hr width="100%;" color="#707070" size="2">
+</body>
+
+
+<h3 style="color: aliceblue;">AddieDaBaddie</h3>
+<img src="img/team/addie.svg" alt="Avatar" class="avatar">
+<a href="https://addi3.github.io/"><p style="color: rgb(106, 157, 202);">https://addi3.github.io/</p></a>
+<p style="color: aliceblue;">"Zhe bluetooth device has connected a successfully"</p>
+<body>
+    <hr width="100%;" color="#707070" size="2">
+</body>
+
+
+<h3 style="color: aliceblue;">Monke</h3>
+<img src="img/team/monke.svg" alt="Avatar" class="avatar">
+<p style="color: aliceblue;">""</p>
+<body>
+    <hr width="100%;" color="#707070" size="2">
+</body>
+
+
+<h3 style="color: aliceblue;">Lakehascake</h3>
+<img src="img/team/lake.svg" alt="Avatar" class="avatar">
+<a href="https://en.pronouns.page/@lakehascake"><p style="color: rgb(106, 157, 202);">https://en.pronouns.page/@lakehascake</p></a>
+<p style="color: aliceblue;">"yes, i do have cake, no, i don't mean like that."</p>
+<body>
+    <hr width="100%;" color="#707070" size="2">
+</body>
+
+
+<h3 style="color: aliceblue;">Pan</h3>
+<img src="img/team/pan.svg" alt="Avatar" class="avatar">
+<p style="color: aliceblue;">""</p>
+<body>
+    <hr width="100%;" color="#707070" size="2">
+</body>
+
+<br>
+
+   <u style="color:aliceblue"><h2 >Jr Devs:</h2></u>
+
+<h3 style="color: aliceblue;">CosmicFire</h3>
+<img src="img/team/cosmic.svg" alt="Avatar" class="avatar">
+<p style="color: aliceblue;">""</p>
+<body>
+    <hr width="100%;" color="#707070" size="2">
+</body>
+
+<h3 style="color: aliceblue;">Crow</h3>
+<img src="img/team/crow.svg" alt="Avatar" class="avatar">
+<p style="color: aliceblue;">""</p>
+<body>
+    <hr width="100%;" color="#707070" size="2">
+</body>
+
+<h3 style="color: aliceblue;">K King</h3>
+<img src="img/team/k_king.svg" alt="Avatar" class="avatar">
+<p style="color: aliceblue;">""</p>
+<body>
+    <hr width="100%;" color="#707070" size="2">
+</body>
+
+<h3 style="color: aliceblue;">Nanowu</h3>
+<img src="img/team/nanowu.svg" alt="Avatar" class="avatar">
+<p style="color: aliceblue;">""</p>
+<body>
+    <hr width="100%;" color="#707070" size="2">
+</body>
+
+<br>
+
+   <u style="color:aliceblue"><h2 >Artist:</h2></u>
+
+<h3 style="color: aliceblue;">Ouro</h3>
+<img src="img/team/ouro.svg" alt="Avatar" class="avatar">
+<p style="color: aliceblue;">""</p>
+<body>
+    <hr width="100%;" color="#707070" size="2">
+</body>
+
+<h3 style="color: aliceblue;">Dian</h3>
+<img src="img/team/dian.svg" alt="Avatar" class="avatar">
+<p style="color: aliceblue;">"I sold myself to Loqor"</p>
+<body>
+    <hr width="100%;" color="#707070" size="2">
+</body>
+
+<h3 style="color: aliceblue;">Tright</h3>
+<img src="img/team/tright.svg" alt="Avatar" class="avatar">
+<p style="color: aliceblue;">""</p>
+<body>
+    <hr width="100%;" color="#707070" size="2">
+</body>
+
+<h3 style="color: aliceblue;">Maggie</h3>
+<img src="img/team/maggie.svg" alt="Avatar" class="avatar">
+<p style="color: aliceblue;">""</p>
+<body>
+    <hr width="100%;" color="#707070" size="2">
+</body>
+
+<br>
+   <u style="color:aliceblue"><h2 >Other:</h2></u>
+
+<h3 style="color: aliceblue;">Venwhovian (media person)</h3>
+<img src="img/team/ven.svg" alt="Avatar" class="avatar">
+<p style="color: aliceblue;">""</p>
+<body>
+    <hr width="100%;" color="#707070" size="2">
+</body>
+
+
+<h3 style="color: aliceblue;">Echo (Wiki Curator)</h3>
+<img src="img/team/echo.svg" alt="Avatar" class="avatar">
+<a href="https://github.com/EchoDidAThing1048"><p style="color: rgb(106, 157, 202);">https://github.com/EchoDidAThing1048</p></a>
+<p style="color: aliceblue;">"Wait, we have a wiki?"</p>
+<body>
+    <hr width="100%;" color="#707070" size="2">
+</body>
+
+
+<h3 style="color: aliceblue;">Tree (Wiki Curator)</h3>
+<img src="img/team/tree.svg" alt="Avatar" class="avatar">
+<p style="color: aliceblue;">""</p>
+<body>
+    <hr width="100%;" color="#707070" size="2">
+</body>
+
+</div>
+
+<div id="Links" class="tabcontent">
+<center><u style="color:aliceblue">Click the icon to open the link!</u></center>
+<br>
+  <center> 
+<a href="https://discord.com/invite/WjKhRjavCj"><img src="img/discord-logo.svg" class="grow" alt="Github" style="width:42px;height:42px;" style="color: aliceblue;"></a>
+ <p class="text">Join our Community!</p>
+ <br>
+ <br>
+ <a href="https://github.com/amblelabs"><img src="img/github-logo.svg" class="grow" alt="Github" style="width:42px;height:42px;"></a>  
+ <p class="text">Check out our open source projects!</p> 
+ </center>
+</p>
+  <center> 
+<a href="https://modrinth.com/organization/amble-labs"><img src="img/modrinth-logo.svg" class="grow" alt="Modrinth" style="width:42px;height:42px;"></a>
+  <p class="text">Check out our Mods!</p>
+   <br>
+   <br>
+  <a href="https://www.youtube.com/@amble_labs?sub_confirmation=1"><img src="img/youtube-logo.svg" class="grow" alt="Youtube" style="width:42px;height:42px;"></a>
+ <p class="text">We also make videos too!</p>
+</center>
+</p>
+
+<body>
+    <hr width="100%;" color="#252525" size="2">
+</body>
+
+
+<center><h3 style="color:aliceblue">Feeling generoius or want to support the devs?</h3><h4 style="color:aliceblue">Feel free to donate!</h4></center>
+
+
+  <center> 
+<a href="https://ko-fi.com/Loqor"><img src="img/kofi-logo.svg" class="grow" alt="Modrinth" style="width:42px;height:42px;"></a>
+  <p class="text">Kofi (loqor)</p> 
+  <a href="https://boosty.to/dr.theo"><img src="img/boosty-logo.svg" class="grow" alt="Modrinth" style="width:42px;height:42px;"></a>
+  <p class="text">Boosty (theo)</p> 
+</center>
+</p>
+
+<body>
+    <hr width="100%;" color="#252525" size="2">
+</body>
+
+<center><h3 style="color:aliceblue">Would you like us to make a mod for you?</h2></center>
+<center><a style="color: aliceblue;">Feel free to check out our Commissions form, found</a> <a href="https://docs.google.com/forms/d/e/1FAIpQLSddNEX7eRlWgrQ6YhKJXFhTe2kgu9pnFlR5Va0dlu9SD-GFCA/viewform" style="color: rgb(49, 149, 236);">Here</a></center>
+
+</div>
+
+</div>
+
+<script>
+function opentab(evt, tabName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(tabName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+  document.getElementById("defaultOpen").click();
+
+</script>
+
+<center>
+<p style="color: aliceblue;">Website made by: AddieDaBaddie</p>
+</center>
+
+
