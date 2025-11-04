@@ -85,7 +85,7 @@ h2 {
 
 .container {
   position: relative;
-  width: 30%;
+  justify-content: center;
 }
 
 .image {
@@ -202,12 +202,17 @@ input:checked + .slider:before {
 
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  padding: 16px;
+  padding: 4px;
   text-align: center;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
   background-color: #383838;
-  border-radius: 5%;
-  
-  height: 410px; 
+  overflow: hidden;
+  text-overflow: clip;
+  border-radius: 20px; /* Use pixels to get the correctly rounded corners - Loqor */
+
+  height: 40vh; /* DON'T USE FIXED PIXEL HEIGHTS UNLESS NECESSARY - Loqor */
   display: flex;
   flex-direction: column;
   justify-content: flex-start; 
