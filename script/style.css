@@ -116,8 +116,8 @@ h2 {
 .avatar {
   vertical-align: middle;
   align-items: center;
-  width: 150px;
-  height: 150px;
+  width: 100px;
+  height: 100px;
   border-radius: 30%;
 }
 
@@ -141,7 +141,7 @@ h2 {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #ccc;
+  background-color:rgb(16, 16, 16);
   -webkit-transition: .4s;
   transition: .4s;
 }
@@ -153,7 +153,7 @@ h2 {
   width: 26px;
   left: 4px;
   bottom: 4px;
-  background-color: white;
+  background-color: rgb(24, 24, 24);
   -webkit-transition: .4s;
   transition: .4s;
 }
@@ -163,7 +163,7 @@ input:checked + .slider {
 }
 
 input:focus + .slider {
-  box-shadow: 0 0 1px #2196F3;
+  box-shadow: 0 0 1px rgb(24, 24, 24);
 }
 
 input:checked + .slider:before {
