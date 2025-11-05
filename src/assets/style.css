@@ -101,7 +101,7 @@ main {
     font-size: 1.05rem;
     transition: background-color 180ms ease, color 180ms ease;
     color: var(--text-colour) !important;
-    border-radius: 0; /* flat corners */
+    border-radius: 20px;
 }
 
 .tab button:hover {
@@ -112,7 +112,6 @@ main {
 .tab button.active {
     background-color: rgba(155, 166, 255, 0.16);
     color: var(--hover-colour) !important;
-    border-radius: 0;
 }
 
 /* Remove any remaining rounded corners, borders or shadows on tabs/tabcontent */
@@ -120,7 +119,6 @@ main {
 .tab button,
 .tab button:hover,
 .tab button.active {
-    border-radius: 0 !important;
     border: none !important;
     box-shadow: none !important;
 }

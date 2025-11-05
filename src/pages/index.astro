@@ -1,3 +1,21 @@
+---
+import '../assets/style.css';
+
+import Footer from '../components/Footer.astro';
+import CardComp from '../components/Card.astro';
+
+import type { Card } from '../js/types';
+
+const members: Card[] = [
+  { 
+    title: 'Loqor',
+    imgUrl: '/img/team/loqor.svg',
+    link: 'https://loqor.dev',
+    description: `"From dust we came, to dust we shall return."`,
+  },
+];
+---
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -10,7 +28,6 @@
     <link rel="icon" type="image/x-icon" href="/favicon.ico"/>
     <link rel="icon" type="image/svg" href="/img/amblelabs_icon.svg"/>
     <meta content="#F69602" data-react-helmet="true" name="theme-color"/>
-    <link rel="stylesheet" href="style.css">
   </head>
 
   <body>
@@ -64,9 +81,9 @@
       <div class="tab">
         <button class="tablinks" onclick="opentab(event, 'Home')" id="defaultOpen">Home</button>
         <button class="tablinks" onclick="opentab(event, 'Members')">Members</button>
-  <button class="tablinks" onclick="opentab(event, 'Mods')">Mods</button>
-  <button class="tablinks" onclick="opentab(event, 'Wiki')">Wikis</button>
-  <button class="tablinks" onclick="opentab(event, 'Links')">Links</button>
+        <button class="tablinks" onclick="opentab(event, 'Mods')">Mods</button>
+        <button class="tablinks" onclick="opentab(event, 'Wiki')">Wikis</button>
+        <button class="tablinks" onclick="opentab(event, 'Links')">Links</button>
       </div>
 
       <div id="Home" class="tabcontent">
@@ -92,7 +109,7 @@
         <u>
           <h2 class="text">Developers:</h2>
         </u>
-        <hr width="100%" color="#707070" size="2">
+        <hr color="#707070">
 
         <div class="row">
           <div class="column">
@@ -314,7 +331,7 @@
               <img src="https://cdn.modrinth.com/data/ZMP9ZjB9/20bbedbb8d06d656b8b123a821fdd5ab5f3c999a.png" alt="Modrinth" class="avatar">
               <a class="link" href="https://modrinth.com/mod/ait">modrinth.com/mod/ait</a>
               <span class="meta">Version: — • Downloads: —</span>
-              <p class="text">A timey-wimey mod adventure — Adapts Doctor Who themes into Minecraft.</p>
+              <p class="text">A timey-wimey mod adventure - Adapts Doctor Who themes into Minecraft.</p>
             </div>
           </div>
 
@@ -431,13 +448,11 @@
       </div> <!-- Links -->
     </div> <!-- section -->
 
-    <center>
-      <p id="copyright" class="text">© 2025 AmbleLabs</p>
-    </center>
+    <Footer />
 
   <!-- Tilt toggle control (removed) -->
 
-    <script>
+    <script is:inline>
       function opentab(evt, tabName) {
         var i, tabcontent, tablinks;
         tabcontent = document.getElementsByClassName('tabcontent');
@@ -455,7 +470,7 @@
     </script>
 
     <!-- Tilt script -->
-    <script src="script/tilt.js"></script>
+    <script src="../js/tilt.js"></script>
     <!-- Settings / hamburger menu -->
     <button id="hamburgerBtn" class="hamburger" aria-expanded="false" aria-controls="settingsMenu" aria-label="Open settings">☰</button>
 
@@ -498,8 +513,8 @@
       </div>
     </div>
     <!-- Settings logic -->
-    <script src="script/settings.js"></script>
-    <script src="script/mods.js"></script>
+    <script src="../js/settings.js"></script>
+    <script src="../js/mods.js"></script>
   </body>
 </html>
 

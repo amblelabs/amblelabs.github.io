@@ -1,0 +1,18 @@
+---
+import type { Card } from '../js/types';
+
+
+export type Props = { } & Card;
+
+const { title, imgUrl, link, description } = Astro.props;
+
+---
+
+<div class="column">
+    <div class="card">
+        <h2 class="text">{title}</h2>
+        <img src={imgUrl} alt="Avatar" class="avatar">
+        <a class="link" href={link}>{link.replace('https://', '')}</a>
+        <p class="text">{description}</p>
+    </div>
+</div>
