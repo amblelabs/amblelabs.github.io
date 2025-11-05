@@ -792,3 +792,111 @@ a[style*="color"] {
         height: 72px
     }
 }
+
+/* Hamburger / settings menu */
+.hamburger {
+    position: fixed;
+    right: 16px;
+    bottom: 16px;
+    z-index: 10000;
+    background: rgba(22,20,34,0.86);
+    color: var(--text-colour);
+    border: 1px solid rgba(159,176,255,0.08);
+    padding: 8px 10px;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+.settings-menu {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: end; /* anchor panel to bottom */
+    justify-content: flex-end; /* anchor panel to right */
+    background: rgba(0,0,0,0.35);
+    z-index: 9998;
+}
+
+/* When the menu is hidden we must ensure it does not block pointer events
+   (browsers may leave the element in-layout despite the `hidden` attribute
+   because of explicit display rules). Make the backdrop transparent and
+   non-interactive while hidden so the hamburger remains clickable. */
+.settings-menu[hidden] {
+    pointer-events: none;
+    background: transparent;
+}
+
+.settings-panel {
+    width: 320px;
+    max-width: 90vw;
+    margin: 16px; /* sit near the bottom-right */
+    background: linear-gradient(180deg, rgba(24,24,32,0.98), rgba(18,16,28,0.98));
+    border: 1px solid rgba(159,176,255,0.06);
+    padding: 12px 14px;
+    border-radius: 12px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+}
+
+/* slide-up animation: panel starts slightly down & transparent, then moves up when .open is added */
+.settings-panel {
+    transform: translateY(18px);
+    opacity: 0;
+    transition: transform 260ms cubic-bezier(.22,.9,.3,1), opacity 180ms ease;
+}
+.settings-panel.open {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.settings-header { display:flex; align-items:center; justify-content:space-between; }
+.settings-header h3 { margin:0; font-size:1.05rem }
+.settings-close { background:transparent; border:none; color:var(--text-colour); font-size:1.1rem; cursor:pointer }
+.settings-body { margin-top:10px }
+.setting-row { display:flex; align-items:center; justify-content:space-between; padding:10px 6px; border-bottom:1px solid rgba(255,255,255,0.02) }
+.setting-label { font-size:0.95rem; color:var(--text-colour) }
+.settings-footer { margin-top:8px; text-align:right }
+.muted { color: rgba(231,233,255,0.55) }
+
+/* Party Mode styles (flashing/rave) */
+
+/* Party Mode styles (flashing/rave) - keyframes and rules are defined
+   outside the 'no-preference' media query so the animations are available
+   when the class is toggled. The reduced-motion media query below will
+   still disable animations for users who have requested reduced motion. */
+
+@keyframes rave-bg {
+    0% { filter: hue-rotate(0deg); }
+    25% { filter: hue-rotate(90deg); }
+    50% { filter: hue-rotate(180deg); }
+    75% { filter: hue-rotate(270deg); }
+    100% { filter: hue-rotate(360deg); }
+}
+
+/* Apply the hue-rotation to the root element so the entire rendered
+   viewport (all children, backgrounds, fixed elements, etc.) is affected. */
+html.party-mode {
+    animation: rave-bg 4s linear infinite;
+    /* provide a baseline filter so non-animating clients still get the effect */
+    filter: hue-rotate(0deg);
+}
+html.party-mode .card {
+    animation: rave-bg 3.5s linear infinite;
+}
+html.party-mode .avatar {
+    box-shadow: 0 20px 48px rgba(0,0,0,0.6);
+    transform: scale(1.04);
+}
+html.party-mode .text,
+html.party-mode a { color: #fff; mix-blend-mode: screen }
+
+/* Saturn Mode: apply the Comic Relief font globally when enabled via
+   the `saturn-mode` class. Use !important to override inline styles and
+   other font declarations so the change is truly global. */
+.saturn-mode, .saturn-mode * {
+    font-family: 'Comic Relief', cursive !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    body.party-mode, body.party-mode .card { animation: none !important }
+}

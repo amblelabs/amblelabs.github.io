@@ -52,8 +52,9 @@
       <div class="tab">
         <button class="tablinks" onclick="opentab(event, 'Home')" id="defaultOpen">Home</button>
         <button class="tablinks" onclick="opentab(event, 'Members')">Members</button>
-        <button class="tablinks" onclick="opentab(event, 'Mods')">Mods</button>
-        <button class="tablinks" onclick="opentab(event, 'Links')">Links</button>
+  <button class="tablinks" onclick="opentab(event, 'Mods')">Mods</button>
+  <button class="tablinks" onclick="opentab(event, 'Wiki')">Wikis</button>
+  <button class="tablinks" onclick="opentab(event, 'Links')">Links</button>
       </div>
 
       <div id="Home" class="tabcontent">
@@ -357,6 +358,20 @@
         </div>
       </div>
 
+      <!-- Wiki tab: curated links and documentation -->
+      <div id="Wiki" class="tabcontent" style="display:none;">
+        <h2 class="text">Wiki & Documentation</h2>
+        <p class="text">Useful links to documentation, guides and mod wikis. Will be updated as we write more.</p>
+
+        <center>
+          <ul style="list-style:none; padding:0;">
+            <li style="margin:10px 0;"><a class="link" href="https://amblelabs.github.io/ait-wiki/">Adventures In Time Wiki (Player & Developer Wiki)</a></li>
+            <li style="margin:10px 0;"><a class="link" href="https://modrinth.com/organization/amble-labs">Modrinth Organization (mods & docs)</a></li>
+            <li style="margin:10px 0;"><a class="link" href="https://github.com/amblelabs/amblekit">AmbleKit (developer docs)</a></li>
+          </ul>
+        </center>
+      </div>
+
       <div id="Links" class="tabcontent">
         <center><u class="text">Click the icon to open the link!</u></center>
         <br>
@@ -408,8 +423,7 @@
       <p class="text">© 2025 AmbleLabs</p>
     </center>
 
-    <!-- Tilt toggle control -->
-    <button id="tiltToggle" class="tilt-toggle" aria-pressed="true">Tilt: On</button>
+  <!-- Tilt toggle control (removed) -->
 
     <script>
       function opentab(evt, tabName) {
@@ -430,6 +444,49 @@
 
     <!-- Tilt script -->
     <script src="script/tilt.js"></script>
+    <!-- Settings / hamburger menu -->
+    <button id="hamburgerBtn" class="hamburger" aria-expanded="false" aria-controls="settingsMenu" aria-label="Open settings">☰</button>
+
+    <div id="settingsMenu" class="settings-menu" role="dialog" aria-modal="false" hidden>
+      <div class="settings-panel">
+        <header class="settings-header">
+          <h3>Settings</h3>
+          <button id="settingsClose" class="settings-close" aria-label="Close settings">✕</button>
+        </header>
+
+        <div class="settings-body">
+          <div class="setting-row">
+            <label class="setting-label">Tilt</label>
+            <label class="switch">
+              <input id="menuTiltToggle" type="checkbox">
+              <span class="slider round"></span>
+            </label>
+          </div>
+
+          <div class="setting-row">
+            <label class="setting-label">Saturn Mode</label>
+            <label class="switch">
+              <input id="saturnToggle" type="checkbox">
+              <span class="slider round"></span>
+            </label>
+          </div>
+
+          <div class="setting-row">
+            <label class="setting-label">Party Mode <small style="color: #ff8">(WARNING: EPILEPSY)</small></label>
+            <label class="switch">
+              <input id="partyToggle" type="checkbox">
+              <span class="slider round"></span>
+            </label>
+          </div>
+        </div>
+
+        <footer class="settings-footer">
+          <small class="muted">Settings are saved to your browser.</small>
+        </footer>
+      </div>
+    </div>
+    <!-- Settings logic -->
+    <script src="script/settings.js"></script>
     <script src="script/mods.js"></script>
   </body>
 </html>
