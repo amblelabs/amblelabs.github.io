@@ -1,379 +1,436 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="UTF-8" />
+  <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AmbleLabs</title>
-    <link rel="stylesheet" href="script/style.css">
-    <style>
+    <link rel="stylesheet" href="style.css">
+  </head>
 
+  <body>
+    <script>
+      // font toggle (keeps same behaviour as before)
+      (function () {
+        // event hookup is done after element exists
+        window.addEventListener('DOMContentLoaded', () => {
+          const fs = document.getElementById('fontSwitch');
+          if (!fs) return;
+          fs.addEventListener('change', function () {
+            if (this.checked) {
+              if (!document.getElementById('comicReliefFont')) {
+                const link = document.createElement('link');
+                link.href = "https://fonts.googleapis.com/css2?family=Comic+Relief:wght@400;700&display=swap";
+                link.rel = "stylesheet";
+                link.id = 'comicReliefFont';
+                document.head.appendChild(link);
 
-</style>
+                link.onload = () => {
+                  document.body.style.fontFamily = "'Comic Relief', cursive";
+                };
+              } else {
+                document.body.style.fontFamily = "'Comic Relief', cursive";
+              }
+            } else {
+              document.body.style.fontFamily = "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif";
+            }
+          });
+        });
+      })();
+    </script>
 
-<p style="color: rgb(50, 50, 50);">Saturn Mode</p>
-
-  <label class="switch">
-    <input type="checkbox" id="fontSwitch">
-    <span class="slider round"></span>
-  </label>
-
-
-  <script>
-    const fontSwitch = document.getElementById('fontSwitch');
-
-    fontSwitch.addEventListener('change', function() {
-      if (this.checked) {
-        if (!document.getElementById('comicReliefFont')) {
-          const link = document.createElement('link');
-          link.href = "https://fonts.googleapis.com/css2?family=Comic+Relief:wght@400;700&display=swap";
-          link.rel = "stylesheet";
-          link.id = "comicReliefFont";
-          document.head.appendChild(link);
-
-          link.onload = () => {
-            document.body.style.fontFamily = "'Comic Relief', cursive";
-          };
-        } else {
-          document.body.style.fontFamily = "'Comic Relief', cursive";
-        }
-      } else {
-        document.body.style.fontFamily = "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif";
-      }
-    });
-  </script>
-
-</head>
-<body>
     <center>
-<div class="container">
-  <img src="img/amblelabs_icon.svg" alt="Avatar" class="image">
-  <div class="overlay">
-    <img src="img/amblelabs_icon.gif" alt="Avatar" class="image">
-  </div>
-</div>
+      <div class="container">
+        <img src="img/amblelabs_icon.svg" alt="Avatar" class="image">
+        <div class="overlay">
+          <img src="img/amblelabs_icon.gif" alt="Avatar" class="image">
+        </div>
+      </div>
 
-    <h3 style="color:rgb(202, 202, 202)">We are AmbleLabs! A Minecraft Mod and Game Development studio.</h3>
+      <h3 class="text">We are AmbleLabs! A Minecraft Mod and Game Development studio.</h3>
     </center>
-    </body>
 
-<div class="section">    
+    <div class="section">
+      <div class="tab">
+        <button class="tablinks" onclick="opentab(event, 'Home')" id="defaultOpen">Home</button>
+        <button class="tablinks" onclick="opentab(event, 'Members')">Members</button>
+        <button class="tablinks" onclick="opentab(event, 'Mods')">Mods</button>
+        <button class="tablinks" onclick="opentab(event, 'Links')">Links</button>
+      </div>
 
-    <div class="tab">
-        
-  <button class="tablinks" onclick="opentab(event, 'Home')" style="color: rgb(202,202,202)" id="defaultOpen">Home</button>
-  <button class="tablinks" onclick="opentab(event, 'Members')" style="color: rgb(202,202,202)">Members</button>
- <button class="tablinks" onclick="opentab(event, 'Links')" style="color: rgb(202,202,202)">Links</button>
-</div>
+      <div id="Home" class="tabcontent">
+        <center>
+          <img src="img/amblelabs_text.svg" alt="AmbleLabs">
+          <p class="text">We are a small Development team that mainly focuses on making mods for Minecraft (fabric 1.20.1) revolving around; Doctor Who, Stargate, and Super Heroes!</p>
+          <iframe
+            width="860"
+            height="615"
+            src="https://www.youtube.com/embed/5Wvh-TaVLm8?si=yk2Gp6oj37jZzhqm"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+          ></iframe>
+        </center>
+      </div>
 
-<div id="Home" class="tabcontent">
-   
-<center>
-    <img src="img/amblelabs_text.svg">
-    <p style="color: aliceblue;">We are a small Development team that mainly focuses on making mods for Minecraft (fabric 1.20.1) revolving around; Doctor Who, Stargate, and Super Heroes!</p>
-    <iframe width="860" height="615" src="https://www.youtube.com/embed/5Wvh-TaVLm8?si=yk2Gp6oj37jZzhqm" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-</center>
-</div>
+      <div id="Members" class="tabcontent">
+        <h2 class="text">Meet the amazing team that develop our mods!</h2>
 
-<div id="Members" class="tabcontent">
-    <h2 style="color:aliceblue">Meet the amazing team that develop our mods!</h2>
+        <u>
+          <h2 class="text">Developers:</h2>
+        </u>
+        <hr width="100%" color="#707070" size="2">
 
-   <u style="color:aliceblue"><h2 >Developers:</h2></u>
+        <div class="row">
+          <div class="column">
+            <div class="card">
+              <h2 class="text">Loqor</h2>
+              <img src="img/team/loqor.svg" alt="Avatar" class="avatar">
+              <a class="link" href="https://loqor.dev/">https://loqor.dev/</a>
+              <p class="text">"From dust we came, to dust we shall return."</p>
+            </div>
+          </div>
 
-<body>
-    <hr width="100%;" color="#707070" size="2">
-</body>
+          <div class="column">
+            <div class="card">
+              <h2 class="text">Theo</h2>
+              <img src="img/team/theo.svg" alt="Avatar" class="avatar">
+              <a class="link" href="https://theo.is-a.dev/">https://theo.is-a.dev/</a>
+              <p class="text">"theoretical"</p>
+            </div>
+          </div>
 
- <div class="row">
-  <div class="column">
-    <div class="card">
-       <h2 style="color: aliceblue;">Loqor</h2>
-<img src="img/team/loqor.svg" alt="Avatar" class="avatar">
-<a href="https://loqor.dev/"><p style="color: rgb(106, 157, 202);">https://loqor.dev/</p></a>
-<p style="color: aliceblue;">"From dust we came, to dust we shall return."</p>
-    </div>
+          <div class="column">
+            <div class="card">
+              <h2 class="text">Duzo</h2>
+              <img src="img/team/duzo.svg" alt="Avatar" class="avatar">
+              <a class="link" href="https://duzo.is-a.dev/">https://duzo.is-a.dev/</a>
+              <p class="text">"elite ball knowledge"</p>
+            </div>
+          </div>
 
-  </div>
-  <div class="column">
-    <div class="card">
-       <h2 style="color: aliceblue;">Theo</h2>
-<img src="img/team/theo.svg" alt="Avatar" class="avatar">
-<a href="https://theo.is-a.dev/"><p style="color: rgb(106, 157, 202);">https://theo.is-a.dev/</p></a>
-<p style="color: aliceblue;">"theoretical"</p>
-    </div>
-  </div>
+          <div class="column">
+            <div class="card">
+              <h2 class="text">Saturn</h2>
+              <img src="img/team/saturn.svg" alt="Avatar" class="avatar">
+              <p class="text">"if you then is? Yes or the no of the what? Yes infact the. Hello, everybody my name is mark my pliars and in todays video we'll"</p>
+            </div>
+          </div>
+        </div>
 
-  <div class="column">
-    <div class="card">
-       <h2 style="color: aliceblue;">Duzo</h2>
-<img src="img/team/duzo.svg" alt="Avatar" class="avatar">
-<a href="https://duzo.is-a.dev/"><p style="color: rgb(106, 157, 202);">https://duzo.is-a.dev/</p></a>
-<p style="color: aliceblue;">"elite ball knowledge"</p>
-    </div>
-  </div>
-  
-  <div class="column">
-    <div class="card"><h2 style="color: aliceblue;">Saturn</h2>
-<img src="img/team/saturn.svg" alt="Avatar" class="avatar">
-<p style="color: aliceblue;">"if you then is? Yes or the no of the what? Yes infact the. Hello, everybody my name is mark my pliars and in todays video we'll"</p>
-</div>
-  </div>
-</div> 
+        <br>
 
-<br>
+        <div class="row">
+          <div class="column">
+            <div class="card">
+              <h2 class="text">AddieDaBaddie</h2>
+              <img src="img/team/addie.svg" alt="Avatar" class="avatar">
+              <a class="link" href="https://addi3.github.io/">https://addi3.github.io/</a>
+              <p class="text">"Zhe bluetooth device has connected a-success fillet"</p>
+            </div>
+          </div>
 
-<div class="row">
-  <div class="column">
-    <div class="card">
-    <h2 style="color: aliceblue;">AddieDaBaddie</h2>
-<img src="img/team/addie.svg" alt="Avatar" class="avatar">
-<a href="https://addi3.github.io/"><p style="color: rgb(106, 157, 202);">https://addi3.github.io/</p></a>
-<p style="color: aliceblue;">"Zhe bluetooth device has connected a-success fillet"</p>
-    </div>
+          <div class="column">
+            <div class="card">
+              <h2 class="text">Monke</h2>
+              <img src="img/team/monke.svg" alt="Avatar" class="avatar">
+              <a class="link" href="https://github.com/rapbattlegod32">https://github.com/rapbattlegod32</a>
+              <p class="text">"return to monke"</p>
+            </div>
+          </div>
 
-  </div>
-  <div class="column">
-    <div class="card">
-      <h2 style="color: aliceblue;">Monke</h2>
-<img src="img/team/monke.svg" alt="Avatar" class="avatar">
-<a href="https://github.com/rapbattlegod32"><p style="color: rgb(106, 157, 202);">https://github.com/rapbattlegod32</p></a>
-<p style="color: aliceblue;">"return to monke"</p>
-    </div>
-  </div>
+          <div class="column">
+            <div class="card">
+              <h2 class="text">Lakehascake</h2>
+              <img src="img/team/lake.svg" alt="Avatar" class="avatar">
+              <a class="link" href="https://en.pronouns.page/@lakehascake">https://en.pronouns.page/@lakehascake</a>
+              <p class="text">"yes, i do have cake, no, i don't mean like that."</p>
+            </div>
+          </div>
 
-  <div class="column">
-    <div class="card">
- <h2 style="color: aliceblue;">Lakehascake</h2>
-<img src="img/team/lake.svg" alt="Avatar" class="avatar">
-<a href="https://en.pronouns.page/@lakehascake"><p style="color: rgb(106, 157, 202);">https://en.pronouns.page/@lakehascake</p></a>
-<p style="color: aliceblue;">"yes, i do have cake, no, i don't mean like that."</p>
-    </div>
-  </div>
-  
-  <div class="column">
-    <div class="card">
-      <h2 style="color: aliceblue;">Pan</h2>
-<img src="img/team/pan.svg" alt="Avatar" class="avatar">
-<a href="https://github.com/Mansarde"><p style="color: rgb(106, 157, 202);">https://github.com/Mansarde</p></a>
-<p style="color: aliceblue;">"Don't dwell in the past, always march onwards."</p>
-</div>
-  </div>
-</div> 
+          <div class="column">
+            <div class="card">
+              <h2 class="text">Pan</h2>
+              <img src="img/team/pan.svg" alt="Avatar" class="avatar">
+              <a class="link" href="https://github.com/Mansarde">https://github.com/Mansarde</a>
+              <p class="text">"Don't dwell in the past, always march onwards."</p>
+            </div>
+          </div>
+        </div>
 
+        <hr width="100%" color="#707070" size="2">
 
-<body>
-    <hr width="100%;" color="#707070" size="2">
-</body>
+        <u>
+          <h2 class="text">Junior Developers:</h2>
+        </u>
 
+        <div class="row">
+          <div class="column">
+            <div class="card">
+              <h2 class="text">CosmicFire</h2>
+              <img src="img/team/cosmic.svg" alt="Avatar" class="avatar">
+              <a class="link" href="https://github.com/Cosmic-Fires">https://github.com/Cosmic-Fires</a>
+              <p class="text">"No, I don't have fries"</p>
+            </div>
+          </div>
 
+          <div class="column">
+            <div class="card">
+              <h2 class="text">Crow</h2>
+              <img src="img/team/crow.svg" alt="Avatar" class="avatar">
+              <p class="text">"Caw caw"</p>
+            </div>
+          </div>
 
-<br>
+          <div class="column">
+            <div class="card">
+              <h2 class="text">K King</h2>
+              <img src="img/team/k_king.svg" alt="Avatar" class="avatar">
+              <a class="link" href="https://x.com/ItsKKing">https://x.com/ItsKKing</a>
+              <p class="text">"LET ME OUT OF THIS WEBSITE PLEAS-"</p>
+            </div>
+          </div>
 
-   <u style="color:aliceblue"><h2 >Junior Developers:</h2></u>
+          <div class="column">
+            <div class="card">
+              <h2 class="text">Nanowu</h2>
+              <img src="img/team/nanowu.svg" alt="Avatar" class="avatar">
+              <a class="link" href="https://nanuwo.github.io/">https://nanuwo.github.io/</a>
+              <p class="text">"nonuwo"</p>
+            </div>
+          </div>
+        </div>
 
- <div class="row">
-  <div class="column">
-    <div class="card">
-       <h2 style="color: aliceblue;">CosmicFire</h2>
-<img src="img/team/cosmic.svg" alt="Avatar" class="avatar">
-<a href="https://github.com/Cosmic-Fires"><p style="color: rgb(106, 157, 202);">https://github.com/Cosmic-Fires</p></a>
-<p style="color: aliceblue;">"No, I don't have fries"</p>
-    </div>
+        <hr width="100%" color="#707070" size="2">
 
-  </div>
-  <div class="column">
-    <div class="card">
-      <h2 style="color: aliceblue;">Crow</h2>
-<img src="img/team/crow.svg" alt="Avatar" class="avatar">
-<p style="color: aliceblue;">""</p>
-    </div>
-  </div>
+        <u>
+          <h2 class="text">Artists:</h2>
+        </u>
 
-  <div class="column">
-    <div class="card">
-       <h2 style="color: aliceblue;">K King</h2>
-<img src="img/team/k_king.svg" alt="Avatar" class="avatar">
-<a href="https://x.com/ItsKKing"><p style="color: rgb(106, 157, 202);">https://x.com/ItsKKing</p></a>
-<p style="color: aliceblue;">"LET ME OUT OF THIS WEBSITE PLEAS-"</p>
-    </div>
-  </div>
-  
-  <div class="column">
-    <div class="card">
-      <h2 style="color: aliceblue;">Nanowu</h2>
-<img src="img/team/nanowu.svg" alt="Avatar" class="avatar">
-<a href="https://nanuwo.github.io/"><p style="color: rgb(106, 157, 202);">https://nanuwo.github.io/</p></a>
-<p style="color: aliceblue;">"nonuwo"</p>
-</div>
-  </div>
-</div> 
+        <div class="row">
+          <div class="column">
+            <div class="card">
+              <h2 class="text">Ouro</h2>
+              <img src="img/team/ouro.svg" alt="Avatar" class="avatar">
+              <p class="text">"I am a toddler who likes to draw"</p>
+            </div>
+          </div>
 
+          <div class="column">
+            <div class="card">
+              <h2 class="text">Dian</h2>
+              <img src="img/team/dian.svg" alt="Avatar" class="avatar">
+              <a class="link" href="https://github.com/Dian-Vidus">https://github.com/Dian-Vidus</a>
+              <p class="text">"I sold myself to Loqor"</p>
+            </div>
+          </div>
 
-<body>
-    <hr width="100%;" color="#707070" size="2">
-</body>
+          <div class="column">
+            <div class="card">
+              <h2 class="text">Tright</h2>
+              <img src="img/team/tright.svg" alt="Avatar" class="avatar">
+              <p class="text">"Mamma mia!"</p>
+            </div>
+          </div>
 
+          <div class="column">
+            <div class="card">
+              <h2 class="text">Maggie</h2>
+              <img src="img/team/maggie.svg" alt="Avatar" class="avatar">
+              <p class="text">"Stellaris yum"</p>
+            </div>
+          </div>
+        </div>
 
-<br>
+        <hr width="100%" color="#707070" size="2">
 
-   <u style="color:aliceblue"><h2 >Artists:</h2></u>
+        <u>
+          <h2 class="text">Others:</h2>
+        </u>
 
- <div class="row">
-  <div class="column">
-    <div class="card">
-     <h2 style="color: aliceblue;">Ouro</h2>
-<img src="img/team/ouro.svg" alt="Avatar" class="avatar">
-<p style="color: aliceblue;">""</p>
-    </div>
+        <div class="row">
+          <div class="column">
+            <div class="card">
+              <h2 class="text">VenWhoVian</h2>
+              <p class="text">Media Person</p>
+              <img src="img/team/ven.svg" alt="Avatar" class="avatar">
+              <a class="link" href="https://www.youtube.com/@VenWhoVian">https://www.youtube.com/@VenWhoVian</a>
+              <p class="text">"What do I do again?"</p>
+            </div>
+          </div>
 
-  </div>
-  <div class="column">
-    <div class="card">
-<h2 style="color: aliceblue;">Dian</h2>
-<img src="img/team/dian.svg" alt="Avatar" class="avatar">
-<a href="https://github.com/Dian-Vidus"><p style="color: rgb(106, 157, 202);">https://github.com/Dian-Vidus</p></a>
-<p style="color: aliceblue;">"I sold myself to Loqor"</p>
-    </div>
-  </div>
+          <div class="column">
+            <div class="card">
+              <h2 class="text">Echo</h2>
+              <img src="img/team/echo.svg" alt="Avatar" class="avatar">
+              <a class="link" href="https://github.com/EchoDidAThing1048">https://github.com/EchoDidAThing1048</a>
+              <p class="text">"Wait, we have a wiki?"</p>
+            </div>
+          </div>
 
-  <div class="column">
-    <div class="card">
-<h2 style="color: aliceblue;">Tright</h2>
-<img src="img/team/tright.svg" alt="Avatar" class="avatar">
-<p style="color: aliceblue;">"Mamma mia!"</p>
-    </div>
-  </div>
-  
-  <div class="column">
-    <div class="card">
-<h2 style="color: aliceblue;">Maggie</h2>
-<img src="img/team/maggie.svg" alt="Avatar" class="avatar">
-<p style="color: aliceblue;">"Stellaris yum"</p>
-</div>
-  </div>
-</div> 
+          <div class="column">
+            <div class="card">
+              <h2 class="text">Tree</h2>
+              <p class="text">Wiki Curator</p>
+              <img src="img/team/tree.svg" alt="Avatar" class="avatar">
+              <a class="link" href="https://github.com/trerrturyy">https://github.com/trerrturyy</a>
+              <p class="text">"We have a wiki??"</p>
+            </div>
+          </div>
 
-<body>
-    <hr width="100%;" color="#707070" size="2">
-</body>
+          <div class="column">
+            <div class="card">
+              <h2 class="text">ThatRhynoGuy</h2>
+              <p class="text">Minecraft Server Owner</p>
+              <img src="img/team/rhyno.svg" alt="Avatar" class="avatar">
+              <p class="text">"I am old."</p>
+            </div>
+          </div>
+        </div>
+      </div> <!-- Members -->
 
-<br>
-   <u style="color:aliceblue"><h2 >Others:</h2></u>
+      <!-- Mods moved to their own tab: placed before Links so it's a sibling tabcontent -->
+      <div id="Mods" class="tabcontent" style="display:none;">
+        <h2 class="text">Mods</h2>
+        <p class="text">Below are our mods — live stats are populated from Modrinth.</p>
 
- <div class="row">
-  <div class="column">
-    <div class="card">
-<h2 style="color: aliceblue;">VenWhoVian</h2>
-<p style="color: aliceblue;">Media Person</p>
-<img src="img/team/ven.svg" alt="Avatar" class="avatar">
-<a href="https://www.youtube.com/@VenWhoVian"><p style="color: rgb(106, 157, 202);">https://www.youtube.com/@VenWhoVian</p></a>
-<p style="color: aliceblue;">"What do I do again?"</p>
-    </div>
+        <div class="row mods" style="margin-top:12px; margin-bottom:12px;">
+          <div class="column">
+            <div class="card" data-slug="ait">
+              <h2 class="text">Adventures In Time</h2>
+              <img src="https://cdn.modrinth.com/data/ZMP9ZjB9/20bbedbb8d06d656b8b123a821fdd5ab5f3c999a.png" alt="Modrinth" class="avatar">
+              <a class="link" href="https://modrinth.com/mod/ait">https://modrinth.com/mod/ait</a>
+              <span class="meta">Version: — • Downloads: —</span>
+              <p class="text">A timey-wimey mod adventure — Adapts Doctor Who themes into Minecraft.</p>
+            </div>
+          </div>
 
-  </div>
-  <div class="column">
-    <div class="card">
-<h2 style="color: aliceblue;">Echo</h2>
-<p style="color: aliceblue;">Wiki Curator</p>
-<img src="img/team/echo.svg" alt="Avatar" class="avatar">
-<a href="https://github.com/EchoDidAThing1048"><p style="color: rgb(106, 157, 202);">https://github.com/EchoDidAThing1048</p></a>
-<p style="color: aliceblue;">"Wait, we have a wiki?"</p>
-    </div>
-  </div>
+          <div class="column">
+            <div class="card" data-slug="amblekit">
+              <h2 class="text">AmbleKit</h2>
+              <img src="https://cdn.modrinth.com/data/ZNWAUUsB/45c6687b82c55d993084006abfd4e240cfd4a76b.png" alt="Modrinth" class="avatar">
+              <a class="link" href="https://modrinth.com/mod/amblekit">https://modrinth.com/mod/amblekit</a>
+              <span class="meta">Version: — • Downloads: —</span>
+              <p class="text">Our utility library and tools for modders — AmbleKit.</p>
+            </div>
+          </div>
 
-  <div class="column">
-    <div class="card">
-       <h2 style="color: aliceblue;">Tree</h2>
-<p style="color: aliceblue;">Wiki Curator</p>
-<img src="img/team/tree.svg" alt="Avatar" class="avatar">
-<a href="https://github.com/trerrturyy"><p style="color: rgb(106, 157, 202);">https://github.com/trerrturyy</p></a>
-<p style="color: aliceblue;">"We have a wiki??"</p>
-    </div>
-  </div>
-  
-  <div class="column">
-    <div class="card">
-<h2 style="color: aliceblue;">ThatRhynoGuy</h2>
-<p style="color: aliceblue;">Minecraft Server Owner</p>
-<img src="img/team/rhyno.svg" alt="Avatar" class="avatar">
-<p style="color: aliceblue;">"I am old."</p>
-</div>
-  </div>
-</div> 
+          <div class="column">
+            <div class="card" data-slug="amble-stargate">
+              <h2 class="text">Stargate</h2>
+              <img src="https://cdn.modrinth.com/data/IoarhpFS/7daf0ae33f706baceb95225e1813208335717dfe.png" alt="Modrinth" class="avatar">
+              <a class="link" href="https://modrinth.com/mod/amble-stargate">https://modrinth.com/mod/amble-stargate</a>
+              <span class="meta">Version: — • Downloads: —</span>
+              <p class="text">Stargate mod!</p>
+            </div>
+          </div>
 
+          <div class="column">
+            <div class="card" data-slug="loqor-sweeping-angels">
+              <h2 class="text">Loqor's Weeping Angels</h2>
+              <img src="https://cdn.modrinth.com/data/ufXjDQbl/94b915e59839dbbc4eaf8a639090f71d0ad302ef.png" alt="Modrinth" class="avatar">
+              <a class="link" href="https://modrinth.com/mod/loqors-weeping-angels">https://modrinth.com/mod/loqors-weeping-angels</a>
+              <span class="meta">Version: — • Downloads: —</span>
+              <p class="text">Don't blink.</p>
+            </div>
+          </div>
 
+          <div class="column">
+            <div class="card" data-slug="k9-mod">
+              <h2 class="text">K9 Mod</h2>
+              <img src="https://cdn.modrinth.com/data/KZvTlFBC/85478e5ebebbbbb4af7ebbd88add662c9b615de3.png" alt="Modrinth" class="avatar">
+              <a class="link" href="https://modrinth.com/mod/k9-mod">https://modrinth.com/mod/k9-mod</a>
+              <span class="meta">Version: — • Downloads: —</span>
+              <p class="text">Adds K-9 from Doctor Who to Minecraft!</p>
+            </div>
+          </div>
 
-</div>
+          <div class="column">
+            <div class="card" data-slug="ait-extras">
+              <h2 class="text">AIT Extras</h2>
+              <img src="https://cdn.modrinth.com/data/JhhRNCFa/32d952d3bfdf333b4a1645429b1bdfd35aa69f41.png" alt="Modrinth" class="avatar">
+              <a class="link" href="https://modrinth.com/mod/ait-extras">https://modrinth.com/mod/ait-extras</a>
+              <span class="meta">Version: — • Downloads: —</span>
+              <p class="text">Addon mod for Adventures in Time by AddieDaBaddie!</p>
+            </div>
+          </div>
+        </div>
+      </div>
 
-<div id="Links" class="tabcontent">
-<center><u style="color:aliceblue">Click the icon to open the link!</u></center>
-<br>
-  <center> 
-<a href="https://discord.com/invite/WjKhRjavCj"><img src="img/discord_logo.svg" class="grow" alt="Github" style="width:42px;height:42px;" style="color: aliceblue;"></a>
- <p class="text">Join our community!</p>
- <br>
- <br>
- <a href="https://github.com/amblelabs"><img src="img/github_logo.svg" class="grow" alt="Github" style="width:42px;height:42px;"></a>  
- <p class="text">Check out our open source projects!</p> 
- </center>
-</p>
-  <center> 
-<a href="https://modrinth.com/organization/amble-labs"><img src="img/modrinth_logo.svg" class="grow" alt="Modrinth" style="width:42px;height:42px;"></a>
-  <p class="text">Check out our mods!</p>
-   <br>
-   <br>
-  <a href="https://www.youtube.com/@amble_labs?sub_confirmation=1"><img src="img/youtube_logo.svg" class="grow" alt="Youtube" style="width:42px;height:42px;"></a>
- <p class="text">We also make videos too!</p>
-</center>
-</p>
+      <div id="Links" class="tabcontent">
+        <center><u class="text">Click the icon to open the link!</u></center>
+        <br>
+        <center>
+          <a href="https://discord.com/invite/WjKhRjavCj"><img src="img/discord_logo.svg" class="grow" alt="Discord" style="width:42px;height:42px;"></a>
+          <p class="text">Join our community!</p>
+          <br>
+          <a href="https://github.com/amblelabs"><img src="img/github_logo.svg" class="grow" alt="Github" style="width:42px;height:42px;"></a>
+          <p class="text">Check out our open source projects!</p>
+        </center>
 
-<body>
-    <hr width="100%;" color="#252525" size="2">
-</body>
+        <center>
+          <a href="https://modrinth.com/organization/amble-labs"><img src="img/modrinth_logo.svg" class="grow" alt="Modrinth" style="width:42px;height:42px;"></a>
+          <p class="text">Check out our mods!</p>
+          <br>
+          <a href="https://www.youtube.com/@amble_labs?sub_confirmation=1"><img src="img/youtube_logo.svg" class="grow" alt="Youtube" style="width:42px;height:42px;"></a>
+          <p class="text">We also make videos too!</p>
+        </center>
 
+        <hr width="100%" color="#252525" size="2">
 
-<center><h3 style="color:aliceblue">Feeling generous or want to support the team?</h3><h4 style="color:aliceblue">Feel free to donate!</h4></center>
+        <center>
+          <h3 class="text">Feeling generous or want to support the team?</h3>
+          <h4 class="text">Feel free to donate!</h4>
+        </center>
 
+        <center>
+          <a href="https://ko-fi.com/Loqor"><img src="img/kofi_logo.svg" class="grow" alt="Money" style="width:42px;height:42px;"></a>
+          <p class="text">Kofi (loqor)</p>
+          <a href="https://boosty.to/dr.theo"><img src="img/boosty_logo.svg" class="grow" alt="Money" style="width:42px;height:42px;"></a>
+          <p class="text">Boosty (theo)</p>
+          <a href="https://ko-fi.com/addi3dabaddie"><img src="img/kofi_logo.svg" class="grow" alt="Money" style="width:42px;height:42px;"></a>
+          <p class="text">Kofi (Addie)</p>
+        </center>
 
-  <center> 
-<a href="https://ko-fi.com/Loqor"><img src="img/kofi_logo.svg" class="grow" alt="Money" style="width:42px;height:42px;"></a>
-  <p class="text">Kofi (loqor)</p> 
-  <a href="https://boosty.to/dr.theo"><img src="img/boosty_logo.svg" class="grow" alt="Money" style="width:42px;height:42px;"></a>
-  <p class="text">Boosty (theo)</p> 
-  <a href="https://ko-fi.com/addi3dabaddie"><img src="img/kofi_logo.svg" class="grow" alt="Money" style="width:42px;height:42px;"></a>
-  <p class="text">Kofi (Addie)</p> 
-</center>
-</p>
+        <hr width="100%" color="#252525" size="2">
 
-<body>
-    <hr width="100%;" color="#252525" size="2">
-</body>
+        <center>
+          <h3 class="text">Would you like us to make a mod for you?</h3>
+        </center>
+        <center>
+          <span class="text">Feel free to check out our commissions form, found</span>
+          <a class="link" href="https://docs.google.com/forms/d/e/1FAIpQLSddNEX7eRlWgrQ6YhKJXFhTe2kgu9pnFlR5Va0dlu9SD-GFCA/viewform">Here</a>
+        </center>
+      </div> <!-- Links -->
+    </div> <!-- section -->
 
-<center><h3 style="color:aliceblue">Would you like us to make a mod for you?</h2></center>
-<center><a style="color: aliceblue;">Feel free to check out our commissions form, found</a> <a href="https://docs.google.com/forms/d/e/1FAIpQLSddNEX7eRlWgrQ6YhKJXFhTe2kgu9pnFlR5Va0dlu9SD-GFCA/viewform" style="color: rgb(49, 149, 236);">Here</a></center>
+    <center>
+      <p class="text">© 2025 AmbleLabs</p>
+    </center>
 
-</div>
+    <!-- Tilt toggle control -->
+    <button id="tiltToggle" class="tilt-toggle" aria-pressed="true">Tilt: On</button>
 
-</div>
+    <script>
+      function opentab(evt, tabName) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName('tabcontent');
+        for (i = 0; i < tabcontent.length; i++) {
+          tabcontent[i].style.display = 'none';
+        }
+        tablinks = document.getElementsByClassName('tablinks');
+        for (i = 0; i < tablinks.length; i++) {
+          tablinks[i].className = tablinks[i].className.replace(' active', '');
+        }
+        document.getElementById(tabName).style.display = 'block';
+        evt.currentTarget.className += ' active';
+      }
+      document.getElementById('defaultOpen').click();
+    </script>
 
-<script>
-function opentab(evt, tabName) {
-  var i, tabcontent, tablinks;
-  tabcontent = document.getElementsByClassName("tabcontent");
-  for (i = 0; i < tabcontent.length; i++) {
-    tabcontent[i].style.display = "none";
-  }
-  tablinks = document.getElementsByClassName("tablinks");
-  for (i = 0; i < tablinks.length; i++) {
-    tablinks[i].className = tablinks[i].className.replace(" active", "");
-  }
-  document.getElementById(tabName).style.display = "block";
-  evt.currentTarget.className += " active";
-}
-  document.getElementById("defaultOpen").click();
-
-</script>
-
-<center>
-<p style="color: aliceblue;">© 2025  AmbleLabs</p>
-</center>
+    <!-- Tilt script -->
+    <script src="script/tilt.js"></script>
+    <script src="script/mods.js"></script>
+  </body>
+</html>
 

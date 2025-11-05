@@ -1,228 +1,794 @@
 :root {
-    --body-colour : linear-gradient(#FF9100, #FFCA00);;
-    --bg-colour: rgba(246, 222, 130, 0.6);
-    --bg-border-colour: rgba(216, 131, 39, 0.8);
-    --hover-colour : #FF9100;
-    --text-colour : rgba(164, 64, 30, 0.75);
-    --important-colour : rgba(229, 78, 27, 0.8);
+    --page-bg: #0f0d13;
+    --body-colour: linear-gradient(180deg, #12101a 0%, #0f0d13 100%);
+    --bg-colour: rgba(38, 34, 59, 0.72);
+    --card-bg: rgba(46, 41, 72, 0.85);
+    --bg-border-colour: rgba(139, 147, 255, 0.085);
+    --hover-colour: #9aa6ff;
+    --text-colour: #e7e9ff;
+    --important-colour: #d7d9ff;
+    --link-colour: #7C6CFF; /* blueish-purple */
+    --tab-bg: rgba(22, 20, 34, 0.6);
+    --svg-filter-1: none;
+    --svg-filter-2: none;
+    --shine-x: 15%;
+    --shine-y: 15%;
+    --shine-opacity: 0;
+    --streak-x: 12%;
+    --streak-y: 12%;
+    --streak-opacity: 0;
+    --streak-size: 8%;
+    --streak-blur: 8px;
+}
 
-    --svg-filter-1: invert(28%) sepia(8%) saturate(689%) hue-rotate(169deg) brightness(96%) contrast(86%);
-    --svg-filter-2: invert(19%) sepia(10%) saturate(682%) hue-rotate(169deg) brightness(97%) contrast(88%);
+html,
+body {
+    height: 100%
 }
 
 body {
     color: var(--text-colour);
-    font-family: Arial, Helvetica, sans-serif;
-
+    font-family: "Comic Relief", system-ui, Arial, Helvetica, sans-serif;
     font-size: 1.125rem;
     line-height: 1.6;
-    margin: 0;
+    margin: 3rem;
+    background-color: var(--page-bg);
+    background-repeat: inherit;
+    background-attachment: scroll;
+    background-size: 120rem;
+    background-position-y: -10rem;
 }
-body, html {
-    height: 100%;
-}
+
 a {
-    color: var(--text-colour);
+    color: var(--text-colour)
 }
+
 a:hover {
-    color: var(--hover-colour);
+    color: var(--hover-colour)
 }
 
 b {
-    color: var(--important-colour);
+    color: var(--important-colour)
 }
 
-img, picture, svg {
-    max-width: 100%;
+img,
+picture,
+svg {
+    max-width: 100%
 }
 
 main {
     width: min(130ch, 100% - 4rem);
-    margin-inline: auto;
+    margin-inline: auto
 }
 
+/* Avatar */
+.avatar {
+    vertical-align: middle;
+    align-items: center;
+    width: 100px;
+    height: 100px;
+    border-radius: 16px
+}
+
+@media screen and (max-width:600px) {
+    .avatar {
+        width: 72px;
+        height: 72px
+    }
+}
+
+/* Tab button centered/flat overrides (appended for user-requested appearance) */
+.tab {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 6px 8px;
+    background-color: var(--tab-bg);
+    overflow: hidden;
+    border: none;
+}
+
+.tab button {
+    background-color: transparent;
+    font-family: system-ui;
+    float: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 22px;
+    font-size: 1.05rem;
+    transition: background-color 180ms ease, color 180ms ease;
+    color: var(--text-colour) !important;
+    border-radius: 0; /* flat corners */
+}
+
+.tab button:hover {
+    background-color: rgba(155, 166, 255, 0.08);
+    color: var(--hover-colour) !important;
+}
+
+.tab button.active {
+    background-color: rgba(155, 166, 255, 0.16);
+    color: var(--hover-colour) !important;
+    border-radius: 0;
+}
+
+/* Remove any remaining rounded corners, borders or shadows on tabs/tabcontent */
+.tab,
+.tab button,
+.tab button:hover,
+.tab button.active {
+    border-radius: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.tabcontent {
+    /* remove the visible border line at the top / around the content */
+    border: none !important;
+    background-clip: padding-box;
+}
+
+.section-window,
+.card {
+    border-radius: 10px !important;
+}
+
+/* Card typography */
+.card h2 {
+    margin: 8px 0 6px;
+    font-size: clamp(1rem, 2.4vw, 1.3rem);
+    line-height: 1.2;
+    text-align: center
+}
+
+.card p,
+.card .text {
+    margin: 4px 0;
+    font-size: clamp(0.8rem, 1.8vw, 1rem);
+    text-align: center;
+    word-break: break-word;
+}
+
+/* Link color and decoration overrides: blueish purple, no underlines */
+a,
+a:visited,
+.link,
+.card a {
+    color: var(--link-colour) !important;
+    text-decoration: none !important;
+    text-decoration-skip-ink: none !important;
+}
+
+a:hover,
+.link:hover,
+.card a:hover {
+    color: var(--hover-colour) !important;
+    text-decoration: none !important;
+}
+
+/* Parallax / gradient */
 .parallax {
     perspective: 1px;
     height: 100%;
     overflow-x: hidden;
-    overflow-y: auto;
+    overflow-y: auto
 }
+
 .parallax__layer {
     position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
+    inset: 0
 }
+
 .parallax__layer--base {
-    transform: translateZ(0);
+    transform: translateZ(0)
 }
+
 .parallax__layer--back {
-    transform: translateZ(-10px) scale(11);
+    transform: translateZ(-10px) scale(11)
 }
+
 .gradient {
-    overflow-y: hidden;
-    /* The image used */
-    /* Full height */
     height: 100vh;
     width: 100%;
-    /* Create the parallax scrolling effect */
-    background-color: #fad5a5;
-    opacity: 0.8;
-    background: linear-gradient(135deg, #fabf7155 25%, transparent 25%) -23px 0/ 46px 46px, linear-gradient(225deg, #fabf71 25%, transparent 25%) -23px 0/ 46px 46px, linear-gradient(315deg, #fabf7155 25%, transparent 25%) 0px 0/ 46px 46px, linear-gradient(45deg, #fabf71 25%, #fad5a5 25%) 0px 0/ 46px 46px;
+    background-color: var(--page-bg);
+    opacity: 1;
+    overflow-y: hidden;
+    background:
+        linear-gradient(135deg, rgba(139, 147, 255, 0.04) 25%, transparent 25%) -23px 0/46px 46px,
+        linear-gradient(225deg, rgba(139, 147, 255, 0.03) 25%, transparent 25%) -23px 0/46px 46px,
+        linear-gradient(315deg, rgba(139, 147, 255, 0.04) 25%, transparent 25%) 0 0/46px 46px,
+        linear-gradient(45deg, rgba(36, 33, 46, 0.6) 25%, rgba(27, 23, 36, 0.6) 25%) 0 0/46px 46px;
 }
 
-
+/* Title / sections */
 .title-border {
     display: flex;
     flex-direction: column;
-    text-align: center;
-
     justify-content: center;
     align-items: center;
-
+    text-align: center;
     width: 100%;
-    height: 100vh;
+    height: 100vh
 }
 
 .title-text {
     position: relative;
     font-size: 15vw;
-    color: var(--important-colour);
+    color: var(--important-colour)
 }
 
 .section-container {
     display: flex;
-
     justify-content: center;
-    align-items: center;
+    align-items: center
 }
 
 .section-title {
     font-size: 64px;
-    color: var(--text-colour);
+    color: var(--text-colour)
 }
 
 .section-window-container {
     display: grid;
-
     gap: 16px;
-    grid-template-columns: repeat(1,1fr);
+    grid-template-columns: repeat(1, 1fr)
 }
-.section-window {
-    text-align: center;
 
+.section-window {
+    display: grid;
+    text-align: center;
     border-radius: 1.25em;
     border: solid var(--bg-border-colour);
-
     background-color: var(--bg-colour);
+    gap: 16px
 }
+
+/* Avatar shadow while card is hovered/tilting */
+.card .avatar {
+    transition: box-shadow 220ms cubic-bezier(.03,.98,.52,.99), transform 220ms cubic-bezier(.03,.98,.52,.99);
+    /* default subtle shadow */
+    box-shadow: var(--avatar-shadow, 0 6px 10px rgba(0,0,0,0.12));
+}
+
+/* show stronger avatar shadow when card is hovered or tilt-active */
+.card:hover .avatar,
+.card.tilt-active .avatar {
+    box-shadow: var(--avatar-shadow, 0 12px 22px rgba(0,0,0,0.22));
+    transform: translateZ(0);
+}
+
 .section-window img {
     width: 50%;
-
-    filter: grayscale(25%);
-}
-
-.section-window p {
-    font-size: 32px;
+    filter: grayscale(25%)
 }
 
 .rounded {
     border-radius: 1.25em;
-    margin-top: 14.5px;
+    margin-top: 14.5px
 }
 
 .project-logo {
-    border-radius: 25%; 
-    padding: 16px;
+    border-radius: 25%;
+    padding: 16px
 }
 
+/* Links and icons */
 .links {
-    position: relative;
+    position: relative
 }
 
 .links a {
-    font-size: 32px;
+    font-size: 32px
 }
+
 .links a img {
     height: 32px;
     width: 32px;
-    filter: var(--svg-filter-1);
+    filter: var(--svg-filter-1)
 }
 
 .links a img:hover {
-    filter: var(--svg-filter-2);
+    filter: var(--svg-filter-2)
 }
+
 .links a .svg {
-    transform: translateY(0.15em);
+    transform: translateY(0.15em)
 }
 
 .section-window .link-img {
     padding-bottom: 6px;
-    transition: all 0.25s;
-    width: 50%;
+    transition: all .25s;
+    width: 50%
 }
-.link-img:hover {
-    scale: 110%
+
+.section-window .link-img:hover {
+    transform: scale(1.1)
 }
 
 .fiverr img {
-    width: 50%;
+    width: 50%
 }
 
+/* Buttons */
 button {
-  appearance: none;
-  background-color: #FAFBFC;
-  border: 1px solid rgba(27, 31, 35, 0.15);
-  border-radius: 6px;
-  box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0, rgba(255, 255, 255, 0.25) 0 1px 0 inset;
-  box-sizing: border-box;
-  color: #24292E;
-  cursor: pointer;
-  display: inline-block;
-  font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 20px;
-  list-style: none;
-  padding: 6px 16px;
-  position: relative;
-  transition: background-color 0.2s cubic-bezier(0.3, 0, 0.5, 1);
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  vertical-align: middle;
-  white-space: nowrap;
-  word-wrap: break-word;
+    appearance: none;
+    background-color: #FAFBFC;
+    border: 1px solid rgba(27, 31, 35, 0.15);
+    border-radius: 6px;
+    box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0, rgba(255, 255, 255, 0.25) 0 1px 0 inset;
+    box-sizing: border-box;
+    color: #24292E;
+    cursor: pointer;
+    display: inline-block;
+    font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    padding: 6px 16px;
+    position: relative;
+    transition: background-color .2s cubic-bezier(.3, 0, .5, 1);
+    user-select: none;
+    vertical-align: middle;
+    white-space: nowrap;
+    word-wrap: break-word;
 }
 
 button:hover {
-  background-color: var(--bg-colour);
-  text-decoration: none;
-  transition-duration: 0.1s;
+    background-color: var(--bg-colour);
+    transition-duration: .1s
 }
 
 button:disabled {
-  background-color: #FAFBFC;
-  border-color: rgba(27, 31, 35, 0.15);
-  color: #959DA5;
-  cursor: default;
+    background-color: #FAFBFC;
+    border-color: rgba(27, 31, 35, 0.15);
+    color: #959DA5;
+    cursor: default
 }
 
 button:active {
-  background-color: #EDEFF2;
-  box-shadow: rgba(225, 228, 232, 0.2) 0 1px 0 inset;
-  transition: none 0s;
+    background-color: #EDEFF2;
+    box-shadow: rgba(225, 228, 232, 0.2) 0 1px 0 inset;
+    transition: none
 }
 
 button:focus {
-  outline: 1px transparent;
+    outline: 1px transparent
 }
 
-button:before {
-  display: none;
-}
-
+button:before,
 button:-webkit-details-marker {
-  display: none;
+    display: none
+}
+
+/* Card sheen/streak */
+.card::before {
+    content: "";
+    position: absolute;
+    inset: -40% -40% -40% -40%;
+    pointer-events: none;
+    background: radial-gradient(circle at var(--shine-x, 15%) var(--shine-y, 15%), rgba(255, 255, 255, 0.85) 0%, rgba(255, 255, 255, 0.25) 10%, rgba(255, 255, 255, 0) 28%);
+    opacity: var(--shine-opacity, 0);
+    transition: opacity 140ms ease, background-position 140ms ease, transform 140ms ease;
+    mix-blend-mode: screen;
+    filter: blur(8px);
+    transform: translateZ(0);
+    z-index: 20;
+}
+
+.card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(90deg, rgba(255, 255, 255, var(--streak-opacity, 0)) 0%, rgba(255, 255, 255, var(--streak-opacity, 0)) var(--streak-size, 8%), rgba(255, 255, 255, 0) calc(var(--streak-size, 8%) + 2%));
+    transform: translate3d(calc(var(--streak-x, 12%) - 50%), calc(var(--streak-y, 12%) - 50%), 0) rotate(var(--streak-rot, -25deg));
+    filter: blur(var(--streak-blur, 8px));
+    transition: opacity 120ms ease, transform 120ms ease, filter 120ms ease;
+    z-index: 21;
+}
+
+.card>* {
+    position: relative;
+    z-index: 10
+}
+
+.link {
+    color: var(--link-colour);
+    text-decoration: none
+}
+
+.link:hover {
+    color: var(--hover-colour);
+    text-decoration: underline
+}
+
+/* Metadata label for small info like version/downloads */
+.meta {
+    display: block;
+    font-size: 0.85rem;
+    color: rgba(231,233,255,0.78);
+    margin-top: 6px;
+}
+
+/* Loading / stale UI for mod metadata */
+.meta.loading {
+    opacity: 0.9;
+    font-style: italic;
+    color: rgba(231,233,255,0.66);
+}
+
+.meta.stale {
+    opacity: 0.95;
+    color: rgba(231,233,255,0.9);
+    font-style: normal;
+}
+
+/* Avatar loading spinner overlay (appears while remote icons load) */
+.mod-avatar-spinner {
+    position: absolute;
+    top: 12px;
+    left: 50%;
+    transform: translateX(-50%) rotate(0deg);
+    width: 36px;
+    height: 36px;
+    border-radius: 5px;
+    border: 4px solid rgba(255, 255, 255, 0.12);
+    border-top-color: var(--hover-colour);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+    z-index: 40;
+    animation: mod-spin 800ms linear infinite;
+}
+
+@keyframes mod-spin {
+    to { transform: translateX(-50%) rotate(360deg); }
+}
+
+/* Layout / grid */
+* {
+    box-sizing: border-box
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 0 -6px;
+    align-items: stretch
+}
+
+.column {
+    box-sizing: border-box;
+    padding: 0 6px;
+    flex: 1 1 calc(25% - 12px);
+    max-width: calc(25% - 12px);
+    perspective: 1000px;
+    display: flex
+}
+
+/* Mods-specific layout: two columns, three rows (keeps other grids at their original layout) */
+.mods .column {
+    flex: 1 1 calc(50% - 12px);
+    max-width: calc(50% - 12px);
+}
+
+.column>.card {
+    flex: 1 1 auto;
+    width: 100%
+}
+
+/* Card visuals */
+.card {
+    --card-shadow: 0 6px 18px rgba(0, 0, 0, 0.22);
+    box-shadow: var(--card-shadow);
+    padding: 12px;
+    text-align: center;
+    background-color: var(--card-bg);
+    overflow: hidden;
+    border-radius: 20px;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    transform: perspective(1000px) scale(1);
+    transform-style: preserve-3d;
+    position: relative;
+    backface-visibility: hidden;
+    will-change: transform, box-shadow;
+    transition: transform 220ms cubic-bezier(.03, .98, .52, .99), box-shadow 220ms cubic-bezier(.03, .98, .52, .99);
+    color: var(--text-colour) !important;
+}
+
+
+.card {
+    --card-hover-scale: 1.22; /* bigger hover scale per user request */
+}
+
+/* scale card on hover (fallback when JS not moving it) and when tilt-active apply stronger shadow */
+.card:hover {
+    transform: perspective(1000px) scale(var(--card-hover-scale));
+}
+
+/* Force-visible shadow on hover/tilt-active as a robust fallback if JS variable isn't applied */
+.card:hover,
+.card.tilt-active {
+    box-shadow: 0 36px 84px rgba(0,0,0,0.70) !important;
+}
+
+/* Scale immediate children slightly so content feels more responsive */
+.card > * {
+    transition: transform 220ms cubic-bezier(.03,.98,.52,.99), opacity 160ms ease;
+    transform-origin: center center;
+}
+
+.card:hover > *,
+.card.tilt-active > * {
+    transform: translateZ(0) scale(1.06);
+}
+
+/* Darker avatar shadow when hovering/tilting */
+.card:hover .avatar,
+.card.tilt-active .avatar {
+    box-shadow: 0 20px 52px rgba(0,0,0,0.65) !important;
+    transform: translateZ(0) scale(1.08);
+}
+
+.card img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px
+}
+
+/* Reduced motion / tilt control */
+@media (prefers-reduced-motion:reduce) {
+
+    .card::before,
+    .card::after {
+        display: none
+    }
+}
+
+.tilt-disabled .card,
+.tilt-off .card {
+    transform: none !important
+}
+
+.tilt-disabled .card::before,
+.tilt-off .card::before,
+.tilt-disabled .card::after,
+.tilt-off .card::after {
+    opacity: 0 !important
+}
+
+/* Toggle control */
+.tilt-toggle {
+    position: fixed;
+    right: 16px;
+    bottom: 16px;
+    z-index: 9999;
+    background: rgba(22, 20, 34, 0.86);
+    color: var(--text-colour);
+    border: 1px solid rgba(159, 176, 255, 0.08);
+    padding: 8px 10px;
+    border-radius: 8px;
+    font-family: system-ui;
+    font-size: .9rem;
+    cursor: pointer;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+}
+
+.tilt-toggle:focus {
+    outline: 2px solid rgba(159, 176, 255, 0.18)
+}
+
+.tilt-disabled .tilt-toggle {
+    opacity: .7
+}
+
+/* Tabs, images, misc */
+.grow {
+    transition: transform .2s;
+    width: 50px;
+    height: 50px;
+    margin: 0 auto
+}
+
+.grow:hover {
+    transform: scale(1.15);
+    border-radius: 40%
+}
+
+.tab {
+    overflow: hidden;
+    border: 1px solid rgba(159, 176, 255, 0.06);
+    background-color: var(--tab-bg)
+}
+
+.tab button {
+    background-color: transparent;
+    font-family: system-ui;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 12px 14px;
+    transition: .18s;
+    color: var(--text-colour) !important
+}
+
+.tab button:hover {
+    background-color: rgba(159, 176, 255, 0.06);
+    color: var(--hover-colour) !important
+}
+
+.tab button.active {
+    background-color: rgba(155, 166, 255, 0.16);
+    color: var(--hover-colour) !important;
+    border-radius: 6px
+}
+
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid rgb(31, 31, 31);
+    border-top: none;
+    animation: fadeEffect 1s
+}
+
+.text {
+    display: inline-block;
+    vertical-align: top;
+    font-family: system-ui;
+    color: var(--text-colour) !important
+}
+
+/* Ensure paragraph-level .text elements behave as blocks (prevents odd inline-offsets) */
+p.text {
+    display: block;
+    max-width: 70ch;
+    margin: 0.6rem auto;
+    text-align: center;
+}
+
+/* Ensure h2 elements with .text behave like block-level headings and sit on their own line */
+h2.text {
+    display: block;
+    width: 100%;
+    margin: 0.4rem 0 0.6rem;
+    text-align: center;
+}
+
+.section {
+    list-style-type: none;
+    background-color: var(--tab-bg);
+    margin: 10px;
+    padding-left: 10%;
+    padding-right: 10%;
+    overflow: hidden
+}
+
+.container {
+    position: relative;
+    justify-content: center
+}
+
+.image {
+    display: block;
+    width: 30%;
+    height: auto;
+    border-radius: 20%
+}
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .5s
+}
+
+.container:hover .overlay {
+    opacity: 1
+}
+
+.card h2,
+.card p,
+.card a,
+.text,
+a {
+    color: var(--text-colour) !important;
+    text-decoration: none
+}
+
+/* Switch */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    inset: 0;
+    background-color: rgb(16, 16, 16);
+    transition: .4s
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: rgb(24, 24, 24);
+    transition: .4s
+}
+
+input:checked+.slider {
+    background-color: #2196F3
+}
+
+input:focus+.slider {
+    box-shadow: 0 0 1px rgb(24, 24, 24)
+}
+
+input:checked+.slider:before {
+    transform: translateX(26px)
+}
+
+.slider.round {
+    border-radius: 34px
+}
+
+.slider.round:before {
+    border-radius: 50%
+}
+
+/* Force theme colors even when inline styles are present */
+[style*="color"] {
+    color: var(--text-colour) !important
+}
+
+a[style*="color"] {
+    color: var(--link-colour) !important
+}
+
+.tab button[style*="color"] {
+    color: var(--text-colour) !important
+}
+
+.tab button[style*="color"]:hover,
+.tab button[style*="color"].active {
+    color: var(--hover-colour) !important
+}
+
+/* Responsive columns/cards */
+@media screen and (max-width:600px) {
+    .column {
+        flex: 1 1 100%;
+        max-width: 100%
+    }
+
+    .card {
+        min-height: 0;
+        padding: 12px
+    }
+
+    .avatar {
+        width: 72px;
+        height: 72px
+    }
 }
