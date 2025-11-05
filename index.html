@@ -19,6 +19,11 @@
       (function () {
         // event hookup is done after element exists
         window.addEventListener('DOMContentLoaded', () => {
+          const yearCopyright = document.getElementById('copyright');
+          if (yearCopyright) {
+            yearCopyright.innerText = `© ${new Date().getFullYear()} AmbleLabs`;
+          }
+          
           const fs = document.getElementById('fontSwitch');
           if (!fs) return;
           fs.addEventListener('change', function () {
@@ -427,7 +432,7 @@
     </div> <!-- section -->
 
     <center>
-      <p class="text">© 2025 AmbleLabs</p>
+      <p id="copyright" class="text">© 2025 AmbleLabs</p>
     </center>
 
   <!-- Tilt toggle control (removed) -->
