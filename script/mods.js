@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const fetchForSlug = async (slug) => {
     // project for downloads
   const project = await fetchJSON(`https://api.modrinth.com/v2/project/${encodeURIComponent(slug)}`);
-  const downloads = project && project.stats && project.stats.downloads;
+  const downloads = project && project.downloads;
   // try common icon fields returned by Modrinth
   const icon = project && (project.icon_url || project.icon || project.logo || project.logo_url || null);
 
