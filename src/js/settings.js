@@ -117,7 +117,6 @@
     const nativeTilt = $('#tiltToggle');
 
     if (!menu || !hamburger) return;
-  console.debug('settings:init', { menu: !!menu, hamburger: !!hamburger, tiltToggle: !!tiltCheckbox, saturnToggle: !!saturnCheckbox, partyToggle: !!partyCheckbox });
 
     // hydrate from storage
     const savedTilt = window.localStorage.getItem(TILT_KEY);

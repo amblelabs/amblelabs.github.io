@@ -1,0 +1,23 @@
+---
+
+---
+
+<test- id="el"></test->
+
+<script>
+    class CustomElement extends HTMLElement {
+
+        data: string;
+
+        constructor() {
+            super();
+
+            this.innerText = 'Hi!';
+
+            this.data = 'secret';
+        }
+    }
+
+    customElements.define('test-', CustomElement)
+    //console.log(document.getElementById('el') instanceof CustomElement)
+</script>
