@@ -1,0 +1,153 @@
+# Generates a README.md from src/data/site.json and pushes it to
+# the .github and .github-private repositories whenever site.json changes.
+#
+# Requires a PAT (personal access token) with `repo` scope stored as
+# the repository secret PROFILE_README_PAT.
+
+name: Sync README from site.json
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'src/data/site.json'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout website repo
+        uses: actions/checkout@v4
+
+      - name: Generate README
+        run: |
+          node - <<'SCRIPT'
+          const fs = require('fs');
+          const site = JSON.parse(fs.readFileSync('src/data/site.json', 'utf8'));
+
+          const lines = [];
+          lines.push(`<p align="center">`);
+          lines.push(`  <img src="https://amblelabs.github.io/img/amblelabs_icon.gif" width="120" alt="AmbleLabs" />`);
+          lines.push(`</p>`);
+          lines.push(``);
+          lines.push(`<h1 align="center">${site.name}</h1>`);
+          lines.push(`<p align="center"><em>${site.tagline}</em></p>`);
+          lines.push(``);
+          lines.push(`<p align="center">`);
+          if (site.links.discord)  lines.push(`  <a href="${site.links.discord}">Discord</a> &bull;`);
+          if (site.links.github)   lines.push(`  <a href="${site.links.github}">GitHub</a> &bull;`);
+          if (site.links.modrinth) lines.push(`  <a href="${site.links.modrinth}">Modrinth</a> &bull;`);
+          if (site.links.youtube)  lines.push(`  <a href="${site.links.youtube}">YouTube</a>`);
+          lines.push(`</p>`);
+          lines.push(``);
+          lines.push(`---`);
+          lines.push(``);
+          lines.push(`${site.description}`);
+          lines.push(``);
+
+          // Mods
+          lines.push(`## Mods`);
+          lines.push(``);
+          lines.push(`| Mod | Description |`);
+          lines.push(`|-----|-------------|`);
+          for (const mod of site.mods) {
+            lines.push(`| [${mod.name}](${mod.url}) | ${mod.description} |`);
+          }
+          lines.push(``);
+
+          // Team
+          lines.push(`## Team`);
+          lines.push(``);
+          const allGroups = [
+            { label: 'Developers', list: site.members.developers },
+            { label: 'Junior Developers', list: site.members.junior_developers },
+            { label: 'Artists', list: site.members.artists },
+            { label: 'Others', list: site.members.others },
+          ];
+          for (const group of allGroups) {
+            lines.push(`### ${group.label}`);
+            lines.push(``);
+            for (const m of group.list) {
+              const link = m.link ? ` — [${m.link.replace('https://', '').replace(/\/$/, '')}](${m.link})` : '';
+              const role = m.role ? ` *(${m.role})*` : '';
+              lines.push(`- **${m.name}**${role}${link}`);
+            }
+            lines.push(``);
+          }
+
+          // Wikis
+          lines.push(`## Documentation`);
+          lines.push(``);
+          for (const w of site.wikis) {
+            lines.push(`- [${w.name}](${w.url}) — ${w.description}`);
+          }
+          lines.push(``);
+
+          // Footer
+          lines.push(`---`);
+          lines.push(``);
+          lines.push(`<p align="center"><sub>Auto-generated from <a href="https://amblelabs.github.io">amblelabs.github.io</a> &bull; <code>src/data/site.json</code></sub></p>`);
+
+          fs.writeFileSync('README.md', lines.join('\n') + '\n');
+          console.log('README.md generated successfully');
+          SCRIPT
+
+      - name: Push to .github repo
+        env:
+          PAT: ${{ secrets.PROFILE_README_PAT }}
+        run: |
+          if [ -z "$PAT" ]; then
+            echo "::warning::PROFILE_README_PAT secret not set — skipping .github sync"
+            exit 0
+          fi
+          OWNER="${{ github.repository_owner }}"
+          git clone --depth 1 "https://x-access-token:${PAT}@github.com/${OWNER}/.github.git" /tmp/dot-github || {
+            echo "::warning::Could not clone ${OWNER}/.github — does it exist?"
+            exit 0
+          }
+          cp README.md /tmp/dot-github/profile/README.md 2>/dev/null || {
+            mkdir -p /tmp/dot-github/profile
+            cp README.md /tmp/dot-github/profile/README.md
+          }
+          cd /tmp/dot-github
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No changes to .github README"
+          else
+            git commit -m "chore: sync profile README from site.json"
+            git push
+          fi
+
+      - name: Push to .github-private repo
+        env:
+          PAT: ${{ secrets.PROFILE_README_PAT }}
+        run: |
+          if [ -z "$PAT" ]; then
+            echo "::warning::PROFILE_README_PAT secret not set — skipping .github-private sync"
+            exit 0
+          fi
+          OWNER="${{ github.repository_owner }}"
+          git clone --depth 1 "https://x-access-token:${PAT}@github.com/${OWNER}/.github-private.git" /tmp/dot-github-private || {
+            echo "::warning::Could not clone ${OWNER}/.github-private — does it exist?"
+            exit 0
+          }
+          cp README.md /tmp/dot-github-private/profile/README.md 2>/dev/null || {
+            mkdir -p /tmp/dot-github-private/profile
+            cp README.md /tmp/dot-github-private/profile/README.md
+          }
+          cd /tmp/dot-github-private
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No changes to .github-private README"
+          else
+            git commit -m "chore: sync profile README from site.json"
+            git push
+          fi

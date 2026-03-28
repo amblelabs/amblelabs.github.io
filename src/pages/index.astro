@@ -1,514 +1,267 @@
 ---
 import '../assets/style.css';
-
 import Footer from '../components/Footer.astro';
-import CardComp from '../components/Card.astro';
+import siteData from '../data/site.json';
 
-import type { Card } from '../js/types';
-
-const members: Card[] = [
-  { 
-    title: 'Loqor',
-    imgUrl: '/img/team/loqor.svg',
-    link: 'https://loqor.dev',
-    description: `"From dust we came, to dust we shall return."`,
-  },
+const { members, mods, wikis, links, donations } = siteData;
+const allMembers = [
+  { label: 'Developers', list: members.developers },
+  { label: 'Junior Developers', list: members.junior_developers },
+  { label: 'Artists', list: members.artists },
+  { label: 'Others', list: members.others },
 ];
 ---
 
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AmbleLabs</title>
-    <meta content="AmbleLabs" property="og:title"/>
-    <meta content="The official website of all AmbleLabs operations." property="og:description"/>
-    <meta content="https://amblelabs.github.io" property="og:url"/>
-    <meta content="https://amblelabs.github.io/img/amblelabs_icon.gif" property="og:image"/>
-    <link rel="icon" type="image/x-icon" href="/favicon.ico"/>
-    <link rel="icon" type="image/svg" href="/img/amblelabs_icon.svg"/>
-    <meta content="#F69602" data-react-helmet="true" name="theme-color"/>
+    <meta content="AmbleLabs" property="og:title" />
+    <meta content={siteData.tagline} property="og:description" />
+    <meta content="https://amblelabs.github.io" property="og:url" />
+    <meta content="https://amblelabs.github.io/img/amblelabs_icon.gif" property="og:image" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/svg" href="/img/amblelabs_icon.svg" />
+    <meta content="#F69602" data-react-helmet="true" name="theme-color" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Nunito+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
   </head>
 
   <body>
-    <script>
-      // font toggle (keeps same behaviour as before)
-      (function () {
-        // event hookup is done after element exists
-        window.addEventListener('DOMContentLoaded', () => {
-          const yearCopyright = document.getElementById('copyright');
-          if (yearCopyright) {
-            yearCopyright.innerText = `© ${new Date().getFullYear()} AmbleLabs`;
-          }
-          
-          const fs = document.getElementById('fontSwitch');
-          if (!fs) return;
-          fs.addEventListener('change', function () {
-            if (this.checked) {
-              if (!document.getElementById('comicReliefFont')) {
-                const link = document.createElement('link');
-                link.href = "https://fonts.googleapis.com/css2?family=Comic+Relief:wght@400;700&display=swap";
-                link.rel = "stylesheet";
-                link.id = 'comicReliefFont';
-                document.head.appendChild(link);
+    <!-- Animated background -->
+    <div class="bg-effects" aria-hidden="true">
+      <div class="bg-orb bg-orb--1"></div>
+      <div class="bg-orb bg-orb--2"></div>
+      <div class="bg-orb bg-orb--3"></div>
+      <div class="bg-grid"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+    </div>
 
-                link.onload = () => {
-                  document.body.style.fontFamily = "'Comic Relief', cursive";
-                };
-              } else {
-                document.body.style.fontFamily = "'Comic Relief', cursive";
-              }
-            } else {
-              document.body.style.fontFamily = "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif";
-            }
-          });
-        });
-      })();
-    </script>
-
-    <center>
-      <div class="container">
-        <img src="img/amblelabs_icon.svg" alt="Avatar" class="image">
-        <div class="overlay">
-          <img src="img/amblelabs_icon.gif" alt="Avatar" class="image">
-        </div>
+    <!-- Hero -->
+    <header class="hero">
+      <div class="hero-logo">
+        <img src="/img/amblelabs_icon.svg" alt="AmbleLabs Logo" class="logo-static" />
+        <img src="/img/amblelabs_icon.gif" alt="AmbleLabs Logo Animated" class="logo-animated" />
       </div>
+      <h1 class="hero-title">AmbleLabs</h1>
+      <p class="hero-tagline">{siteData.description}</p>
+    </header>
 
-      <h3 class="text">We are AmbleLabs! A Minecraft Mod and Game Development studio.</h3>
-    </center>
+    <!-- Navigation -->
+    <nav class="nav" id="mainNav">
+      <button class="nav-btn active" data-tab="home">Home</button>
+      <button class="nav-btn" data-tab="members">Members</button>
+      <button class="nav-btn" data-tab="mods">Mods</button>
+      <button class="nav-btn" data-tab="wikis">Wikis</button>
+      <button class="nav-btn" data-tab="links">Links</button>
+    </nav>
 
-    <div class="section">
-      <div class="tab">
-        <button class="tablinks" onclick="opentab(event, 'Home')" id="defaultOpen">Home</button>
-        <button class="tablinks" onclick="opentab(event, 'Members')">Members</button>
-        <button class="tablinks" onclick="opentab(event, 'Mods')">Mods</button>
-        <button class="tablinks" onclick="opentab(event, 'Wiki')">Wikis</button>
-        <button class="tablinks" onclick="opentab(event, 'Links')">Links</button>
-      </div>
+    <!-- Main content area -->
+    <main class="content">
 
-      <div id="Home" class="tabcontent">
-        <center>
-          <img src="img/amblelabs_text.svg" alt="AmbleLabs">
-          <p class="text">We are a small Development team that mainly focuses on making mods for Minecraft (fabric 1.20.1) revolving around; Doctor Who, Stargate, and Super Heroes!</p>
-          <iframe
-            width="860"
-            height="615"
-            src="https://www.youtube.com/embed/5Wvh-TaVLm8?si=yk2Gp6oj37jZzhqm"
-            title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin"
-            allowfullscreen
-          ></iframe>
-        </center>
-      </div>
-
-      <div id="Members" class="tabcontent">
-        <h2 class="text">Meet the amazing team that develop our mods!</h2>
-
-        <u>
-          <h2 class="text">Developers:</h2>
-        </u>
-        <hr color="#707070">
-
-        <div class="row">
-          <div class="column">
-            <div class="card">
-              <h2 class="text">Loqor</h2>
-              <img src="img/team/loqor.svg" alt="Avatar" class="avatar">
-              <a class="link" href="https://loqor.dev/">loqor.dev</a>
-              <p class="text">"From dust we came, to dust we shall return."</p>
-            </div>
-          </div>
-
-          <div class="column">
-            <div class="card">
-              <h2 class="text">Theo</h2>
-              <img src="img/team/theo.svg" alt="Avatar" class="avatar">
-              <a class="link" href="https://theo.is-a.dev/">theo.is-a.dev</a>
-              <p class="text">"theoretical"</p>
-            </div>
-          </div>
-
-          <div class="column">
-            <div class="card">
-              <h2 class="text">Duzo</h2>
-              <img src="img/team/duzo.svg" alt="Avatar" class="avatar">
-              <a class="link" href="https://duzo.is-a.dev/">duzo.is-a.dev</a>
-              <p class="text">"elite ball knowledge"</p>
-            </div>
-          </div>
-
-          <div class="column">
-            <div class="card">
-              <h2 class="text">Saturn</h2>
-              <img src="img/team/saturn.svg" alt="Avatar" class="avatar">
-              <p class="text">"if you then is? Yes or the no of the what? Yes infact the. Hello, everybody my name is mark my pliars and in todays video we'll"</p>
-            </div>
+      <!-- HOME -->
+      <section class="tab-panel active" id="tab-home">
+        <div class="home-section">
+          <img src="/img/amblelabs_text.svg" alt="AmbleLabs" class="home-wordmark" />
+          <p class="home-desc">{siteData.description}</p>
+          <div class="video-wrapper">
+            <iframe
+              src={siteData.youtube_embed}
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe>
           </div>
         </div>
+      </section>
 
-        <br>
+      <!-- MEMBERS -->
+      <section class="tab-panel" id="tab-members">
+        <h2 class="section-heading">Meet the Team</h2>
+        <p class="section-sub">The amazing people who develop our mods.</p>
 
-        <div class="row">
-          <div class="column">
-            <div class="card">
-              <h2 class="text">AddieDaBaddie</h2>
-              <img src="img/team/addie.svg" alt="Avatar" class="avatar">
-              <a class="link" href="https://addi3.github.io/">addi3.github.io</a>
-              <p class="text">"Zhe bluetooth device has connected a-success fillet"</p>
+        {allMembers.map(group => (
+          <div class="member-group">
+            <h3 class="group-label">{group.label}</h3>
+            <div class="card-grid">
+              {group.list.map((m: any) => (
+                <div class="card">
+                  <img src={m.avatar} alt={m.name} class="card-avatar" />
+                  <h4 class="card-name">{m.name}</h4>
+                  {m.role && <span class="card-role">{m.role}</span>}
+                  {m.link && (
+                    <a class="card-link" href={m.link} target="_blank" rel="noopener">
+                      {m.link.replace('https://', '').replace(/\/$/, '')}
+                    </a>
+                  )}
+                  <p class="card-quote">"{m.quote}"</p>
+                </div>
+              ))}
             </div>
           </div>
+        ))}
+      </section>
 
-          <div class="column">
-            <div class="card">
-              <h2 class="text">Monke</h2>
-              <img src="img/team/monke.svg" alt="Avatar" class="avatar">
-              <a class="link" href="https://github.com/rapbattlegod32">github.com/rapbattlegod32</a>
-              <p class="text">"return to monke"</p>
-            </div>
-          </div>
+      <!-- MODS -->
+      <section class="tab-panel" id="tab-mods">
+        <h2 class="section-heading">Our Mods</h2>
+        <p class="section-sub">Live stats populated from Modrinth.</p>
 
-          <div class="column">
-            <div class="card">
-              <h2 class="text">Lakehascake</h2>
-              <img src="img/team/lake.svg" alt="Avatar" class="avatar">
-              <a class="link" href="https://en.pronouns.page/@lakehascake">en.pronouns.page/@lakehascake</a>
-              <p class="text">"yes, i do have cake, no, i don't mean like that."</p>
+        <div class="mod-grid">
+          {mods.map((mod: any) => (
+            <div class="card mod-card" data-slug={mod.slug}>
+              <img src={mod.icon} alt={mod.name} class="card-avatar mod-icon" />
+              <div class="mod-info">
+                <h4 class="card-name">{mod.name}</h4>
+                <a class="card-link" href={mod.url} target="_blank" rel="noopener">
+                  {mod.url.replace('https://', '')}
+                </a>
+                <span class="meta">Loading...</span>
+                <p class="card-desc">{mod.description}</p>
+              </div>
             </div>
-          </div>
+          ))}
+        </div>
+      </section>
 
-          <div class="column">
-            <div class="card">
-              <h2 class="text">Pan</h2>
-              <img src="img/team/pan.svg" alt="Avatar" class="avatar">
-              <a class="link" href="https://github.com/Mansarde">github.com/Mansarde</a>
-              <p class="text">"Don't dwell in the past, always march onwards."</p>
-            </div>
-          </div>
+      <!-- WIKIS -->
+      <section class="tab-panel" id="tab-wikis">
+        <h2 class="section-heading">Wiki & Documentation</h2>
+        <p class="section-sub">Useful links to documentation, guides and mod wikis.</p>
+
+        <div class="wiki-list">
+          {wikis.map((w: any) => (
+            <a class="wiki-item" href={w.url} target="_blank" rel="noopener">
+              <span class="wiki-name">{w.name}</span>
+              <span class="wiki-desc">{w.description}</span>
+              <svg class="wiki-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+            </a>
+          ))}
+        </div>
+      </section>
+
+      <!-- LINKS -->
+      <section class="tab-panel" id="tab-links">
+        <h2 class="section-heading">Connect With Us</h2>
+
+        <div class="link-grid">
+          <a href={links.discord} class="link-card" target="_blank" rel="noopener">
+            <img src="/img/discord_logo.svg" alt="Discord" class="link-icon" />
+            <span class="link-label">Discord</span>
+            <span class="link-desc">Join our community</span>
+          </a>
+          <a href={links.github} class="link-card" target="_blank" rel="noopener">
+            <img src="/img/github_logo.svg" alt="GitHub" class="link-icon" />
+            <span class="link-label">GitHub</span>
+            <span class="link-desc">Open source projects</span>
+          </a>
+          <a href={links.modrinth} class="link-card" target="_blank" rel="noopener">
+            <img src="/img/modrinth_logo.svg" alt="Modrinth" class="link-icon" />
+            <span class="link-label">Modrinth</span>
+            <span class="link-desc">Browse our mods</span>
+          </a>
+          <a href={links.youtube} class="link-card" target="_blank" rel="noopener">
+            <img src="/img/youtube_logo.svg" alt="YouTube" class="link-icon" />
+            <span class="link-label">YouTube</span>
+            <span class="link-desc">Watch our videos</span>
+          </a>
         </div>
 
-        <hr width="100%" color="#707070" size="2">
+        <div class="divider"></div>
 
-        <u>
-          <h2 class="text">Junior Developers:</h2>
-        </u>
+        <h3 class="section-sub-heading">Support the Team</h3>
+        <p class="section-sub">Feeling generous? Donations help us keep creating.</p>
 
-        <div class="row">
-          <div class="column">
-            <div class="card">
-              <h2 class="text">CosmicFire</h2>
-              <img src="img/team/cosmic.svg" alt="Avatar" class="avatar">
-              <a class="link" href="https://github.com/Cosmic-Fires">github.com/Cosmic-Fires</a>
-              <p class="text">"No, I don't have fries"</p>
-            </div>
-          </div>
-
-          <div class="column">
-            <div class="card">
-              <h2 class="text">K King</h2>
-              <img src="img/team/k_king.svg" alt="Avatar" class="avatar">
-              <a class="link" href="https://x.com/ItsKKing">x.com/ItsKKing</a>
-              <p class="text">"LET ME OUT OF THIS WEBSITE PLEAS-"</p>
-            </div>
-          </div>
-
-          <div class="column">
-            <div class="card">
-              <h2 class="text">Nanowu</h2>
-              <img src="img/team/nanowu.svg" alt="Avatar" class="avatar">
-              <a class="link" href="https://nanuwo.github.io/">nanuwo.github.io/</a>
-              <p class="text">"nonuwo"</p>
-            </div>
-          </div>
+        <div class="donate-grid">
+          {donations.map((d: any) => (
+            <a href={d.url} class="donate-card" target="_blank" rel="noopener">
+              <img src={`/img/${d.icon === 'kofi' ? 'kofi' : 'boosty'}_logo.svg`} alt={d.platform} class="donate-icon" />
+              <span class="donate-name">{d.name}</span>
+              <span class="donate-platform">{d.platform}</span>
+            </a>
+          ))}
         </div>
 
-        <hr width="100%" color="#707070" size="2">
+        <div class="divider"></div>
 
-        <u>
-          <h2 class="text">Artists:</h2>
-        </u>
-
-        <div class="row">
-          <div class="column">
-            <div class="card">
-              <h2 class="text">Ouro</h2>
-              <img src="img/team/ouro.svg" alt="Avatar" class="avatar">
-              <a class="link" href="https://ouro-the-boro.carrd.co">ouro-the-boro.carrd.co</a>
-              <p class="text">"Ouroro Borealis."</p>
-            </div>
-          </div>
-
-          <div class="column">
-            <div class="card">
-              <h2 class="text">Dian</h2>
-              <img src="img/team/dian.svg" alt="Avatar" class="avatar">
-              <a class="link" href="https://github.com/Dian-Vidus">github.com/Dian-Vidus</a>
-              <p class="text">"I sold myself to Loqor"</p>
-            </div>
-          </div>
-
-          <div class="column">
-            <div class="card">
-              <h2 class="text">Tright</h2>
-              <img src="img/team/tright.svg" alt="Avatar" class="avatar">
-              <p class="text">"Mamma mia!"</p>
-            </div>
-          </div>
-
-          <div class="column">
-            <div class="card">
-              <h2 class="text">Maggie</h2>
-              <img src="img/team/maggie.svg" alt="Avatar" class="avatar">
-              <p class="text">"Stellaris yum"</p>
-            </div>
-          </div>
+        <div class="commissions-block">
+          <h3 class="section-sub-heading">Commissions</h3>
+          <p class="section-sub">Would you like us to make a mod for you?</p>
+          <a href={links.commissions} class="btn-primary" target="_blank" rel="noopener">View Commissions Form</a>
         </div>
-
-        <hr width="100%" color="#707070" size="2">
-
-        <u>
-          <h2 class="text">Others:</h2>
-        </u>
-
-        <div class="row">
-          <div class="column">
-            <div class="card">
-              <h2 class="text">VenWhoVian</h2>
-              <p class="text">Media Person</p>
-              <img src="img/team/ven.svg" alt="Avatar" class="avatar">
-              <a class="link" href="https://www.youtube.com/@VenWhoVian">youtube.com/@VenWhoVian</a>
-              <p class="text">"What do I do again?"</p>
-            </div>
-          </div>
-
-          <div class="column">
-            <div class="card">
-              <h2 class="text">Echo</h2>
-              <p class="text">Wiki Curator</p>
-              <img src="img/team/echo.svg" alt="Avatar" class="avatar">
-              <a class="link" href="https://github.com/EchoDidAThing1048">github.com/EchoDidAThing1048</a>
-              <p class="text">"Wait, we have a wiki?"</p>
-            </div>
-          </div>
-
-          <div class="column">
-            <div class="card">
-              <h2 class="text">Tree</h2>
-              <p class="text">Wiki Curator</p>
-              <img src="img/team/tree.svg" alt="Avatar" class="avatar">
-              <a class="link" href="https://github.com/trerrturyy">github.com/trerrturyy</a>
-              <p class="text">"We have a wiki??"</p>
-            </div>
-          </div>
-
-          <div class="column">
-            <div class="card">
-              <h2 class="text">ThatRhynoGuy</h2>
-              <p class="text">Minecraft Server Owner</p>
-              <img src="img/team/rhyno.svg" alt="Avatar" class="avatar">
-              <p class="text">"I am old."</p>
-            </div>
-          </div>
-        </div>
-      </div> <!-- Members -->
-
-      <!-- Mods moved to their own tab: placed before Links so it's a sibling tabcontent -->
-      <div id="Mods" class="tabcontent" style="display:none;">
-        <h2 class="text">Mods</h2>
-        <p class="text">Below are our mods - live stats are populated from Modrinth.</p>
-
-        <div class="row mods" style="margin-top:12px; margin-bottom:12px;">
-          <div class="column">
-            <div class="card" data-slug="ait">
-              <h2 class="text">Adventures In Time</h2>
-              <img src="https://cdn.modrinth.com/data/ZMP9ZjB9/20bbedbb8d06d656b8b123a821fdd5ab5f3c999a.png" alt="Modrinth" class="avatar">
-              <a class="link" href="https://modrinth.com/mod/ait">modrinth.com/mod/ait</a>
-              <span class="meta">Version: — • Downloads: —</span>
-              <p class="text">A timey-wimey mod adventure - Adapts Doctor Who themes into Minecraft.</p>
-            </div>
-          </div>
-
-          <div class="column">
-            <div class="card" data-slug="ait-extras">
-              <h2 class="text">AIT Extras</h2>
-              <img src="https://cdn.modrinth.com/data/JhhRNCFa/32d952d3bfdf333b4a1645429b1bdfd35aa69f41.png" alt="Modrinth" class="avatar">
-              <a class="link" href="https://modrinth.com/mod/ait-extras">modrinth.com/mod/ait-extras</a>
-              <span class="meta">Version: — • Downloads: —</span>
-              <p class="text">Addon mod for Adventures in Time by AddieDaBaddie!</p>
-            </div>
-          </div>
-
-          <div class="column">
-            <div class="card" data-slug="amblekit">
-              <h2 class="text">AmbleKit</h2>
-              <img src="https://cdn.modrinth.com/data/ZNWAUUsB/45c6687b82c55d993084006abfd4e240cfd4a76b.png" alt="Modrinth" class="avatar">
-              <a class="link" href="https://modrinth.com/mod/amblekit">modrinth.com/mod/amblekit</a>
-              <span class="meta">Version: — • Downloads: —</span>
-              <p class="text">Our utility library and tools for modders - AmbleKit.</p>
-            </div>
-          </div>
-
-          <div class="column">
-            <div class="card" data-slug="amble-stargate">
-              <h2 class="text">Stargate</h2>
-              <img src="https://cdn.modrinth.com/data/IoarhpFS/7daf0ae33f706baceb95225e1813208335717dfe.png" alt="Modrinth" class="avatar">
-              <a class="link" href="https://modrinth.com/mod/amble-stargate">modrinth.com/mod/amble-stargate</a>
-              <span class="meta">Version: — • Downloads: —</span>
-              <p class="text">Stargate mod!</p>
-            </div>
-          </div>
-
-          <div class="column">
-            <div class="card" data-slug="loqors-weeping-angels">
-              <h2 class="text">Loqor's Weeping Angels</h2>
-              <img src="https://cdn.modrinth.com/data/ufXjDQbl/94b915e59839dbbc4eaf8a639090f71d0ad302ef.png" alt="Modrinth" class="avatar">
-              <a class="link" href="https://modrinth.com/mod/loqors-weeping-angels">modrinth.com/mod/loqors-weeping-angels</a>
-              <span class="meta">Version: — • Downloads: —</span>
-              <p class="text">Don't blink.</p>
-            </div>
-          </div>
-
-          <div class="column">
-            <div class="card" data-slug="k9-mod">
-              <h2 class="text">K9 Mod</h2>
-              <img src="https://cdn.modrinth.com/data/KZvTlFBC/85478e5ebebbbbb4af7ebbd88add662c9b615de3.png" alt="Modrinth" class="avatar">
-              <a class="link" href="https://modrinth.com/mod/k9-mod">modrinth.com/mod/k9-mod</a>
-              <span class="meta">Version: — • Downloads: —</span>
-              <p class="text">Adds K-9 from Doctor Who to Minecraft!</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Wiki tab: curated links and documentation -->
-      <div id="Wiki" class="tabcontent" style="display:none;">
-        <h2 class="text">Wiki & Documentation</h2>
-        <p class="text">Useful links to documentation, guides and mod wikis. Will be updated as we write more.</p>
-
-        <center>
-          <ul style="list-style:none; padding:0;">
-            <li style="margin:10px 0;"><a class="link" href="https://amblelabs.github.io/ait-wiki/">Adventures In Time Wiki (Player & Developer Wiki)</a></li>
-            <li style="margin:10px 0;"><a class="link" href="https://modrinth.com/organization/amble-labs">Modrinth Organization (mods & docs)</a></li>
-            <li style="margin:10px 0;"><a class="link" href="https://github.com/amblelabs/modkit">AmbleKit (developer docs)</a></li>
-          </ul>
-        </center>
-      </div>
-
-      <div id="Links" class="tabcontent">
-        <center><u class="text">Click the icon to open the link!</u></center>
-        <br>
-        <center>
-          <a href="https://discord.com/invite/WjKhRjavCj"><img src="img/discord_logo.svg" class="grow" alt="Discord" style="width:42px;height:42px;"></a>
-          <p class="text">Join our community!</p>
-          <br>
-          <a href="https://github.com/amblelabs"><img src="img/github_logo.svg" class="grow" alt="Github" style="width:42px;height:42px;"></a>
-          <p class="text">Check out our open source projects!</p>
-        </center>
-
-        <center>
-          <a href="https://modrinth.com/organization/amble-labs"><img src="img/modrinth_logo.svg" class="grow" alt="Modrinth" style="width:42px;height:42px;"></a>
-          <p class="text">Check out our mods!</p>
-          <br>
-          <a href="https://www.youtube.com/@amble_labs?sub_confirmation=1"><img src="img/youtube_logo.svg" class="grow" alt="Youtube" style="width:42px;height:42px;"></a>
-          <p class="text">We also make videos too!</p>
-        </center>
-
-        <hr width="100%" color="#252525" size="2">
-
-        <center>
-          <h3 class="text">Feeling generous or want to support the team?</h3>
-          <h4 class="text">Feel free to donate!</h4>
-        </center>
-
-        <center>
-          <a href="https://ko-fi.com/Loqor"><img src="img/kofi_logo.svg" class="grow" alt="Money" style="width:42px;height:42px;"></a>
-          <p class="text">Kofi (loqor)</p>
-          <a href="https://boosty.to/dr.theo"><img src="img/boosty_logo.svg" class="grow" alt="Money" style="width:42px;height:42px;"></a>
-          <p class="text">Boosty (theo)</p>
-          <a href="https://ko-fi.com/addi3dabaddie"><img src="img/kofi_logo.svg" class="grow" alt="Money" style="width:42px;height:42px;"></a>
-          <p class="text">Kofi (Addie)</p>
-        </center>
-
-        <hr width="100%" color="#252525" size="2">
-
-        <center>
-          <h3 class="text">Would you like us to make a mod for you?</h3>
-        </center>
-        <center>
-          <span class="text">Feel free to check out our commissions form, found</span>
-          <a class="link" href="https://docs.google.com/forms/d/e/1FAIpQLSddNEX7eRlWgrQ6YhKJXFhTe2kgu9pnFlR5Va0dlu9SD-GFCA/viewform">Here</a>
-        </center>
-      </div> <!-- Links -->
-    </div> <!-- section -->
+      </section>
+    </main>
 
     <Footer />
 
-  <!-- Tilt toggle control (removed) -->
-
-    <script is:inline>
-      function opentab(evt, tabName) {
-        var i, tabcontent, tablinks;
-        tabcontent = document.getElementsByClassName('tabcontent');
-        for (i = 0; i < tabcontent.length; i++) {
-          tabcontent[i].style.display = 'none';
-        }
-        tablinks = document.getElementsByClassName('tablinks');
-        for (i = 0; i < tablinks.length; i++) {
-          tablinks[i].className = tablinks[i].className.replace(' active', '');
-        }
-        document.getElementById(tabName).style.display = 'block';
-        evt.currentTarget.className += ' active';
-      }
-      document.getElementById('defaultOpen').click();
-    </script>
-
-    <!-- Tilt script -->
-    <script src="../js/tilt.js"></script>
-    <!-- Settings / hamburger menu -->
-    <button id="hamburgerBtn" class="hamburger" aria-expanded="false" aria-controls="settingsMenu" aria-label="Open settings"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu-icon lucide-menu"><path d="M4 5h16"/><path d="M4 12h16"/><path d="M4 19h16"/></svg></button>
+    <!-- Settings hamburger -->
+    <button id="hamburgerBtn" class="hamburger" aria-expanded="false" aria-controls="settingsMenu" aria-label="Open settings">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16"/><path d="M4 12h16"/><path d="M4 19h16"/></svg>
+    </button>
 
     <div id="settingsMenu" class="settings-menu" role="dialog" aria-modal="false" hidden>
       <div class="settings-panel">
         <header class="settings-header">
           <h3>Settings</h3>
-          <button id="settingsClose" class="settings-close" aria-label="Close settings">✕</button>
+          <button id="settingsClose" class="settings-close" aria-label="Close settings">&times;</button>
         </header>
-
         <div class="settings-body">
           <div class="setting-row">
             <label class="setting-label">Tilt</label>
-            <label class="switch">
-              <input id="menuTiltToggle" type="checkbox">
-              <span class="slider round"></span>
-            </label>
+            <label class="switch"><input id="menuTiltToggle" type="checkbox"><span class="slider round"></span></label>
           </div>
-
           <div class="setting-row">
             <label class="setting-label">Saturn Mode</label>
-            <label class="switch">
-              <input id="saturnToggle" type="checkbox">
-              <span class="slider round"></span>
-            </label>
+            <label class="switch"><input id="saturnToggle" type="checkbox"><span class="slider round"></span></label>
           </div>
-
           <div class="setting-row">
-            <label class="setting-label">Party Mode <small style="color: #ff8">(WARNING: EPILEPSY)</small></label>
-            <label class="switch">
-              <input id="partyToggle" type="checkbox">
-              <span class="slider round"></span>
-            </label>
+            <label class="setting-label">Party Mode <small class="warn-text">(EPILEPSY WARNING)</small></label>
+            <label class="switch"><input id="partyToggle" type="checkbox"><span class="slider round"></span></label>
           </div>
         </div>
-
         <footer class="settings-footer">
-          <small class="muted">Settings are saved to your browser.</small>
+          <small class="muted">Settings saved to your browser.</small>
         </footer>
       </div>
     </div>
+
+    <!-- Tab navigation script -->
+    <script is:inline>
+      (function() {
+        const btns = document.querySelectorAll('.nav-btn');
+        const panels = document.querySelectorAll('.tab-panel');
+
+        function switchTab(tabId) {
+          btns.forEach(b => b.classList.toggle('active', b.dataset.tab === tabId));
+          panels.forEach(p => {
+            const isActive = p.id === 'tab-' + tabId;
+            p.classList.toggle('active', isActive);
+          });
+        }
+
+        btns.forEach(btn => {
+          btn.addEventListener('click', () => switchTab(btn.dataset.tab));
+        });
+      })();
+    </script>
+
+    <!-- Tilt script -->
+    <script src="../js/tilt.js"></script>
     <!-- Settings logic -->
     <script src="../js/settings.js"></script>
+    <!-- Mods data -->
     <script src="../js/mods.js"></script>
   </body>
 </html>
-
