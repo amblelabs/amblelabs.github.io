@@ -42,7 +42,7 @@
       },
       {
         "name": "Saturn",
-        "role": "Game Director, Sponsor & QA Lead",
+        "role": "Mod Director & QA Lead",
         "avatar": "/img/team/saturn.svg",
         "link": null,
         "quote": "if you then is? Yes or the no of the what? Yes infact the. Hello, everybody my name is mark my pliars and in todays video we'll"
@@ -145,14 +145,15 @@
         "name": "VenWhoVian",
         "avatar": "/img/team/ven.svg",
         "role": "Media Person",
-        "link": "https://www.youtube.com/@VenWhoVian",
+        "link": "https://youtube.com/@VenWhoVian",
         "quote": "What do I do again?"
       },
       {
         "name": "Echo",
         "avatar": "/img/team/echo.svg",
         "role": "Wiki Curator",
-        "link": "https://github.com/EchoDidAThing1048",
+        "link2": "https://github.com/EchoDidAThing1048",
+        "link": "https://echodidathing1048.github.io/",
         "quote": "Wait, we have a wiki?"
       },
       {
