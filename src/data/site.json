@@ -76,26 +76,6 @@
         "quote": "Don't dwell in the past, always march onwards."
       }
     ],
-    "junior_developers": [
-      {
-        "name": "CosmicFire",
-        "avatar": "/img/team/cosmic.svg",
-        "link": "https://github.com/Cosmic-Fires",
-        "quote": "No, I don't have fries"
-      },
-      {
-        "name": "K King",
-        "avatar": "/img/team/k_king.svg",
-        "link": "https://x.com/ItsKKing",
-        "quote": "LET ME OUT OF THIS WEBSITE PLEAS-"
-      },
-      {
-        "name": "Nanowu",
-        "avatar": "/img/team/nanowu.svg",
-        "link": "https://nanuwo.github.io/",
-        "quote": "nonuwo"
-      }
-    ],
     "artists": [
       {
         "name": "Ouro",
@@ -103,6 +83,13 @@
         "role": "Lead Art Director",
         "link": "https://ouro-the-boro.carrd.co",
         "quote": "Ouroro Borealis."
+      },
+      {
+        "name": "Wanzz",
+        "avatar": "/img/team/wanzz.svg",
+        "role": "Artist",
+        "link": null,
+        "quote": ""
       },
       {
         "name": "Dian",
@@ -169,6 +156,32 @@
         "role": "Minecraft Server Owner",
         "link": null,
         "quote": "I am old."
+      }
+    ],
+    "junior_developers": [
+      {
+        "name": "CosmicFire",
+        "avatar": "/img/team/cosmic.svg",
+        "link": "https://github.com/Cosmic-Fires",
+        "quote": "No, I don't have fries"
+      },
+      {
+        "name": "K King",
+        "avatar": "/img/team/k_king.svg",
+        "link": "https://x.com/ItsKKing",
+        "quote": "LET ME OUT OF THIS WEBSITE PLEAS-"
+      },
+      {
+        "name": "Nanowu",
+        "avatar": "/img/team/nanowu.svg",
+        "link": "https://nanuwo.github.io/",
+        "quote": "nonuwo"
+      },
+      {
+        "name": "Ember",
+        "avatar": "/img/team/ember.webp",
+        "link": null,
+        "quote": ""
       }
     ]
   },
