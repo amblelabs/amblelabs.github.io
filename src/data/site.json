@@ -1,7 +1,7 @@
 {
   "name": "AmbleLabs",
   "tagline": "A Minecraft Mod and Game Development Studio.",
-  "description": "We are a small Development team that mainly focuses on making mods for Minecraft (fabric 1.20.1) revolving around; Doctor Who, Stargate, and Super Heroes!",
+  "description": "We are a small Development team that mainly focuses on making mods for Minecraft revolving around Doctor Who, Stargate, and Super Heroes!",
   "youtube_embed": "https://www.youtube.com/embed/5Wvh-TaVLm8?si=yk2Gp6oj37jZzhqm",
   "links": {
     "discord": "https://discord.com/invite/WjKhRjavCj",
@@ -120,7 +120,7 @@
       },
       {
         "name": "RatZoomie",
-        "avatar": "/img/team/rat.svg",
+        "avatar": "/img/team/ratzoomie.webp",
         "role": "Music & Sound Designer",
         "link": null,
         "quote": ""
