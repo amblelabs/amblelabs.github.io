@@ -55,6 +55,8 @@ document.addEventListener('DOMContentLoaded', () => {
     return { version: versionLabel, downloads: downloads, icon };
   };
 
+  let totalDownloads = 0;
+
   (async function populateAll() {
     for (const card of modCards) {
       let slug = card.dataset.slug && String(card.dataset.slug).trim();
@@ -79,7 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (!slug) {
         meta.classList.remove('loading');
-        meta.textContent = 'Version: \u2014 \u2022 Downloads: \u2014';
+        meta.textContent = 'v\u2014 \u2022 \u2014 downloads';
         continue;
       }
 
@@ -87,7 +89,8 @@ document.addEventListener('DOMContentLoaded', () => {
       const now = Date.now();
       if (cached && (now - cached.ts) < TTL) {
         meta.classList.remove('loading');
-        meta.textContent = `Version: ${cached.version} \u2022 Downloads: ${formatNumber(cached.downloads)}`;
+        meta.textContent = `v${cached.version} \u2022 ${formatNumber(cached.downloads)} downloads`;
+        if (cached.downloads) totalDownloads += cached.downloads;
         if (avatarImg && cached.icon) {
           try { avatarImg.src = cached.icon; } catch (e) { /* ignore */ }
         }
@@ -100,7 +103,8 @@ document.addEventListener('DOMContentLoaded', () => {
         cache[slug] = { version: data.version, downloads: data.downloads, icon: data.icon || null, ts: Date.now() };
         saveCache(cache);
         meta.classList.remove('loading');
-        meta.textContent = `Version: ${data.version} \u2022 Downloads: ${formatNumber(data.downloads)}`;
+        meta.textContent = `v${data.version} \u2022 ${formatNumber(data.downloads)} downloads`;
+        if (data.downloads) totalDownloads += data.downloads;
 
         if (avatarImg && data.icon) {
           const spinner = document.createElement('div');
@@ -128,18 +132,24 @@ document.addEventListener('DOMContentLoaded', () => {
         if (cached) {
           meta.classList.remove('loading');
           meta.classList.add('stale');
-          meta.textContent = `Version: ${cached.version} \u2022 Downloads: ${formatNumber(cached.downloads)} (stale)`;
+          meta.textContent = `v${cached.version} \u2022 ${formatNumber(cached.downloads)} downloads (stale)`;
+          if (cached.downloads) totalDownloads += cached.downloads;
           if (avatarImg && cached.icon) {
             try { avatarImg.src = cached.icon; } catch (e) { /* ignore */ }
           }
         } else {
           meta.classList.remove('loading');
-          meta.textContent = 'Version: \u2014 \u2022 Downloads: \u2014';
+          meta.textContent = 'v\u2014 \u2022 \u2014 downloads';
         }
         console.warn('Failed to fetch Modrinth data for', slug, err);
       }
 
       await new Promise((r) => setTimeout(r, 120));
+    }
+
+    // Update total downloads in About section
+    if (typeof window._updateTotalDownloads === 'function') {
+      window._updateTotalDownloads(totalDownloads);
     }
   })();
 });
