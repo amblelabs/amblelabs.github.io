@@ -1,0 +1,207 @@
+{
+  "name": "AmbleLabs",
+  "tagline": "A Minecraft Mod and Game Development Studio.",
+  "description": "We are a small Development team that mainly focuses on making mods for Minecraft (fabric 1.20.1) revolving around; Doctor Who, Stargate, and Super Heroes!",
+  "youtube_embed": "https://www.youtube.com/embed/5Wvh-TaVLm8?si=yk2Gp6oj37jZzhqm",
+  "links": {
+    "discord": "https://discord.com/invite/WjKhRjavCj",
+    "github": "https://github.com/amblelabs",
+    "modrinth": "https://modrinth.com/organization/amble-labs",
+    "youtube": "https://www.youtube.com/@amble_labs?sub_confirmation=1",
+    "commissions": "https://docs.google.com/forms/d/e/1FAIpQLSddNEX7eRlWgrQ6YhKJXFhTe2kgu9pnFlR5Va0dlu9SD-GFCA/viewform"
+  },
+  "donations": [
+    { "name": "Loqor", "platform": "Ko-fi", "url": "https://ko-fi.com/Loqor", "icon": "kofi" },
+    { "name": "Theo", "platform": "Boosty", "url": "https://boosty.to/dr.theo", "icon": "boosty" },
+    { "name": "Addie", "platform": "Ko-fi", "url": "https://ko-fi.com/addi3dabaddie", "icon": "kofi" }
+  ],
+  "members": {
+    "developers": [
+      {
+        "name": "Loqor",
+        "avatar": "/img/team/loqor.svg",
+        "link": "https://loqor.dev",
+        "quote": "From dust we came, to dust we shall return."
+      },
+      {
+        "name": "Theo",
+        "avatar": "/img/team/theo.svg",
+        "link": "https://theo.is-a.dev/",
+        "quote": "theoretical"
+      },
+      {
+        "name": "Duzo",
+        "avatar": "/img/team/duzo.svg",
+        "link": "https://duzo.is-a.dev/",
+        "quote": "elite ball knowledge"
+      },
+      {
+        "name": "Saturn",
+        "avatar": "/img/team/saturn.svg",
+        "link": null,
+        "quote": "if you then is? Yes or the no of the what? Yes infact the. Hello, everybody my name is mark my pliars and in todays video we'll"
+      },
+      {
+        "name": "AddieDaBaddie",
+        "avatar": "/img/team/addie.svg",
+        "link": "https://addi3.github.io/",
+        "quote": "Zhe bluetooth device has connected a-success fillet"
+      },
+      {
+        "name": "Monke",
+        "avatar": "/img/team/monke.svg",
+        "link": "https://github.com/rapbattlegod32",
+        "quote": "return to monke"
+      },
+      {
+        "name": "Lakehascake",
+        "avatar": "/img/team/lake.svg",
+        "link": "https://en.pronouns.page/@lakehascake",
+        "quote": "yes, i do have cake, no, i don't mean like that."
+      },
+      {
+        "name": "Pan",
+        "avatar": "/img/team/pan.svg",
+        "link": "https://github.com/Mansarde",
+        "quote": "Don't dwell in the past, always march onwards."
+      }
+    ],
+    "junior_developers": [
+      {
+        "name": "CosmicFire",
+        "avatar": "/img/team/cosmic.svg",
+        "link": "https://github.com/Cosmic-Fires",
+        "quote": "No, I don't have fries"
+      },
+      {
+        "name": "K King",
+        "avatar": "/img/team/k_king.svg",
+        "link": "https://x.com/ItsKKing",
+        "quote": "LET ME OUT OF THIS WEBSITE PLEAS-"
+      },
+      {
+        "name": "Nanowu",
+        "avatar": "/img/team/nanowu.svg",
+        "link": "https://nanuwo.github.io/",
+        "quote": "nonuwo"
+      }
+    ],
+    "artists": [
+      {
+        "name": "Ouro",
+        "avatar": "/img/team/ouro.svg",
+        "link": "https://ouro-the-boro.carrd.co",
+        "quote": "Ouroro Borealis."
+      },
+      {
+        "name": "Dian",
+        "avatar": "/img/team/dian.svg",
+        "link": "https://github.com/Dian-Vidus",
+        "quote": "I sold myself to Loqor"
+      },
+      {
+        "name": "Tright",
+        "avatar": "/img/team/tright.svg",
+        "link": null,
+        "quote": "Mamma mia!"
+      },
+      {
+        "name": "Maggie",
+        "avatar": "/img/team/maggie.svg",
+        "link": null,
+        "quote": "Stellaris yum"
+      }
+    ],
+    "others": [
+      {
+        "name": "VenWhoVian",
+        "avatar": "/img/team/ven.svg",
+        "role": "Media Person",
+        "link": "https://www.youtube.com/@VenWhoVian",
+        "quote": "What do I do again?"
+      },
+      {
+        "name": "Echo",
+        "avatar": "/img/team/echo.svg",
+        "role": "Wiki Curator",
+        "link": "https://github.com/EchoDidAThing1048",
+        "quote": "Wait, we have a wiki?"
+      },
+      {
+        "name": "Tree",
+        "avatar": "/img/team/tree.svg",
+        "role": "Wiki Curator",
+        "link": "https://github.com/trerrturyy",
+        "quote": "We have a wiki??"
+      },
+      {
+        "name": "ThatRhynoGuy",
+        "avatar": "/img/team/rhyno.svg",
+        "role": "Minecraft Server Owner",
+        "link": null,
+        "quote": "I am old."
+      }
+    ]
+  },
+  "mods": [
+    {
+      "name": "Adventures In Time",
+      "slug": "ait",
+      "icon": "https://cdn.modrinth.com/data/ZMP9ZjB9/20bbedbb8d06d656b8b123a821fdd5ab5f3c999a.png",
+      "url": "https://modrinth.com/mod/ait",
+      "description": "A timey-wimey mod adventure - Adapts Doctor Who themes into Minecraft."
+    },
+    {
+      "name": "AIT Extras",
+      "slug": "ait-extras",
+      "icon": "https://cdn.modrinth.com/data/JhhRNCFa/32d952d3bfdf333b4a1645429b1bdfd35aa69f41.png",
+      "url": "https://modrinth.com/mod/ait-extras",
+      "description": "Addon mod for Adventures in Time by AddieDaBaddie!"
+    },
+    {
+      "name": "AmbleKit",
+      "slug": "amblekit",
+      "icon": "https://cdn.modrinth.com/data/ZNWAUUsB/45c6687b82c55d993084006abfd4e240cfd4a76b.png",
+      "url": "https://modrinth.com/mod/amblekit",
+      "description": "Our utility library and tools for modders - AmbleKit."
+    },
+    {
+      "name": "Stargate",
+      "slug": "amble-stargate",
+      "icon": "https://cdn.modrinth.com/data/IoarhpFS/7daf0ae33f706baceb95225e1813208335717dfe.png",
+      "url": "https://modrinth.com/mod/amble-stargate",
+      "description": "Stargate mod!"
+    },
+    {
+      "name": "Loqor's Weeping Angels",
+      "slug": "loqors-weeping-angels",
+      "icon": "https://cdn.modrinth.com/data/ufXjDQbl/94b915e59839dbbc4eaf8a639090f71d0ad302ef.png",
+      "url": "https://modrinth.com/mod/loqors-weeping-angels",
+      "description": "Don't blink."
+    },
+    {
+      "name": "K9 Mod",
+      "slug": "k9-mod",
+      "icon": "https://cdn.modrinth.com/data/KZvTlFBC/85478e5ebebbbbb4af7ebbd88add662c9b615de3.png",
+      "url": "https://modrinth.com/mod/k9-mod",
+      "description": "Adds K-9 from Doctor Who to Minecraft!"
+    }
+  ],
+  "wikis": [
+    {
+      "name": "Adventures In Time Wiki",
+      "description": "Player & Developer Wiki",
+      "url": "https://amblelabs.github.io/ait-wiki/"
+    },
+    {
+      "name": "Modrinth Organization",
+      "description": "Mods & docs",
+      "url": "https://modrinth.com/organization/amble-labs"
+    },
+    {
+      "name": "AmbleKit",
+      "description": "Developer docs",
+      "url": "https://github.com/amblelabs/modkit"
+    }
+  ]
+}

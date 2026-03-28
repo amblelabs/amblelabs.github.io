@@ -1,16 +1,6 @@
 ---
-
 ---
 
 <footer>
-    <p id="copyright" class="text">© {new Date().getFullYear()} AmbleLabs</p>
+  <p id="copyright">&copy; {new Date().getFullYear()} AmbleLabs</p>
 </footer>
-
-<script>
-    window.addEventListener('DOMContentLoaded', () => {
-        const yearCopyright = document.getElementById('copyright');
-        if (!yearCopyright) return;
-
-        yearCopyright.innerText = `© ${new Date().getFullYear()} AmbleLabs`;
-    });
-</script>
