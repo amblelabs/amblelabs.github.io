@@ -13,30 +13,36 @@
   "donations": [
     { "name": "Loqor", "platform": "Ko-fi", "url": "https://ko-fi.com/Loqor", "icon": "kofi" },
     { "name": "Theo", "platform": "Boosty", "url": "https://boosty.to/dr.theo", "icon": "boosty" },
-    { "name": "Addie", "platform": "Ko-fi", "url": "https://ko-fi.com/addi3dabaddie", "icon": "kofi" }
+    { "name": "Duzo", "platform": "Ko-fi", "url": "https://ko-fi.com/duzoo", "icon": "kofi" },
+    { "name": "Addie", "platform": "Ko-fi", "url": "https://ko-fi.com/addi3dabaddie", "icon": "kofi" },
+    { "name": "Classic", "platform": "Ko-fi", "url": "https://ko-fi.com/redpanda39441", "icon": "kofi" }
   ],
   "members": {
     "developers": [
       {
         "name": "Loqor",
+        "role": "Project Manager & Lead Frontend Developer",
         "avatar": "/img/team/loqor.svg",
         "link": "https://loqor.dev",
         "quote": "From dust we came, to dust we shall return."
       },
       {
         "name": "Theo",
+        "role": "Lead Backend Developer",
         "avatar": "/img/team/theo.svg",
         "link": "https://theo.is-a.dev/",
         "quote": "theoretical"
       },
       {
         "name": "Duzo",
+        "role": "Developer",
         "avatar": "/img/team/duzo.svg",
         "link": "https://duzo.is-a.dev/",
         "quote": "elite ball knowledge"
       },
       {
         "name": "Saturn",
+        "role": "Game Director, Sponsor & QA Lead",
         "avatar": "/img/team/saturn.svg",
         "link": null,
         "quote": "if you then is? Yes or the no of the what? Yes infact the. Hello, everybody my name is mark my pliars and in todays video we'll"
@@ -44,24 +50,28 @@
       {
         "name": "AddieDaBaddie",
         "avatar": "/img/team/addie.svg",
+        "role": "Developer",
         "link": "https://addi3.github.io/",
         "quote": "Zhe bluetooth device has connected a-success fillet"
       },
       {
         "name": "Monke",
         "avatar": "/img/team/monke.svg",
+        "role": "Developer",
         "link": "https://github.com/rapbattlegod32",
         "quote": "return to monke"
       },
       {
         "name": "Lakehascake",
         "avatar": "/img/team/lake.svg",
+        "role": "Developer",
         "link": "https://en.pronouns.page/@lakehascake",
         "quote": "yes, i do have cake, no, i don't mean like that."
       },
       {
         "name": "Pan",
         "avatar": "/img/team/pan.svg",
+        "role": "Developer",
         "link": "https://github.com/Mansarde",
         "quote": "Don't dwell in the past, always march onwards."
       }
@@ -90,24 +100,42 @@
       {
         "name": "Ouro",
         "avatar": "/img/team/ouro.svg",
+        "role": "Lead Art Director",
         "link": "https://ouro-the-boro.carrd.co",
         "quote": "Ouroro Borealis."
       },
       {
         "name": "Dian",
         "avatar": "/img/team/dian.svg",
+        "role": "Music & Sound Designer",
         "link": "https://github.com/Dian-Vidus",
         "quote": "I sold myself to Loqor"
       },
       {
+        "name": "Lucien",
+        "avatar": "/img/team/lucien.svg",
+        "role": "Music & Sound Designer",
+        "link": "",
+        "quote": ""
+      },
+      {
+        "name": "RatZoomie",
+        "avatar": "/img/team/rat.svg",
+        "role": "Music & Sound Designer",
+        "link": null,
+        "quote": ""
+      },
+      {
         "name": "Tright",
         "avatar": "/img/team/tright.svg",
+        "role": "Artist",
         "link": null,
         "quote": "Mamma mia!"
       },
       {
         "name": "Maggie",
         "avatar": "/img/team/maggie.svg",
+        "role": "Artist",
         "link": null,
         "quote": "Stellaris yum"
       }
