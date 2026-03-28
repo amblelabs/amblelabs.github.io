@@ -340,22 +340,39 @@ const allMembers = [
         document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
 
         // Active nav link on scroll
-        const sections = document.querySelectorAll('.section');
+        const sections = Array.from(document.querySelectorAll('.section'));
         const navLinks = document.querySelectorAll('.nav-link');
         const nav = document.getElementById('mainNav');
 
-        const sectionObserver = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              const id = entry.target.id;
-              navLinks.forEach(link => {
-                link.classList.toggle('active', link.dataset.section === id);
-              });
+        function updateActiveNav() {
+          const navHeight = nav ? nav.offsetHeight : 80;
+          // The "trigger line" sits just below the nav bar.
+          // The last section whose top is at-or-above this line is the active one.
+          const activeLine = navHeight + 1;
+          let activeId = null;
+          for (let i = sections.length - 1; i >= 0; i--) {
+            if (sections[i].getBoundingClientRect().top <= activeLine) {
+              activeId = sections[i].id;
+              break;
             }
+          }
+          navLinks.forEach(link => {
+            link.classList.toggle('active', link.dataset.section === activeId);
           });
-        }, { threshold: 0.3, rootMargin: '-80px 0px -50% 0px' });
+        }
 
-        sections.forEach(s => sectionObserver.observe(s));
+        let navScrollPending = false;
+        window.addEventListener('scroll', () => {
+          if (!navScrollPending) {
+            requestAnimationFrame(() => {
+              updateActiveNav();
+              navScrollPending = false;
+            });
+            navScrollPending = true;
+          }
+        }, { passive: true });
+
+        updateActiveNav();
 
         // Nav scroll background
         window.addEventListener('scroll', () => {
