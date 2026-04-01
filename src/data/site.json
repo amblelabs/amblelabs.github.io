@@ -3,74 +3,120 @@
   "tagline": "A Minecraft Mod and Game Development Studio.",
   "description": "We are a small Development team that mainly focuses on making mods for Minecraft revolving around Doctor Who, Stargate, and Super Heroes!",
   "youtube_embed": "https://www.youtube.com/embed/5Wvh-TaVLm8?si=yk2Gp6oj37jZzhqm",
+  "commissions": "https://docs.google.com/forms/d/e/1FAIpQLSddNEX7eRlWgrQ6YhKJXFhTe2kgu9pnFlR5Va0dlu9SD-GFCA/viewform",
   "links": {
-    "discord": "https://discord.com/invite/WjKhRjavCj",
-    "github": "https://github.com/amblelabs",
-    "modrinth": "https://modrinth.com/organization/amble-labs",
-    "youtube": "https://www.youtube.com/@amble_labs?sub_confirmation=1",
-    "commissions": "https://docs.google.com/forms/d/e/1FAIpQLSddNEX7eRlWgrQ6YhKJXFhTe2kgu9pnFlR5Va0dlu9SD-GFCA/viewform"
+    "discord": {
+      "url": "https://discord.com/invite/WjKhRjavCj",
+      "name": "Discord",
+      "description": "Join our community"
+    },
+    "github": {
+      "url": "https://github.com/amblelabs",
+      "name": "GitHub",
+      "description": "Open source projects"
+    },
+    "codeberg": {
+      "url": "https://codeberg.org/amblelabs",
+      "name": "Codeberg",
+      "description": "Open source projects"
+    },
+    "modrinth": {
+      "url": "https://modrinth.com/organization/amble-labs",
+      "name": "Modrinth",
+      "description": "Browse our mods"
+    },
+    "youtube": {
+      "url": "https://www.youtube.com/@amble_labs?sub_confirmation=1",
+      "name": "YouTube",
+      "description": "Watch our YouTube videos"
+    }
   },
   "donations": [
-    { "name": "Loqor", "platform": "Ko-fi", "url": "https://ko-fi.com/Loqor", "icon": "kofi" },
-    { "name": "Theo", "platform": "Boosty", "url": "https://boosty.to/dr.theo", "icon": "boosty" },
-    { "name": "Duzo", "platform": "Ko-fi", "url": "https://ko-fi.com/duzoo", "icon": "kofi" },
-    { "name": "Addie", "platform": "Ko-fi", "url": "https://ko-fi.com/addi3dabaddie", "icon": "kofi" },
-    { "name": "Classic", "platform": "Ko-fi", "url": "https://ko-fi.com/redpanda39441", "icon": "kofi" }
+    {
+      "name": "Loqor",
+      "platform": "Ko-fi",
+      "url": "https://ko-fi.com/Loqor",
+      "icon": "kofi"
+    },
+    {
+      "name": "Theo",
+      "platform": "Boosty",
+      "url": "https://boosty.to/dr.theo",
+      "icon": "boosty"
+    },
+    {
+      "name": "Duzo",
+      "platform": "Ko-fi",
+      "url": "https://ko-fi.com/duzoo",
+      "icon": "kofi"
+    },
+    {
+      "name": "Addie",
+      "platform": "Ko-fi",
+      "url": "https://ko-fi.com/addi3dabaddie",
+      "icon": "kofi"
+    },
+    {
+      "name": "Classic",
+      "platform": "Ko-fi",
+      "url": "https://ko-fi.com/redpanda39441",
+      "icon": "kofi"
+    }
   ],
   "members": {
     "developers": [
       {
         "name": "Loqor",
         "role": "Project Manager & Lead Frontend Developer",
-        "avatar": "/img/team/loqor.svg",
+        "avatar": "/img/team/loqor.webp",
         "link": "https://loqor.dev",
         "quote": "From dust we came, to dust we shall return."
       },
       {
         "name": "Theo",
         "role": "Lead Backend Developer",
-        "avatar": "/img/team/theo.svg",
+        "avatar": "/img/team/theo.png",
         "link": "https://theo.is-a.dev/",
         "quote": "theoretical"
       },
       {
         "name": "Duzo",
         "role": "Developer",
-        "avatar": "/img/team/duzo.svg",
+        "avatar": "/img/team/duzo.webp",
         "link": "https://duzo.is-a.dev/",
         "quote": "elite ball knowledge"
       },
       {
         "name": "Saturn",
         "role": "Mod Director & QA Lead",
-        "avatar": "/img/team/saturn.svg",
+        "avatar": "/img/team/saturn.png",
         "link": null,
         "quote": "if you then is? Yes or the no of the what? Yes infact the. Hello, everybody my name is mark my pliars and in todays video we'll"
       },
       {
         "name": "AddieDaBaddie",
-        "avatar": "/img/team/addie.svg",
+        "avatar": "/img/team/addie.webp",
         "role": "Developer",
         "link": "https://addi3.github.io/",
         "quote": "Zhe bluetooth device has connected a-success fillet"
       },
       {
         "name": "Monke",
-        "avatar": "/img/team/monke.svg",
+        "avatar": "/img/team/monke.webp",
         "role": "Developer",
         "link": "https://github.com/rapbattlegod32",
         "quote": "return to monke"
       },
       {
         "name": "Lakehascake",
-        "avatar": "/img/team/lake.svg",
+        "avatar": "/img/team/lake.webp",
         "role": "Developer",
         "link": "https://en.pronouns.page/@lakehascake",
         "quote": "yes, i do have cake, no, i don't mean like that."
       },
       {
         "name": "Pan",
-        "avatar": "/img/team/pan.svg",
+        "avatar": "/img/team/pan.jpeg",
         "role": "Developer",
         "link": "https://github.com/Mansarde",
         "quote": "Don't dwell in the past, always march onwards."
@@ -79,10 +125,17 @@
     "artists": [
       {
         "name": "Ouro",
-        "avatar": "/img/team/ouro.svg",
+        "avatar": "/img/team/ouro.webp",
         "role": "Lead Art Director",
         "link": "https://ouro-the-boro.carrd.co",
         "quote": "Ouroro Borealis."
+      },
+      {
+        "name": "Classic",
+        "avatar": "/img/team/classic.png",
+        "role": "Artist, Animator & Builder",
+        "link": "",
+        "quote": ""
       },
       {
         "name": "Wanzz",
@@ -93,7 +146,7 @@
       },
       {
         "name": "Dian",
-        "avatar": "/img/team/dian.svg",
+        "avatar": "/img/team/dian.webp",
         "role": "Music & Sound Designer",
         "link": "https://github.com/Dian-Vidus",
         "quote": "I sold myself to Loqor"
@@ -102,7 +155,7 @@
         "name": "Lucien",
         "avatar": "/img/team/lucien.svg",
         "role": "Music & Sound Designer",
-        "link": "",
+        "link": "https://linktr.ee/someone.den",
         "quote": ""
       },
       {
@@ -114,7 +167,7 @@
       },
       {
         "name": "Tright",
-        "avatar": "/img/team/tright.svg",
+        "avatar": "/img/team/tright.webp",
         "role": "Artist",
         "link": null,
         "quote": "Mamma mia!"
@@ -130,7 +183,7 @@
     "others": [
       {
         "name": "VenWhoVian",
-        "avatar": "/img/team/ven.svg",
+        "avatar": "/img/team/ven.webp",
         "role": "Media Person",
         "link": "https://youtube.com/@VenWhoVian",
         "quote": "What do I do again?"
@@ -152,7 +205,7 @@
       },
       {
         "name": "ThatRhynoGuy",
-        "avatar": "/img/team/rhyno.svg",
+        "avatar": "/img/team/rhyno.webp",
         "role": "Minecraft Server Owner",
         "link": null,
         "quote": "I am old."
@@ -161,19 +214,19 @@
     "junior_developers": [
       {
         "name": "CosmicFire",
-        "avatar": "/img/team/cosmic.svg",
+        "avatar": "/img/team/cosmic.webp",
         "link": "https://github.com/Cosmic-Fires",
         "quote": "No, I don't have fries"
       },
       {
         "name": "K King",
-        "avatar": "/img/team/k_king.svg",
+        "avatar": "/img/team/k_king.webp",
         "link": "https://x.com/ItsKKing",
         "quote": "LET ME OUT OF THIS WEBSITE PLEAS-"
       },
       {
         "name": "Nanowu",
-        "avatar": "/img/team/nanowu.svg",
+        "avatar": "/img/team/nanowu.webp",
         "link": "https://nanuwo.github.io/",
         "quote": "nonuwo"
       },
@@ -233,7 +286,7 @@
     {
       "name": "Adventures In Time Wiki",
       "description": "Player & Developer Wiki",
-      "url": "https://amblelabs.github.io/ait-wiki/"
+      "url": "/ait-wiki/"
     },
     {
       "name": "Modrinth Organization",
