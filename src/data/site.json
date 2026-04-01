@@ -67,7 +67,7 @@
     "developers": [
       {
         "name": "Loqor",
-        "role": "Project Manager & Lead Frontend Developer",
+        "role": "PM & Lead Developer",
         "avatar": "/img/team/loqor.webp",
         "link": "https://loqor.dev",
         "quote": "From dust we came, to dust we shall return."
@@ -153,10 +153,10 @@
       },
       {
         "name": "Lucien",
-        "avatar": "/img/team/lucien.svg",
+        "avatar": "/img/team/lucien.webp",
         "role": "Music & Sound Designer",
         "link": "https://linktr.ee/someone.den",
-        "quote": ""
+        "quote": "We all change when you think about it. We're all different people, all through our lives, and that's okay, that's good, you've got to keep moving, so long as you remember all the people you used to be."
       },
       {
         "name": "RatZoomie",
@@ -174,10 +174,10 @@
       },
       {
         "name": "Maggie",
-        "avatar": "/img/team/maggie.svg",
+        "avatar": "/img/team/maggie.jpg",
         "role": "Artist",
         "link": null,
-        "quote": "Stellaris yum"
+        "quote": "I snatch milk"
       }
     ],
     "others": [
@@ -234,6 +234,7 @@
         "name": "Ember",
         "avatar": "/img/team/ember.jpeg",
         "link": "https://emberspage.straw.page/",
+        "role": "Plushie extraordinaire",
         "quote": "yaoi <3"
       }
     ]
@@ -297,6 +298,16 @@
       "name": "AmbleKit",
       "description": "Developer docs",
       "url": "https://github.com/amblelabs/modkit"
+    },
+    {
+      "name": "Adventures in Time 2.x Proposals",
+      "description": "Proposals for the work-in-progress Adventures in Time 2",
+      "url": "https://codeberg.org/amblelabs/ait-next/issues"
+    },
+    {
+      "name": "Adventures in Time 2.x Docs",
+      "description": "Developer documentation for the work-in-progress Adventures in Time 2",
+      "url": "https://codeberg.org/amblelabs/ait-next/src/branch/main/docs/index.md"
     }
   ]
 }
