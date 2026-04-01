@@ -90,7 +90,6 @@
         "name": "Saturn",
         "role": "Mod Director & QA Lead",
         "avatar": "/img/team/saturn.png",
-        "link": null,
         "quote": "if you then is? Yes or the no of the what? Yes infact the. Hello, everybody my name is mark my pliars and in todays video we'll"
       },
       {
@@ -104,7 +103,7 @@
         "name": "Monke",
         "avatar": "/img/team/monke.webp",
         "role": "Developer",
-        "link": "https://github.com/rapbattlegod32",
+        "link_old": "https://github.com/rapbattlegod32",
         "quote": "return to monke"
       },
       {
@@ -118,7 +117,7 @@
         "name": "Pan",
         "avatar": "/img/team/pan.jpeg",
         "role": "Developer",
-        "link": "https://github.com/Mansarde",
+        "link_old": "https://github.com/Mansarde",
         "quote": "Don't dwell in the past, always march onwards."
       }
     ],
@@ -133,9 +132,7 @@
       {
         "name": "Classic",
         "avatar": "/img/team/classic.png",
-        "role": "Artist, Animator & Builder",
-        "link": "",
-        "quote": ""
+        "role": "Artist, Animator & Builder"
       },
       {
         "name": "Wanzz",
@@ -148,7 +145,7 @@
         "name": "Dian",
         "avatar": "/img/team/dian.webp",
         "role": "Music & Sound Designer",
-        "link": "https://github.com/Dian-Vidus",
+        "link_old": "https://github.com/Dian-Vidus",
         "quote": "I sold myself to Loqor"
       },
       {
@@ -193,14 +190,14 @@
         "avatar": "/img/team/echo.webp",
         "role": "Wiki Curator",
         "link2": "https://github.com/EchoDidAThing1048",
-        "link": "https://echodidathing1048.github.io/",
+        "link_old": "https://echodidathing1048.github.io/",
         "quote": "Wait, we have a wiki?"
       },
       {
         "name": "Tree",
         "avatar": "/img/team/tree.svg",
         "role": "Wiki Curator",
-        "link": "https://github.com/trerrturyy",
+        "link_old": "https://github.com/trerrturyy",
         "quote": "We have a wiki??"
       },
       {
@@ -215,7 +212,7 @@
       {
         "name": "CosmicFire",
         "avatar": "/img/team/cosmic.webp",
-        "link": "https://github.com/Cosmic-Fires",
+        "link_old": "https://github.com/Cosmic-Fires",
         "quote": "No, I don't have fries"
       },
       {
