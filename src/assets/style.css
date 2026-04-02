@@ -1402,6 +1402,12 @@ img {
     transition: color 0.2s ease;
 }
 
+.card-link.socials {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
 .card-link:hover {
     color: var(--accent);
 }

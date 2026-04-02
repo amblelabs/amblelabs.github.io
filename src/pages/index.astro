@@ -326,9 +326,28 @@ import ASCII from "../data/ascii.txt?raw";
                                         >
                                             {m.link
                                                 .replace("https://", "")
-                                                .replace(/\/$/, "")}
+                                                .replace(/\/$/, "")}{" "}
+                                            ↗
                                         </a>
                                     )}
+                                    <div class="card-link socials">
+                                        {m.socials &&
+                                            Object.entries(m.socials).map(
+                                                ([type, val]) => (
+                                                    <a href={val}>
+                                                        <img
+                                                            src={
+                                                                "/img/" +
+                                                                type +
+                                                                "_logo.svg"
+                                                            }
+                                                            width="24"
+                                                            height="24"
+                                                        />
+                                                    </a>
+                                                ),
+                                            )}
+                                    </div>
                                     <p class="card-quote">"{m.quote}"</p>
                                 </div>
                             ))}

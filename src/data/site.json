@@ -70,13 +70,23 @@
         "role": "PM & Lead Developer",
         "avatar": "/img/team/loqor.webp",
         "link": "https://loqor.dev",
+        "socials": {
+          "github": "https://github.com/loqor",
+          "codeberg": "https://codeberg.org/loqor",
+          "youtubeg": "https://www.youtube.com/channel/UCMCcRBw_pFgfc2Ixd98iNaA"
+        },
         "quote": "From dust we came, to dust we shall return."
       },
       {
         "name": "Theo",
         "role": "Lead Backend Developer",
         "avatar": "/img/team/theo.png",
-        "link": "https://theo.is-a.dev/",
+        "link": "https://theo.is-a.dev",
+        "socials": {
+          "github": "https://github.com/drtheodor",
+          "codeberg": "https://codeberg.org/drtheo",
+          "youtubeg": "https://www.youtube.com/channel/UC697odorPc6EM2FrvPg1Nfg"
+        },
         "quote": "theoretical"
       },
       {
@@ -84,12 +94,19 @@
         "role": "Developer",
         "avatar": "/img/team/duzo.webp",
         "link": "https://duzo.is-a.dev/",
+        "socials": {
+          "github": "https://github.com/duzos"
+        },
         "quote": "elite ball knowledge"
       },
       {
         "name": "Saturn",
         "role": "Mod Director & QA Lead",
         "avatar": "/img/team/saturn.png",
+        "socials": {
+          "github": "https://github.com/saturnorsomething",
+          "codeberg": "https://codeberg.org/thecoolersaturn"
+        },
         "quote": "if you then is? Yes or the no of the what? Yes infact the. Hello, everybody my name is mark my pliars and in todays video we'll"
       },
       {
@@ -97,13 +114,19 @@
         "avatar": "/img/team/addie.webp",
         "role": "Developer",
         "link": "https://addi3.github.io/",
+        "socials": {
+          "github": "https://github.com/addi3",
+          "codeberg": "https://codeberg.org/addi3"
+        },
         "quote": "Zhe bluetooth device has connected a-success fillet"
       },
       {
         "name": "Monke",
         "avatar": "/img/team/monke.webp",
         "role": "Developer",
-        "link_old": "https://github.com/rapbattlegod32",
+        "socials": {
+          "github": "https://github.com/rapbattlegod32"
+        },
         "quote": "return to monke"
       },
       {
@@ -111,13 +134,20 @@
         "avatar": "/img/team/lake.webp",
         "role": "Developer",
         "link": "https://en.pronouns.page/@lakehascake",
+        "socials": {
+          "github": "https://github.com/lakehascake",
+          "codeberg": "https://codeberg.org/lakehascake"
+        },
         "quote": "yes, i do have cake, no, i don't mean like that."
       },
       {
         "name": "Pan",
         "avatar": "/img/team/pan.jpeg",
         "role": "Developer",
-        "link_old": "https://github.com/Mansarde",
+        "socials": {
+          "github": "https://github.com/mansarde",
+          "codeberg": "https://codeberg.org/mansarde"
+        },
         "quote": "Don't dwell in the past, always march onwards."
       }
     ],
@@ -127,25 +157,38 @@
         "avatar": "/img/team/ouro.webp",
         "role": "Lead Art Director",
         "link": "https://ouro-the-boro.carrd.co",
+        "socials": {
+          "github": "https://github.com/Ouroboros-Games",
+          "codeberg": "https://codeberg.org/ourogames"
+        },
         "quote": "Ouroro Borealis."
       },
       {
         "name": "Classic",
         "avatar": "/img/team/classic.png",
-        "role": "Artist, Animator & Builder"
+        "role": "Artist, Animator & Builder",
+        "socials": {
+          "github": "https://github.com/pandawanda123",
+          "codeberg": "https://codeberg.org/mightyredpanda"
+        }
       },
       {
         "name": "Wanzz",
         "avatar": "/img/team/wanzz.svg",
         "role": "Artist",
-        "link": "https://x.com/Wazzakii_W",
+        "socials": {
+          "x": "https://x.com/Wazzakii_W",
+          "codeberg": "https://codeberg.org/WazzakiWanzz"
+        },
         "quote": ""
       },
       {
         "name": "Dian",
         "avatar": "/img/team/dian.webp",
         "role": "Music & Sound Designer",
-        "link_old": "https://github.com/Dian-Vidus",
+        "socials": {
+          "github": "https://github.com/Dian-Vidus"
+        },
         "quote": "I sold myself to Loqor"
       },
       {
@@ -159,21 +202,18 @@
         "name": "RatZoomie",
         "avatar": "/img/team/ratzoomie.webp",
         "role": "Music & Sound Designer",
-        "link": null,
         "quote": "just my fucking pfp"
       },
       {
         "name": "Tright",
         "avatar": "/img/team/tright.webp",
         "role": "Artist",
-        "link": null,
         "quote": "Mamma mia!"
       },
       {
         "name": "Maggie",
         "avatar": "/img/team/maggie.jpg",
         "role": "Artist",
-        "link": null,
         "quote": "I snatch milk"
       }
     ],
@@ -182,29 +222,35 @@
         "name": "VenWhoVian",
         "avatar": "/img/team/ven.webp",
         "role": "Media Person",
-        "link": "https://youtube.com/@VenWhoVian",
+        "socials": {
+          "youtubeg": "https://youtube.com/@VenWhoVian"
+        },
         "quote": "What do I do again?"
       },
       {
         "name": "Echo",
         "avatar": "/img/team/echo.webp",
         "role": "Wiki Curator",
-        "link2": "https://github.com/EchoDidAThing1048",
-        "link_old": "https://echodidathing1048.github.io/",
+        "socials": {
+          "github": "https://github.com/EchoDidAThing1048",
+          "codeberg": "https://codeberg.org/EchoFinity"
+        },
+        "link": "https://echodidathing1048.github.io/",
         "quote": "Wait, we have a wiki?"
       },
       {
         "name": "Tree",
         "avatar": "/img/team/tree.svg",
         "role": "Wiki Curator",
-        "link_old": "https://github.com/trerrturyy",
+        "socials": {
+          "github": "https://github.com/trerrturyy"
+        },
         "quote": "We have a wiki??"
       },
       {
         "name": "ThatRhynoGuy",
         "avatar": "/img/team/rhyno.webp",
         "role": "Minecraft Server Owner",
-        "link": null,
         "quote": "I am old."
       }
     ],
@@ -212,13 +258,17 @@
       {
         "name": "CosmicFire",
         "avatar": "/img/team/cosmic.webp",
-        "link_old": "https://github.com/Cosmic-Fires",
+        "socials": {
+          "github": "https://github.com/Cosmic-Fires"
+        },
         "quote": "No, I don't have fries"
       },
       {
         "name": "K King",
         "avatar": "/img/team/k_king.webp",
-        "link": "https://x.com/ItsKKing",
+        "socials": {
+          "x": "https://x.com/ItsKKing"
+        },
         "quote": "LET ME OUT OF THIS WEBSITE PLEAS-"
       },
       {
@@ -231,6 +281,9 @@
         "name": "Ember",
         "avatar": "/img/team/ember.jpeg",
         "link": "https://emberspage.straw.page/",
+        "socials": {
+          "codeberg": "https://codeberg.org/Ember808"
+        },
         "role": "Plushie extraordinaire",
         "quote": "yaoi <3"
       }
