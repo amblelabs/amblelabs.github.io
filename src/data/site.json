@@ -302,6 +302,9 @@
         "name": "Nanowu",
         "avatar": "/img/team/nanowu.webp",
         "link": "https://nanuwo.github.io/",
+        "socials": {
+          "github": "https://github.com/nanuwo"
+        },
         "quote": "nonuwo"
       }
     ]
