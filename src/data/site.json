@@ -73,7 +73,8 @@
         "socials": {
           "github": "https://github.com/loqor",
           "codeberg": "https://codeberg.org/loqor",
-          "youtubeg": "https://www.youtube.com/channel/UCMCcRBw_pFgfc2Ixd98iNaA"
+          "youtubeg": "https://www.youtube.com/channel/UCMCcRBw_pFgfc2Ixd98iNaA",
+          "kofig": "https://ko-fi.com/Loqor"
         },
         "quote": "From dust we came, to dust we shall return."
       },
@@ -85,7 +86,8 @@
         "socials": {
           "github": "https://github.com/drtheodor",
           "codeberg": "https://codeberg.org/drtheo",
-          "youtubeg": "https://www.youtube.com/channel/UC697odorPc6EM2FrvPg1Nfg"
+          "youtubeg": "https://www.youtube.com/channel/UC697odorPc6EM2FrvPg1Nfg",
+          "boostyg": "https://boosty.to/dr.theo"
         },
         "quote": "theoretical"
       },
@@ -95,7 +97,8 @@
         "avatar": "/img/team/duzo.webp",
         "link": "https://duzo.is-a.dev/",
         "socials": {
-          "github": "https://github.com/duzos"
+          "github": "https://github.com/duzos",
+          "kofig": "https://ko-fi.com/duzoo"
         },
         "quote": "elite ball knowledge"
       },
@@ -110,13 +113,14 @@
         "quote": "if you then is? Yes or the no of the what? Yes infact the. Hello, everybody my name is mark my pliars and in todays video we'll"
       },
       {
-        "name": "AddieDaBaddie",
+        "name": "Addie",
         "avatar": "/img/team/addie.webp",
-        "role": "Developer",
+        "role": "Developer & Artist",
         "link": "https://addi3.github.io/",
         "socials": {
           "github": "https://github.com/addi3",
-          "codeberg": "https://codeberg.org/addi3"
+          "codeberg": "https://codeberg.org/addi3",
+          "kofig": "https://ko-fi.com/addi3dabaddie"
         },
         "quote": "Zhe bluetooth device has connected a-success fillet"
       },
@@ -169,7 +173,8 @@
         "role": "Artist, Animator & Builder",
         "socials": {
           "github": "https://github.com/pandawanda123",
-          "codeberg": "https://codeberg.org/mightyredpanda"
+          "codeberg": "https://codeberg.org/mightyredpanda",
+          "kofig": "https://ko-fi.com/redpanda39441"
         }
       },
       {
