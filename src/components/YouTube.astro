@@ -1,0 +1,30 @@
+---
+interface Props {
+    title: string;
+    video: string;
+}
+
+const { title, video } = Astro.props;
+---
+
+<link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/lite-youtube-embed@0.3.4/src/lite-yt-embed.css"
+/>
+
+<script
+    src="https://cdn.jsdelivr.net/npm/lite-youtube-embed@0.3.4/src/lite-yt-embed.js"
+></script>
+
+<lite-youtube
+    videoid={video}
+    style=`background-image: url('https://i.ytimg.com/vi/${video}/hqdefault.jpg');`
+>
+    <a
+        href=`https://youtube.com/watch?v=${video}`
+        class="lyt-playbtn"
+        title="Play Video"
+    >
+        <span class="lyt-visually-hidden">Play Video: {title}</span>
+    </a>
+</lite-youtube>

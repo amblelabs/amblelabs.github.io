@@ -2,6 +2,7 @@
 import { Image } from "astro:assets";
 import Icon from "../components/Icon.astro";
 import Logo from "../components/Logo.astro";
+import YouTube from "../components/YouTube.astro";
 
 import ambleLogoSvg from "../assets/amblelabs_icon.svg";
 import ambleLogoGif from "../assets/amblelabs_icon.gif";
@@ -276,14 +277,10 @@ import Style from "../components/Style.astro";
                 <div class="animate-on-scroll stagger-2">
                     <div class="video-container">
                         <div class="video-wrapper">
-                            <iframe
-                                src={siteData.youtube_embed}
+                            <YouTube
                                 title="YouTube video player"
-                                frameborder="0"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                referrerpolicy="strict-origin-when-cross-origin"
-                                allowfullscreen
-                                loading="lazy"></iframe>
+                                video={siteData.youtube_embed}
+                            />
                         </div>
                     </div>
                 </div>
@@ -608,125 +605,118 @@ import Style from "../components/Style.astro";
 
         <!-- Scroll animations + nav highlighting -->
         <script>
-            (function () {
-                // Scroll-triggered animations
-                const observer = new IntersectionObserver(
-                    (entries) => {
-                        entries.forEach((entry) => {
-                            if (entry.isIntersecting) {
-                                entry.target.classList.add("visible");
-                            }
-                        });
-                    },
-                    { threshold: 0.1, rootMargin: "0px 0px -40px 0px" },
-                );
-
-                document
-                    .querySelectorAll(".animate-on-scroll")
-                    .forEach((el) => observer.observe(el));
-
-                // Active nav link on scroll
-                const sections = Array.from(
-                    document.querySelectorAll(".section"),
-                );
-                const navLinks = document.querySelectorAll(".nav-link");
-                const nav = document.getElementById("mainNav");
-
-                function updateActiveNav() {
-                    const navHeight = nav ? nav.offsetHeight : 80;
-                    // The "trigger line" sits just below the nav bar.
-                    // The last section whose top is at-or-above this line is the active one.
-                    const activeLine = navHeight + 1;
-                    let activeId = null;
-                    for (let i = sections.length - 1; i >= 0; i--) {
-                        if (
-                            sections[i].getBoundingClientRect().top <=
-                            activeLine
-                        ) {
-                            activeId = sections[i].id;
-                            break;
+            // Scroll-triggered animations
+            const observer = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add("visible");
                         }
+                    });
+                },
+                { threshold: 0.1, rootMargin: "0px 0px -40px 0px" },
+            );
+
+            document
+                .querySelectorAll(".animate-on-scroll")
+                .forEach((el) => observer.observe(el));
+
+            // Active nav link on scroll
+            const sections = Array.from(document.querySelectorAll(".section"));
+            const navLinks = document.querySelectorAll(".nav-link");
+            const nav = document.getElementById("mainNav");
+
+            function updateActiveNav() {
+                const navHeight = nav ? nav.offsetHeight : 80;
+                // The "trigger line" sits just below the nav bar.
+                // The last section whose top is at-or-above this line is the active one.
+                const activeLine = navHeight + 1;
+                let activeId = null;
+                for (let i = sections.length - 1; i >= 0; i--) {
+                    if (sections[i].getBoundingClientRect().top <= activeLine) {
+                        activeId = sections[i].id;
+                        break;
                     }
-                    navLinks.forEach((link) => {
-                        link.classList.toggle(
-                            "active",
-                            link.dataset.section === activeId,
-                        );
-                    });
                 }
+                navLinks.forEach((link) => {
+                    link.classList.toggle(
+                        "active",
+                        link.dataset.section === activeId,
+                    );
+                });
+            }
 
-                let navScrollPending = false;
-                window.addEventListener(
-                    "scroll",
-                    () => {
-                        if (!navScrollPending) {
-                            requestAnimationFrame(() => {
-                                updateActiveNav();
-                                navScrollPending = false;
-                            });
-                            navScrollPending = true;
+            let navScrollPending = false;
+            window.addEventListener(
+                "scroll",
+                () => {
+                    if (!navScrollPending) {
+                        requestAnimationFrame(() => {
+                            updateActiveNav();
+                            navScrollPending = false;
+                        });
+                        navScrollPending = true;
+                    }
+                },
+                { passive: true },
+            );
+
+            updateActiveNav();
+
+            // Nav scroll background
+            window.addEventListener(
+                "scroll",
+                () => {
+                    nav.classList.toggle("scrolled", window.scrollY > 50);
+                },
+                { passive: true },
+            );
+
+            // Mobile nav toggle
+            const hamburger = document.getElementById("navHamburger");
+            const mobileNav = document.getElementById("mobileNav");
+            if (hamburger && mobileNav) {
+                hamburger.addEventListener("click", () => {
+                    mobileNav.classList.toggle("open");
+                });
+                mobileNav.querySelectorAll(".nav-link").forEach((link) => {
+                    link.addEventListener("click", () =>
+                        mobileNav.classList.remove("open"),
+                    );
+                });
+            }
+
+            // Total downloads counter
+            const totalEl = document.getElementById("totalDownloads");
+            if (totalEl) {
+                const CACHE_KEY = "amble_mods_cache_v1";
+                try {
+                    const raw = localStorage.getItem(CACHE_KEY);
+                    if (raw) {
+                        const cache = JSON.parse(raw);
+                        let total = 0;
+                        for (const slug in cache) {
+                            if (cache[slug].downloads)
+                                total += cache[slug].downloads;
                         }
-                    },
-                    { passive: true },
-                );
-
-                updateActiveNav();
-
-                // Nav scroll background
-                window.addEventListener(
-                    "scroll",
-                    () => {
-                        nav.classList.toggle("scrolled", window.scrollY > 50);
-                    },
-                    { passive: true },
-                );
-
-                // Mobile nav toggle
-                const hamburger = document.getElementById("navHamburger");
-                const mobileNav = document.getElementById("mobileNav");
-                if (hamburger && mobileNav) {
-                    hamburger.addEventListener("click", () => {
-                        mobileNav.classList.toggle("open");
-                    });
-                    mobileNav.querySelectorAll(".nav-link").forEach((link) => {
-                        link.addEventListener("click", () =>
-                            mobileNav.classList.remove("open"),
-                        );
-                    });
-                }
-
-                // Total downloads counter
-                const totalEl = document.getElementById("totalDownloads");
-                if (totalEl) {
-                    const CACHE_KEY = "amble_mods_cache_v1";
-                    try {
-                        const raw = localStorage.getItem(CACHE_KEY);
-                        if (raw) {
-                            const cache = JSON.parse(raw);
-                            let total = 0;
-                            for (const slug in cache) {
-                                if (cache[slug].downloads)
-                                    total += cache[slug].downloads;
-                            }
-                            if (total > 0) {
-                                totalEl.textContent =
-                                    total >= 1000
-                                        ? (total / 1000).toFixed(1) + "k"
-                                        : String(total);
-                            }
-                        }
-                    } catch (e) {}
-                    // Will be updated after mods.js runs
-                    window._updateTotalDownloads = function (total) {
                         if (total > 0) {
                             totalEl.textContent =
                                 total >= 1000
                                     ? (total / 1000).toFixed(1) + "k"
                                     : String(total);
                         }
-                    };
-                }
-            })();
+                    }
+                } catch (e) {}
+                // Will be updated after mods.js runs
+                window._updateTotalDownloads = function (total) {
+                    if (total > 0) {
+                        totalEl.textContent =
+                            total >= 1000
+                                ? (total / 1000).toFixed(1) + "k"
+                                : String(total);
+                    }
+                };
+            }
         </script>
 
         <!-- Tilt script -->
