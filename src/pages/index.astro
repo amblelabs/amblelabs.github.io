@@ -658,27 +658,14 @@ import ASCII from "../data/ascii.txt?raw";
             const navLinks = document.querySelectorAll(".nav-link");
             const nav = document.getElementById("mainNav");
 
-            // Get nav height once, update on resize
-            let navHeight = nav ? nav.offsetHeight : 80;
-            const updateNavHeight = () => {
-                navHeight = nav ? nav.offsetHeight : 80;
-                if (activeNavObserver) {
-                    activeNavObserver.disconnect();
-                    activeNavObserver = null;
-                    initActiveNavObserver();
-                }
-            };
-
-            // The observer for active nav
             let activeNavObserver = null;
-            function initActiveNavObserver() {
-                // rootMargin: negative top margin equal to nav height, so a section becomes active
-                // when its top reaches the bottom of the nav bar
-                const rootMargin = `-${navHeight}px 0px 0px 0px`;
+            let navHeight = 80; // sensible default – adjust to your actual nav height if needed
 
+            function initActiveNavObserver() {
+                if (activeNavObserver) activeNavObserver.disconnect();
+                const rootMargin = `-${navHeight}px 0px 0px 0px`;
                 activeNavObserver = new IntersectionObserver(
                     (entries) => {
-                        // Find the section that is currently intersecting (closest to the top)
                         let topmost = null;
                         for (const entry of entries) {
                             if (entry.isIntersecting) {
@@ -701,17 +688,37 @@ import ASCII from "../data/ascii.txt?raw";
                             });
                         }
                     },
-                    { threshold: 0, rootMargin: rootMargin },
+                    { threshold: 0, rootMargin },
                 );
-
                 sections.forEach((section) =>
                     activeNavObserver.observe(section),
                 );
             }
 
             if (sections.length && navLinks.length) {
+                // Initialise with default height – no layout read
                 initActiveNavObserver();
-                window.addEventListener("resize", updateNavHeight);
+
+                // Update nav height after layout using ResizeObserver (no forced reflow)
+                if (nav && window.ResizeObserver) {
+                    const resizeObserver = new ResizeObserver(() => {
+                        const newHeight = nav.offsetHeight;
+                        if (newHeight !== navHeight) {
+                            navHeight = newHeight;
+                            initActiveNavObserver();
+                        }
+                    });
+                    resizeObserver.observe(nav);
+                } else {
+                    // Fallback for older browsers: update on resize
+                    window.addEventListener("resize", () => {
+                        const newHeight = nav.offsetHeight;
+                        if (newHeight !== navHeight) {
+                            navHeight = newHeight;
+                            initActiveNavObserver();
+                        }
+                    });
+                }
             }
 
             // Nav scroll background
