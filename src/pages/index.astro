@@ -425,7 +425,15 @@ import ASCII from "../data/ascii.txt?raw";
                             />
                             <div class="mod-info">
                                 <h3 class="card-name">{mod.name}</h3>
-                                <span class="meta">Loading...</span>
+                                <span class="meta-container">
+                                    <span class="meta">Loading... </span>
+                                    <Logo
+                                        icon="download"
+                                        width={16}
+                                        height={16}
+                                        alt="downloads"
+                                    />
+                                </span>
                                 <p class="card-desc">{mod.description}</p>
                             </div>
                         </a>

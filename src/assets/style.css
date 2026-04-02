@@ -1471,6 +1471,11 @@ img {
     margin-top: 8px;
 }
 
+.meta-container {
+    display: inline-flex;
+    gap: 8px;
+}
+
 .meta {
     font-family: var(--font-mono);
     font-size: 0.68rem;

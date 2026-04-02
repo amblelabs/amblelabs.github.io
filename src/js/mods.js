@@ -1,11 +1,11 @@
 // Fetch Modrinth project & version info and populate .meta spans inside mod cards
 // Adds a localStorage cache (12h) to avoid refetching on every page load
 
-document.addEventListener('DOMContentLoaded', () => {
-  const modCards = Array.from(document.querySelectorAll('.mod-card'));
+document.addEventListener("DOMContentLoaded", () => {
+  const modCards = Array.from(document.querySelectorAll(".mod-card"));
   if (!modCards.length) return;
 
-  const CACHE_KEY = 'amble_mods_cache_v1';
+  const CACHE_KEY = "amble_mods_cache_v1";
   const TTL = 1000 * 60 * 60 * 12; // 12 hours
 
   const fetchJSON = async (url) => {
@@ -14,7 +14,8 @@ document.addEventListener('DOMContentLoaded', () => {
     return res.json();
   };
 
-  const formatNumber = (n) => (typeof n === 'number' ? n.toLocaleString() : '\u2014');
+  const formatNumber = (n) =>
+    typeof n === "number" ? n.toLocaleString() : "\u2014";
 
   const loadCache = () => {
     try {
@@ -36,20 +37,34 @@ document.addEventListener('DOMContentLoaded', () => {
   const cache = loadCache();
 
   const fetchForSlug = async (slug) => {
-    const project = await fetchJSON(`https://api.modrinth.com/v2/project/${encodeURIComponent(slug)}`);
+    const project = await fetchJSON(
+      `https://api.modrinth.com/v2/project/${encodeURIComponent(slug)}`,
+    );
     const downloads = project && project.downloads;
-    const icon = project && (project.icon_url || project.icon || project.logo || project.logo_url || null);
+    const icon =
+      project &&
+      (project.icon_url ||
+        project.icon ||
+        project.logo ||
+        project.logo_url ||
+        null);
 
-    let versionLabel = '\u2014';
+    let versionLabel = "\u2014";
     try {
-      const versions = await fetchJSON(`https://api.modrinth.com/v2/project/${encodeURIComponent(slug)}/version`);
+      const versions = await fetchJSON(
+        `https://api.modrinth.com/v2/project/${encodeURIComponent(slug)}/version`,
+      );
       if (Array.isArray(versions) && versions.length) {
-        versions.sort((a, b) => new Date(b.date_published) - new Date(a.date_published));
+        versions.sort(
+          (a, b) => new Date(b.date_published) - new Date(a.date_published),
+        );
         const newest = versions[0];
-        versionLabel = newest.version_number || newest.name || newest.id || '\u2014';
+        versionLabel =
+          newest.version_number || newest.name || newest.id || "\u2014";
       }
     } catch (err) {
-      if (project && project.versions && project.versions.length) versionLabel = project.versions[0];
+      if (project && project.versions && project.versions.length)
+        versionLabel = project.versions[0];
     }
 
     return { version: versionLabel, downloads: downloads, icon };
@@ -61,11 +76,11 @@ document.addEventListener('DOMContentLoaded', () => {
     for (const card of modCards) {
       let slug = card.dataset.slug && String(card.dataset.slug).trim();
       if (!slug) {
-        const a = card.querySelector('.card-link');
+        const a = card.querySelector(".card-link");
         if (a) {
           try {
             const url = new URL(a.href);
-            const parts = url.pathname.split('/').filter(Boolean);
+            const parts = url.pathname.split("/").filter(Boolean);
             slug = parts[parts.length - 1];
           } catch (e) {
             // ignore
@@ -73,26 +88,30 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       }
 
-      const meta = card.querySelector('.meta');
-      const avatarImg = card.querySelector('.mod-icon');
+      const meta = card.querySelector(".meta");
+      const avatarImg = card.querySelector(".mod-icon");
       if (!meta) continue;
-      meta.classList.add('loading');
-      meta.textContent = 'Loading\u2026';
+      meta.classList.add("loading");
+      meta.textContent = "Loading\u2026";
 
       if (!slug) {
-        meta.classList.remove('loading');
-        meta.textContent = 'v\u2014 \u2022 \u2014 downloads';
+        meta.classList.remove("loading");
+        meta.textContent = "v\u2014 \u2022 \u2014 ";
         continue;
       }
 
       const cached = cache[slug];
       const now = Date.now();
-      if (cached && (now - cached.ts) < TTL) {
-        meta.classList.remove('loading');
-        meta.textContent = `v${cached.version} \u2022 ${formatNumber(cached.downloads)} downloads`;
+      if (cached && now - cached.ts < TTL) {
+        meta.classList.remove("loading");
+        meta.textContent = `v${cached.version} \u2022 ${formatNumber(cached.downloads)} `;
         if (cached.downloads) totalDownloads += cached.downloads;
         if (avatarImg && cached.icon) {
-          try { avatarImg.src = cached.icon; } catch (e) { /* ignore */ }
+          try {
+            avatarImg.src = cached.icon;
+          } catch (e) {
+            /* ignore */
+          }
         }
         await new Promise((r) => setTimeout(r, 60));
         continue;
@@ -100,55 +119,81 @@ document.addEventListener('DOMContentLoaded', () => {
 
       try {
         const data = await fetchForSlug(slug);
-        cache[slug] = { version: data.version, downloads: data.downloads, icon: data.icon || null, ts: Date.now() };
+        cache[slug] = {
+          version: data.version,
+          downloads: data.downloads,
+          icon: data.icon || null,
+          ts: Date.now(),
+        };
         saveCache(cache);
-        meta.classList.remove('loading');
-        meta.textContent = `v${data.version} \u2022 ${formatNumber(data.downloads)} downloads`;
+        meta.classList.remove("loading");
+        console.log(meta.textContent);
+        meta.textContent = `v${data.version} \u2022 ${formatNumber(data.downloads)} `;
         if (data.downloads) totalDownloads += data.downloads;
 
         if (avatarImg && data.icon) {
-          const spinner = document.createElement('div');
-          spinner.className = 'mod-avatar-spinner';
+          const spinner = document.createElement("div");
+          spinner.className = "mod-avatar-spinner";
           card.appendChild(spinner);
 
           const onLoaded = () => {
-            try { avatarImg.removeEventListener('load', onLoaded); } catch (e) {}
-            try { avatarImg.removeEventListener('error', onError); } catch (e) {}
-            try { spinner.remove(); } catch (e) {}
+            try {
+              avatarImg.removeEventListener("load", onLoaded);
+            } catch (e) {}
+            try {
+              avatarImg.removeEventListener("error", onError);
+            } catch (e) {}
+            try {
+              spinner.remove();
+            } catch (e) {}
           };
 
           const onError = () => {
-            try { avatarImg.removeEventListener('load', onLoaded); } catch (e) {}
-            try { avatarImg.removeEventListener('error', onError); } catch (e) {}
-            try { spinner.remove(); } catch (e) {}
+            try {
+              avatarImg.removeEventListener("load", onLoaded);
+            } catch (e) {}
+            try {
+              avatarImg.removeEventListener("error", onError);
+            } catch (e) {}
+            try {
+              spinner.remove();
+            } catch (e) {}
           };
 
-          avatarImg.addEventListener('load', onLoaded);
-          avatarImg.addEventListener('error', onError);
+          avatarImg.addEventListener("load", onLoaded);
+          avatarImg.addEventListener("error", onError);
 
-          try { avatarImg.src = data.icon; } catch (e) { spinner.remove(); }
+          try {
+            avatarImg.src = data.icon;
+          } catch (e) {
+            spinner.remove();
+          }
         }
       } catch (err) {
         if (cached) {
-          meta.classList.remove('loading');
-          meta.classList.add('stale');
-          meta.textContent = `v${cached.version} \u2022 ${formatNumber(cached.downloads)} downloads (stale)`;
+          meta.classList.remove("loading");
+          meta.classList.add("stale");
+          meta.textContent = `v${cached.version} \u2022 ${formatNumber(cached.downloads)} `;
           if (cached.downloads) totalDownloads += cached.downloads;
           if (avatarImg && cached.icon) {
-            try { avatarImg.src = cached.icon; } catch (e) { /* ignore */ }
+            try {
+              avatarImg.src = cached.icon;
+            } catch (e) {
+              /* ignore */
+            }
           }
         } else {
-          meta.classList.remove('loading');
-          meta.textContent = 'v\u2014 \u2022 \u2014 downloads';
+          meta.classList.remove("loading");
+          meta.textContent = "v\u2014 \u2022 \u2014 ";
         }
-        console.warn('Failed to fetch Modrinth data for', slug, err);
+        console.warn("Failed to fetch Modrinth data for", slug, err);
       }
 
       await new Promise((r) => setTimeout(r, 120));
     }
 
     // Update total downloads in About section
-    if (typeof window._updateTotalDownloads === 'function') {
+    if (typeof window._updateTotalDownloads === "function") {
       window._updateTotalDownloads(totalDownloads);
     }
   })();
