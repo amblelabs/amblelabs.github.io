@@ -9,6 +9,8 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^5.15.3"
+    "@astro-community/astro-embed-youtube": "^0.5.10",
+    "astro": "^5.15.3",
+    "astro-google-fonts-optimizer": "^0.2.2"
   }
 }

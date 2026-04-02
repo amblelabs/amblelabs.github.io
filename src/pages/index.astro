@@ -1,8 +1,9 @@
 ---
 import { Image } from "astro:assets";
+import { YouTube } from "@astro-community/astro-embed-youtube";
+import { GoogleFontsOptimizer } from "astro-google-fonts-optimizer";
 import Icon from "../components/Icon.astro";
 import Logo from "../components/Logo.astro";
-import YouTube from "../components/YouTube.astro";
 
 import ambleLogoSvg from "../assets/amblelabs_icon.svg";
 import ambleLogoGif from "../assets/amblelabs_icon.gif";
@@ -20,7 +21,6 @@ const allMembers = [
 ];
 
 import ASCII from "../data/ascii.txt?raw";
-import Style from "../components/Style.astro";
 ---
 
 <!doctype html>
@@ -38,7 +38,9 @@ import Style from "../components/Style.astro";
         <link rel="icon" type="image/svg" href={ambleLogoSvg.src} />
         <meta content="#FF9100" data-react-helmet="true" name="theme-color" />
 
-        <Style />
+        <GoogleFontsOptimizer
+            url="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600;700;800;900&display=swap"
+        />
     </head>
 
     <body>
@@ -279,7 +281,7 @@ import Style from "../components/Style.astro";
                         <div class="video-wrapper">
                             <YouTube
                                 title="YouTube video player"
-                                video={siteData.youtube_embed}
+                                id={siteData.youtube_embed}
                             />
                         </div>
                     </div>
