@@ -1,7 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import { YouTube } from "@astro-community/astro-embed-youtube";
-import { GoogleFontsOptimizer } from "astro-google-fonts-optimizer";
+import { AstroFont } from "astro-font";
 import Icon from "../components/Icon.astro";
 import Logo from "../components/Logo.astro";
 
@@ -38,8 +38,29 @@ import ASCII from "../data/ascii.txt?raw";
         <link rel="icon" type="image/svg" href={ambleLogoSvg.src} />
         <meta content="#FF9100" data-react-helmet="true" name="theme-color" />
 
-        <GoogleFontsOptimizer
-            url="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600;700;800;900&display=swap"
+        <AstroFont
+            config={[
+                {
+                    src: [],
+                    name: "IBM Plex Mono",
+                    googleFontsURL:
+                        "https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap",
+                    preload: true,
+                    display: "swap",
+                    fallback: "monospace",
+                    fetch: true,
+                },
+                {
+                    src: [],
+                    name: "Outfit",
+                    googleFontsURL:
+                        "https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap",
+                    preload: true,
+                    display: "swap",
+                    fallback: "sans-serif",
+                    fetch: true,
+                },
+            ]}
         />
     </head>
 

@@ -23,3 +23,5 @@ pnpm-debug.log*
 # jetbrains setting folder
 .idea/
 .direnv
+
+public/__astro_font_generated__
