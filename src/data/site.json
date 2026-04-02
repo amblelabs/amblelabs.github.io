@@ -175,7 +175,8 @@
           "github": "https://github.com/pandawanda123",
           "codeberg": "https://codeberg.org/mightyredpanda",
           "kofig": "https://ko-fi.com/redpanda39441"
-        }
+        },
+        "quote": "would you like jellybaby?"
       },
       {
         "name": "Wanzz",
@@ -220,9 +221,30 @@
         "avatar": "/img/team/maggie.jpg",
         "role": "Artist",
         "quote": "if i kill myself ill know that a real bitch killed me"
+      },
+      {
+        "name": "Ember",
+        "avatar": "/img/team/ember.jpeg",
+        "link": "https://emberspage.straw.page/",
+        "socials": {
+          "codeberg": "https://codeberg.org/Ember808"
+        },
+        "role": "Artist",
+        "quote": "yaoi <3"
       }
     ],
     "others": [
+      {
+        "name": "Tryzoffx",
+        "avatar": "/img/team/tryzo.webp",
+        "role": "Team & Social Manager",
+        "socials": {
+          "github": "https://github.com/OgMzsty",
+          "youtubeg": "https://youtube.com/@tryzoffx",
+          "tiktokg": "https://www.tiktok.com/@tryzoffx"
+        },
+        "quote": "loqor on my mind"
+      },
       {
         "name": "VenWhoVian",
         "avatar": "/img/team/ven.webp",
@@ -281,16 +303,6 @@
         "avatar": "/img/team/nanowu.webp",
         "link": "https://nanuwo.github.io/",
         "quote": "nonuwo"
-      },
-      {
-        "name": "Ember",
-        "avatar": "/img/team/ember.jpeg",
-        "link": "https://emberspage.straw.page/",
-        "socials": {
-          "codeberg": "https://codeberg.org/Ember808"
-        },
-        "role": "Plushie extraordinaire",
-        "quote": "yaoi <3"
       }
     ]
   },
