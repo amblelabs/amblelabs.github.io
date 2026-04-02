@@ -1764,7 +1764,7 @@ footer {
 footer p {
     font-family: var(--font-mono);
     font-size: 0.7rem;
-    color: var(--text-muted);
+    color: var(--text-secondary);
     letter-spacing: 0.1em;
 }
 
