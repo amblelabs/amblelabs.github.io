@@ -334,7 +334,10 @@ import ASCII from "../data/ascii.txt?raw";
                                         {m.socials &&
                                             Object.entries(m.socials).map(
                                                 ([type, val]) => (
-                                                    <a href={val}>
+                                                    <a
+                                                        href={val}
+                                                        class="social-link"
+                                                    >
                                                         <img
                                                             src={
                                                                 "/img/" +
@@ -452,7 +455,7 @@ import ASCII from "../data/ascii.txt?raw";
                     Object.entries(links).map(([icon, link]) => (
                         <a
                             href={link.url}
-                            class="link-card"
+                            class="link-card social-link"
                             target="_blank"
                             rel="noopener"
                         >

@@ -61,6 +61,12 @@
       "platform": "Ko-fi",
       "url": "https://ko-fi.com/redpanda39441",
       "icon": "kofi"
+    },
+    {
+      "name": "Wanzz",
+      "platform": "Ko-fi",
+      "url": "https://ko-fi.com/wazzaki_wanzz",
+      "icon": "kofi"
     }
   ],
   "members": {
@@ -165,28 +171,41 @@
           "github": "https://github.com/Ouroboros-Games",
           "codeberg": "https://codeberg.org/ourogames"
         },
-        "quote": "Ouroro Borealis."
+        "quote": "Are you sure?"
+      },
+      {
+        "name": "Wanzz",
+        "avatar": "/img/team/wazz.png",
+        "role": "Artist",
+        "socials": {
+          "x": "https://x.com/Wazzakii_W",
+          "codeberg": "https://codeberg.org/WazzakiWanzz",
+          "kofig": "https://ko-fi.com/wazzaki_wanzz"
+        },
+        "quote": "blue pink yellow whatever man just keep bringing me that shark (I like shark)"
+      },
+      {
+        "name": "Tright",
+        "avatar": "/img/team/tright.webp",
+        "role": "Artist",
+        "quote": "Mamma mia!"
+      },
+      {
+        "name": "Maggie",
+        "avatar": "/img/team/maggie.jpg",
+        "role": "Artist",
+        "quote": "if i kill myself ill know that a real bitch killed me"
       },
       {
         "name": "Classic",
         "avatar": "/img/team/classic.png",
-        "role": "Artist, Animator & Builder",
+        "role": "Artist, Animator, Builder & Sound Designer",
         "socials": {
           "github": "https://github.com/pandawanda123",
           "codeberg": "https://codeberg.org/mightyredpanda",
           "kofig": "https://ko-fi.com/redpanda39441"
         },
         "quote": "would you like jellybaby?"
-      },
-      {
-        "name": "Wanzz",
-        "avatar": "/img/team/wanzz.svg",
-        "role": "Artist",
-        "socials": {
-          "x": "https://x.com/Wazzakii_W",
-          "codeberg": "https://codeberg.org/WazzakiWanzz"
-        },
-        "quote": ""
       },
       {
         "name": "Dian",
@@ -209,18 +228,6 @@
         "avatar": "/img/team/ratzoomie.webp",
         "role": "Music & Sound Designer",
         "quote": "just my fucking pfp"
-      },
-      {
-        "name": "Tright",
-        "avatar": "/img/team/tright.webp",
-        "role": "Artist",
-        "quote": "Mamma mia!"
-      },
-      {
-        "name": "Maggie",
-        "avatar": "/img/team/maggie.jpg",
-        "role": "Artist",
-        "quote": "if i kill myself ill know that a real bitch killed me"
       },
       {
         "name": "Ember",
