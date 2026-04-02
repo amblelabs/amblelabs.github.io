@@ -1270,7 +1270,7 @@ img {
     padding: 24px 20px;
     transition: all 0.35s var(--ease-out-expo);
     overflow: hidden;
-    cursor: default;
+    /*cursor: default;*/
 }
 
 .card::before {

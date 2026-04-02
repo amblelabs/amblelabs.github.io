@@ -1,0 +1,16 @@
+---
+import Icon from "./Icon.astro";
+import type { HTMLAttributes } from "astro/types";
+
+type ImgAttributes = Omit<HTMLAttributes<"img">, "src" | "width" | "height">;
+
+type Props = {
+    icon: string;
+    width?: number;
+    height?: number;
+} & ImgAttributes;
+
+const { icon } = Astro.props;
+---
+
+<Icon {...Astro.props} icon={`logo/${icon}.svg`} />

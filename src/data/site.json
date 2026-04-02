@@ -74,7 +74,7 @@
       {
         "name": "Loqor",
         "role": "PM & Lead Developer",
-        "avatar": "/img/team/loqor.webp",
+        "avatar": "loqor.webp",
         "link": "https://loqor.dev",
         "socials": {
           "github": "https://github.com/loqor",
@@ -87,7 +87,7 @@
       {
         "name": "Theo",
         "role": "Lead Backend Developer",
-        "avatar": "/img/team/theo.png",
+        "avatar": "theo.png",
         "link": "https://theo.is-a.dev",
         "socials": {
           "github": "https://github.com/drtheodor",
@@ -100,7 +100,7 @@
       {
         "name": "Duzo",
         "role": "Developer",
-        "avatar": "/img/team/duzo.webp",
+        "avatar": "duzo.webp",
         "link": "https://duzo.is-a.dev/",
         "socials": {
           "github": "https://github.com/duzos",
@@ -111,7 +111,7 @@
       {
         "name": "Saturn",
         "role": "Mod Director & QA Lead",
-        "avatar": "/img/team/saturn.png",
+        "avatar": "saturn.png",
         "socials": {
           "github": "https://github.com/saturnorsomething",
           "codeberg": "https://codeberg.org/thecoolersaturn"
@@ -120,7 +120,7 @@
       },
       {
         "name": "Addie",
-        "avatar": "/img/team/addie.webp",
+        "avatar": "addie.webp",
         "role": "Developer & Artist",
         "link": "https://addi3.github.io/",
         "socials": {
@@ -132,7 +132,7 @@
       },
       {
         "name": "Monke",
-        "avatar": "/img/team/monke.webp",
+        "avatar": "monke.webp",
         "role": "Developer",
         "socials": {
           "github": "https://github.com/rapbattlegod32"
@@ -141,7 +141,7 @@
       },
       {
         "name": "Lakehascake",
-        "avatar": "/img/team/lake.webp",
+        "avatar": "lake.webp",
         "role": "Developer",
         "link": "https://en.pronouns.page/@lakehascake",
         "socials": {
@@ -152,7 +152,7 @@
       },
       {
         "name": "Pan",
-        "avatar": "/img/team/pan.jpeg",
+        "avatar": "pan.jpeg",
         "role": "Developer",
         "socials": {
           "github": "https://github.com/mansarde",
@@ -164,7 +164,7 @@
     "artists": [
       {
         "name": "Ouro",
-        "avatar": "/img/team/ouro.webp",
+        "avatar": "ouro.webp",
         "role": "Lead Art Director",
         "link": "https://ouro-the-boro.carrd.co",
         "socials": {
@@ -175,7 +175,7 @@
       },
       {
         "name": "Wanzz",
-        "avatar": "/img/team/wazz.png",
+        "avatar": "wazz.png",
         "role": "Artist",
         "socials": {
           "x": "https://x.com/Wazzakii_W",
@@ -186,19 +186,19 @@
       },
       {
         "name": "Tright",
-        "avatar": "/img/team/tright.webp",
+        "avatar": "tright.webp",
         "role": "Artist",
         "quote": "Mamma mia!"
       },
       {
         "name": "Maggie",
-        "avatar": "/img/team/maggie.jpg",
+        "avatar": "maggie.jpg",
         "role": "Artist",
         "quote": "if i kill myself ill know that a real bitch killed me"
       },
       {
         "name": "Classic",
-        "avatar": "/img/team/classic.png",
+        "avatar": "classic.png",
         "role": "Artist, Animator, Builder & Sound Designer",
         "socials": {
           "github": "https://github.com/pandawanda123",
@@ -209,7 +209,7 @@
       },
       {
         "name": "Dian",
-        "avatar": "/img/team/dian.webp",
+        "avatar": "dian.webp",
         "role": "Music & Sound Designer",
         "socials": {
           "github": "https://github.com/Dian-Vidus"
@@ -218,20 +218,20 @@
       },
       {
         "name": "Lucien",
-        "avatar": "/img/team/lucien.webp",
+        "avatar": "lucien.webp",
         "role": "Music & Sound Designer",
         "link": "https://linktr.ee/someone.den",
         "quote": "We all change when you think about it. We're all different people, all through our lives, and that's okay, that's good, you've got to keep moving, so long as you remember all the people you used to be."
       },
       {
         "name": "RatZoomie",
-        "avatar": "/img/team/ratzoomie.webp",
+        "avatar": "ratzoomie.webp",
         "role": "Music & Sound Designer",
         "quote": "just my fucking pfp"
       },
       {
         "name": "Ember",
-        "avatar": "/img/team/ember.jpeg",
+        "avatar": "ember.jpeg",
         "link": "https://emberspage.straw.page/",
         "socials": {
           "codeberg": "https://codeberg.org/Ember808"
@@ -243,7 +243,7 @@
     "others": [
       {
         "name": "Tryzoffx",
-        "avatar": "/img/team/tryzo.webp",
+        "avatar": "tryzo.webp",
         "role": "Team & Social Manager",
         "socials": {
           "github": "https://github.com/OgMzsty",
@@ -254,7 +254,7 @@
       },
       {
         "name": "VenWhoVian",
-        "avatar": "/img/team/ven.webp",
+        "avatar": "ven.webp",
         "role": "Media Person",
         "socials": {
           "youtubeg": "https://youtube.com/@VenWhoVian"
@@ -263,7 +263,7 @@
       },
       {
         "name": "Echo",
-        "avatar": "/img/team/echo.webp",
+        "avatar": "echo.webp",
         "role": "Wiki Curator",
         "socials": {
           "github": "https://github.com/EchoDidAThing1048",
@@ -274,7 +274,7 @@
       },
       {
         "name": "Tree",
-        "avatar": "/img/team/tree.svg",
+        "avatar": "tree.svg",
         "role": "Wiki Curator",
         "socials": {
           "github": "https://github.com/trerrturyy"
@@ -283,15 +283,24 @@
       },
       {
         "name": "ThatRhynoGuy",
-        "avatar": "/img/team/rhyno.webp",
+        "avatar": "rhyno.webp",
         "role": "Minecraft Server Owner",
         "quote": "I am old."
+      },
+      {
+        "name": "Nyx",
+        "avatar": "nyx.webp",
+        "role": "Head Moderator",
+        "socials": {
+          "codeberg": "https://codeberg.org/AuroraNyxs"
+        },
+        "quote": "No harm in a little tomfoolery"
       }
     ],
     "junior_developers": [
       {
         "name": "CosmicFire",
-        "avatar": "/img/team/cosmic.webp",
+        "avatar": "cosmic.webp",
         "socials": {
           "github": "https://github.com/Cosmic-Fires"
         },
@@ -299,7 +308,7 @@
       },
       {
         "name": "K King",
-        "avatar": "/img/team/k_king.webp",
+        "avatar": "k_king.webp",
         "socials": {
           "x": "https://x.com/ItsKKing"
         },
@@ -307,7 +316,7 @@
       },
       {
         "name": "Nanowu",
-        "avatar": "/img/team/nanowu.webp",
+        "avatar": "nanowu.webp",
         "link": "https://nanuwo.github.io/",
         "socials": {
           "github": "https://github.com/nanuwo"
@@ -320,43 +329,32 @@
     {
       "name": "Adventures In Time",
       "slug": "ait",
-      "icon": "https://cdn.modrinth.com/data/ZMP9ZjB9/20bbedbb8d06d656b8b123a821fdd5ab5f3c999a.png",
-      "url": "https://modrinth.com/mod/ait",
       "description": "A timey-wimey mod adventure - Adapts Doctor Who themes into Minecraft."
     },
     {
       "name": "AIT Extras",
       "slug": "ait-extras",
-      "icon": "https://cdn.modrinth.com/data/JhhRNCFa/32d952d3bfdf333b4a1645429b1bdfd35aa69f41.png",
-      "url": "https://modrinth.com/mod/ait-extras",
       "description": "Addon mod for Adventures in Time by AddieDaBaddie!"
     },
     {
       "name": "AmbleKit",
       "slug": "amblekit",
-      "icon": "https://cdn.modrinth.com/data/ZNWAUUsB/45c6687b82c55d993084006abfd4e240cfd4a76b.png",
-      "url": "https://modrinth.com/mod/amblekit",
       "description": "Our utility library and tools for modders - AmbleKit."
     },
     {
       "name": "Stargate",
       "slug": "amble-stargate",
-      "icon": "https://cdn.modrinth.com/data/IoarhpFS/7daf0ae33f706baceb95225e1813208335717dfe.png",
-      "url": "https://modrinth.com/mod/amble-stargate",
+      "icon": "png",
       "description": "Stargate mod!"
     },
     {
       "name": "Loqor's Weeping Angels",
       "slug": "loqors-weeping-angels",
-      "icon": "https://cdn.modrinth.com/data/ufXjDQbl/94b915e59839dbbc4eaf8a639090f71d0ad302ef.png",
-      "url": "https://modrinth.com/mod/loqors-weeping-angels",
       "description": "Don't blink."
     },
     {
       "name": "K9 Mod",
       "slug": "k9-mod",
-      "icon": "https://cdn.modrinth.com/data/KZvTlFBC/85478e5ebebbbbb4af7ebbd88add662c9b615de3.png",
-      "url": "https://modrinth.com/mod/k9-mod",
       "description": "Adds K-9 from Doctor Who to Minecraft!"
     }
   ],

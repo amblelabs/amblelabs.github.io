@@ -1,4 +1,11 @@
 ---
+import { Image } from "astro:assets";
+import Icon from "../components/Icon.astro";
+import Logo from "../components/Logo.astro";
+
+import ambleLogoSvg from "../assets/amblelabs_icon.svg";
+import ambleLogoGif from "../assets/amblelabs_icon.gif";
+
 import "../assets/style.css";
 import Footer from "../components/Footer.astro";
 import siteData from "../data/site.json";
@@ -23,12 +30,9 @@ import ASCII from "../data/ascii.txt?raw";
         <meta content="AmbleLabs" property="og:title" />
         <meta content={siteData.tagline} property="og:description" />
         <meta content="https://amblelabs.dev" property="og:url" />
-        <meta
-            content="https://amblelabs.dev/img/amblelabs_icon.gif"
-            property="og:image"
-        />
+        <meta content="/amblelabs_icon.gif" property="og:image" />
         <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-        <link rel="icon" type="image/svg" href="/img/amblelabs_icon.svg" />
+        <link rel="icon" type="image/svg" href="/amblelabs_icon.svg" />
         <meta content="#FF9100" data-react-helmet="true" name="theme-color" />
     </head>
 
@@ -56,10 +60,11 @@ import ASCII from "../data/ascii.txt?raw";
         <!-- Navigation -->
         <nav class="nav" id="mainNav">
             <a href="#hero" class="nav-logo">
-                <img
-                    src="/img/amblelabs_icon.svg"
+                <Image
+                    src={ambleLogoSvg}
                     alt="AmbleLabs"
                     class="nav-logo-icon"
+                    loading="eager"
                 />
                 <span class="nav-logo-text">AmbleLabs</span>
             </a>
@@ -142,15 +147,17 @@ import ASCII from "../data/ascii.txt?raw";
             </div> -->
 
             <div class="hero-logo-img">
-                <img
-                    src="/img/amblelabs_icon.svg"
+                <Image
+                    src={ambleLogoSvg}
                     alt="AmbleLabs Logo"
                     class="logo-static card-avatar"
+                    loading="eager"
                 />
-                <img
-                    src="/img/amblelabs_icon.gif"
+                <Image
+                    src={ambleLogoGif}
                     alt="AmbleLabs Logo Animated"
                     class="logo-animated card-avatar"
+                    loading="lazy"
                 />
             </div>
 
@@ -169,15 +176,12 @@ import ASCII from "../data/ascii.txt?raw";
                     target="_blank"
                     rel="noopener"
                 >
-                    <svg
-                        width="16"
-                        height="16"
-                        viewBox="0 0 24 24"
-                        fill="currentColor"
-                        ><path
-                            d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
-                        ></path></svg
-                    >
+                    <Logo
+                        icon="github"
+                        width={16}
+                        height={16}
+                        loading="eager"
+                    />
                     GitHub
                 </a>
                 <a
@@ -203,7 +207,12 @@ import ASCII from "../data/ascii.txt?raw";
                     target="_blank"
                     rel="noopener"
                 >
-                    <img src="/img/codeberg_logo.svg" width="16" height="16" />
+                    <Logo
+                        icon="codeberg"
+                        width={16}
+                        height={16}
+                        loading="eager"
+                    />
                     Codeberg
                 </a>
             </div>
@@ -307,8 +316,8 @@ import ASCII from "../data/ascii.txt?raw";
                                 >
                                     <div class="card-sheen" />
                                     <div class="card-streak" />
-                                    <img
-                                        src={m.avatar}
+                                    <Icon
+                                        icon={`team/${m.avatar}`}
                                         alt={m.name}
                                         class="card-avatar"
                                         loading="lazy"
@@ -338,14 +347,11 @@ import ASCII from "../data/ascii.txt?raw";
                                                         href={val}
                                                         class="social-link"
                                                     >
-                                                        <img
-                                                            src={
-                                                                "/img/" +
-                                                                type +
-                                                                "_logo.svg"
-                                                            }
+                                                        <Logo
+                                                            icon={type}
                                                             width="24"
                                                             height="24"
+                                                            loading="lazy"
                                                         />
                                                     </a>
                                                 ),
@@ -374,7 +380,7 @@ import ASCII from "../data/ascii.txt?raw";
                 {
                     mods.map((mod: any) => (
                         <a
-                            href={mod.url}
+                            href={`https://modrinth.com/mod/${mod.slug}`}
                             target="_blank"
                             rel="noopener"
                             class="card mod-card"
@@ -383,8 +389,8 @@ import ASCII from "../data/ascii.txt?raw";
                         >
                             <div class="card-sheen" />
                             <div class="card-streak" />
-                            <img
-                                src={mod.icon}
+                            <Icon
+                                icon={`mod/${mod.slug}.${mod.icon ?? "webp"}`}
                                 alt={mod.name}
                                 class="card-avatar mod-icon"
                                 loading="lazy"
@@ -459,10 +465,11 @@ import ASCII from "../data/ascii.txt?raw";
                             target="_blank"
                             rel="noopener"
                         >
-                            <img
-                                src={`/img/${icon}_logo.svg`}
+                            <Logo
+                                icon={icon}
                                 alt={link.name}
                                 class="link-icon"
+                                loading="lazy"
                             />
                             <span class="link-label">{link.name}</span>
                             {link.description && <span class="link-desc" />}
@@ -489,10 +496,11 @@ import ASCII from "../data/ascii.txt?raw";
                             target="_blank"
                             rel="noopener"
                         >
-                            <img
-                                src={`/img/${d.icon === "kofi" ? "kofi" : "boosty"}_logo.svg`}
+                            <Logo
+                                icon={d.icon}
                                 alt={d.platform}
                                 class="donate-icon"
+                                loading="lazy"
                             />
                             <span class="donate-name">{d.name}</span>
                             <span class="donate-platform">{d.platform}</span>

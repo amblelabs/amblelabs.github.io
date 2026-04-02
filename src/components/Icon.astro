@@ -1,0 +1,18 @@
+---
+import type { HTMLAttributes } from "astro/types";
+import { Image } from "astro:assets";
+
+type ImgAttributes = Omit<HTMLAttributes<"img">, "src" | "width" | "height">;
+
+type Props = {
+    icon: string;
+    width?: number;
+    height?: number;
+} & ImgAttributes;
+
+const { icon } = Astro.props;
+
+const src = import(/* @vite-ignore */ `../assets/${icon}`);
+---
+
+<Image alt={icon} {...Astro.props} src={src} />
