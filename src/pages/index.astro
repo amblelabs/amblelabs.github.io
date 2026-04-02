@@ -658,51 +658,72 @@ import ASCII from "../data/ascii.txt?raw";
             const navLinks = document.querySelectorAll(".nav-link");
             const nav = document.getElementById("mainNav");
 
-            function updateActiveNav() {
-                const navHeight = nav ? nav.offsetHeight : 80;
-                // The "trigger line" sits just below the nav bar.
-                // The last section whose top is at-or-above this line is the active one.
-                const activeLine = navHeight + 1;
-                let activeId = null;
-                for (let i = sections.length - 1; i >= 0; i--) {
-                    if (sections[i].getBoundingClientRect().top <= activeLine) {
-                        activeId = sections[i].id;
-                        break;
-                    }
+            // Get nav height once, update on resize
+            let navHeight = nav ? nav.offsetHeight : 80;
+            const updateNavHeight = () => {
+                navHeight = nav ? nav.offsetHeight : 80;
+                if (activeNavObserver) {
+                    activeNavObserver.disconnect();
+                    activeNavObserver = null;
+                    initActiveNavObserver();
                 }
-                navLinks.forEach((link) => {
-                    link.classList.toggle(
-                        "active",
-                        link.dataset.section === activeId,
-                    );
-                });
+            };
+
+            // The observer for active nav
+            let activeNavObserver = null;
+            function initActiveNavObserver() {
+                // rootMargin: negative top margin equal to nav height, so a section becomes active
+                // when its top reaches the bottom of the nav bar
+                const rootMargin = `-${navHeight}px 0px 0px 0px`;
+
+                activeNavObserver = new IntersectionObserver(
+                    (entries) => {
+                        // Find the section that is currently intersecting (closest to the top)
+                        let topmost = null;
+                        for (const entry of entries) {
+                            if (entry.isIntersecting) {
+                                if (
+                                    !topmost ||
+                                    entry.boundingClientRect.top <
+                                        topmost.boundingClientRect.top
+                                ) {
+                                    topmost = entry;
+                                }
+                            }
+                        }
+                        if (topmost) {
+                            const activeId = topmost.target.id;
+                            navLinks.forEach((link) => {
+                                link.classList.toggle(
+                                    "active",
+                                    link.dataset.section === activeId,
+                                );
+                            });
+                        }
+                    },
+                    { threshold: 0, rootMargin: rootMargin },
+                );
+
+                sections.forEach((section) =>
+                    activeNavObserver.observe(section),
+                );
             }
 
-            let navScrollPending = false;
-            window.addEventListener(
-                "scroll",
-                () => {
-                    if (!navScrollPending) {
-                        requestAnimationFrame(() => {
-                            updateActiveNav();
-                            navScrollPending = false;
-                        });
-                        navScrollPending = true;
-                    }
-                },
-                { passive: true },
-            );
-
-            updateActiveNav();
+            if (sections.length && navLinks.length) {
+                initActiveNavObserver();
+                window.addEventListener("resize", updateNavHeight);
+            }
 
             // Nav scroll background
-            window.addEventListener(
-                "scroll",
-                () => {
-                    nav.classList.toggle("scrolled", window.scrollY > 50);
-                },
-                { passive: true },
-            );
+            if (nav) {
+                window.addEventListener(
+                    "scroll",
+                    () => {
+                        nav.classList.toggle("scrolled", window.scrollY > 50);
+                    },
+                    { passive: true },
+                );
+            }
 
             // Mobile nav toggle
             const hamburger = document.getElementById("navHamburger");
@@ -739,6 +760,7 @@ import ASCII from "../data/ascii.txt?raw";
                         }
                     }
                 } catch (e) {}
+
                 // Will be updated after mods.js runs
                 window._updateTotalDownloads = function (total) {
                     if (total > 0) {
