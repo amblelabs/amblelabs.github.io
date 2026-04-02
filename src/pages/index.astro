@@ -33,6 +33,7 @@ import ASCII from "../data/ascii.txt?raw";
         <meta content={ambleLogoGif.src} property="og:image" />
         <link rel="icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/svg" href={ambleLogoSvg.src} />
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
         <meta content="#FF9100" data-react-helmet="true" name="theme-color" />
     </head>
 
@@ -152,6 +153,7 @@ import ASCII from "../data/ascii.txt?raw";
                     alt="AmbleLabs Logo"
                     class="logo-static card-avatar"
                     loading="eager"
+                    fetchpriority="high"
                 />
                 <Image
                     src={ambleLogoGif}
@@ -321,6 +323,8 @@ import ASCII from "../data/ascii.txt?raw";
                                         alt={m.name}
                                         class="card-avatar"
                                         loading="lazy"
+                                        width={64}
+                                        height={64}
                                     />
                                     <h4 class="card-name">{m.name}</h4>
                                     {m.role && (
