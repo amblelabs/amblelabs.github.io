@@ -10,9 +10,16 @@ type Props = {
     height?: number;
 } & ImgAttributes;
 
-const { icon } = Astro.props;
+const icon = `/src/assets/icon/${Astro.props.icon}`;
 
-const src = import(/* @vite-ignore */ `../assets/${icon}`);
+const images = import.meta.glob<{ default: ImageMetadata }>(
+    "/src/assets/icon/**/*.{jpeg,jpg,png,webp,gif,svg}",
+);
+
+if (!images[icon])
+    throw new Error(
+        `"${icon}" does not exist in glob: "src/assets/icon/*.{jpeg,jpg,png,webp,gif,svg}"`,
+    );
 ---
 
-<Image alt={icon} {...Astro.props} src={src} />
+<Image alt={icon} {...Astro.props} src={images[icon]()} />
