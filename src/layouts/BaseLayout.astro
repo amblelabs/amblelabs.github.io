@@ -1,0 +1,154 @@
+---
+import { Image } from "astro:assets";
+import { AstroFont } from "astro-font";
+import ambleLogoSvg from "../assets/amblelabs_icon.svg";
+import "../assets/style.css";
+import Footer from "../components/Footer.astro";
+
+export interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { 
+  title = "AmbleLabs",
+  description = "amblelabs website"
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{title}</title>
+  <meta content={title} property="og:title" />
+  <meta content={description} property="og:description" />
+  <meta content="https://amblelabs.dev" property="og:url" />
+  <meta content={description} name="description" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="icon" type="image/svg" href={ambleLogoSvg.src} />
+  <meta content="#FF9100" name="theme-color" />
+
+  <AstroFont
+    config={[
+      {
+        src: [],
+        name: "IBM Plex Mono",
+        googleFontsURL:
+          "https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap",
+        preload: true,
+        display: "swap",
+        fallback: "monospace",
+        fetch: true,
+      },
+      {
+        src: [],
+        name: "Outfit",
+        googleFontsURL:
+          "https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap",
+        preload: true,
+        display: "swap",
+        fallback: "sans-serif",
+        fetch: true,
+      },
+    ]}
+  />
+</head>
+
+
+
+<body>
+  <!-- Background crt fxs thingy -->
+  <div class="noise-overlay" aria-hidden="true"></div>
+  <div class="scan-line" aria-hidden="true"></div>
+  <div class="bg-effects" aria-hidden="true">
+    <div class="bg-gradient"></div>
+    <div class="bg-grid"></div>
+    <div class="bg-vignette"></div>
+  </div>
+
+  <!-- Top nav bar (empty but needed for homepage button format)-->
+  <nav class="nav" id="mainNav">
+    <a href="/" class="nav-logo">
+      <Image
+        src={ambleLogoSvg}
+        alt="AmbleLabs"
+        class="nav-logo-icon"
+        loading="eager"
+        fetchpriority="high"
+      />
+      <span class="nav-logo-text">AmbleLabs</span>
+    </a>
+
+    <button
+      class="nav-hamburger"
+      id="navHamburger"
+      aria-label="Open navigation"
+    >
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M4 6h16"></path>
+        <path d="M4 12h16"></path>
+        <path d="M4 18h16"></path>
+      </svg>
+    </button>
+  </nav>
+
+  <div class="mobile-nav" id="mobileNav"></div>
+
+  <main>
+    <slot />
+  </main>
+
+  <Footer />
+
+  <!-- Settings -->
+  <button
+    id="hamburgerBtn"
+    class="hamburger"
+    aria-expanded="false"
+    aria-controls="settingsMenu"
+    aria-label="Open settings"
+  >
+  </button>
+
+  <div id="settingsMenu" class="settings-menu" role="dialog" aria-modal="false" hidden>
+    <div class="settings-panel">
+      <header class="settings-header">
+        <h3>Settings</h3>
+        <button id="settingsClose" class="settings-close" aria-label="Close settings">&times;</button>
+      </header>
+      <div class="settings-body">
+        <div class="setting-row">
+          <label class="setting-label">Card Tilt</label>
+          <label class="switch"><input id="menuTiltToggle" type="checkbox" /><span class="slider round"></span></label>
+        </div>
+        <div class="setting-row">
+          <label class="setting-label">Saturn Mode</label>
+          <label class="switch"><input id="saturnToggle" type="checkbox" /><span class="slider round"></span></label>
+        </div>
+        <div class="setting-row">
+          <label class="setting-label">Party Mode <small class="warn-text">(EPILEPSY WARNING)</small></label>
+          <label class="switch"><input id="partyToggle" type="checkbox" /><span class="slider round"></span></label>
+        </div>
+      </div>
+      <footer class="settings-footer">
+        <small class="muted">Settings saved to your browser.</small>
+      </footer>
+    </div>
+  </div>
+
+  <script>
+    const hamburger = document.getElementById("navHamburger");
+    const mobileNav = document.getElementById("mobileNav");
+    if (hamburger && mobileNav) {
+      hamburger.addEventListener("click", () => {
+        mobileNav.classList.toggle("open");
+      });
+    }
+  </script>
+
+  <script src="../js/tilt.js"></script>
+  <script src="../js/settings.js"></script>
+</body>
+</html>
