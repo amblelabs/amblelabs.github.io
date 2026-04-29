@@ -282,6 +282,15 @@
         "quote": "We have a wiki??"
       },
       {
+        "name": "Max",
+        "avatar": "max.webp",
+        "role": "Wiki Curator",
+        "socials": {
+          "github": "https://github.com/max7603",
+        },
+        "quote": ""
+      },
+      {
         "name": "ThatRhynoGuy",
         "avatar": "rhyno.webp",
         "role": "Minecraft Server Owner",
