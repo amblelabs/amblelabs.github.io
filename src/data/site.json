@@ -360,18 +360,18 @@
   ],
   "wikis": [
     {
-      "name": "Adventures In Time Wiki",
-      "description": "Player & Developer Wiki",
-      "url": "/ait-wiki/"
+      "name": "AmbleLabs Wiki",
+      "description": "Player & Developer Wiki for our projects",
+      "url": "/wiki/"
     },
     {
       "name": "Modrinth Organization",
-      "description": "Mods & docs",
+      "description": "Our mods on Modrinth",
       "url": "https://modrinth.com/organization/amble-labs"
     },
     {
       "name": "AmbleKit",
-      "description": "Developer docs",
+      "description": "An utility library for our mods",
       "url": "https://github.com/amblelabs/modkit"
     },
     {
