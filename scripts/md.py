@@ -4,6 +4,9 @@ def abadge(href: str, name: str) -> str:
     if name == 'youtubeg':
         fullname = 'social/youtube-singular'
         name = 'youtube'
+    elif name == 'discordg':
+        fullname = 'social/discord-singular'
+        name = 'discord'
     elif name == 'tiktokg':
         fullname = 'social/tiktok-singular'
         name = 'tiktok'
