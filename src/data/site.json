@@ -238,7 +238,16 @@
         },
         "role": "Artist",
         "quote": "yaoi <3"
-      }
+      },
+      {
+        "name": "Nanowu",
+        "avatar": "nanowu.webp",
+        "link": "https://nanuwo.github.io/",
+        "socials": {
+          "github": "https://github.com/nanuwo"
+        },
+        "quote": "nonuwo"
+      },
     ],
     "others": [
       {
@@ -324,15 +333,6 @@
         },
         "quote": "LET ME OUT OF THIS WEBSITE PLEAS-"
       },
-      {
-        "name": "Nanowu",
-        "avatar": "nanowu.webp",
-        "link": "https://nanuwo.github.io/",
-        "socials": {
-          "github": "https://github.com/nanuwo"
-        },
-        "quote": "nonuwo"
-      }
     ]
   },
   "mods": [
