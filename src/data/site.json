@@ -79,8 +79,8 @@
         "socials": {
           "github": "https://github.com/loqor",
           "codeberg": "https://codeberg.org/loqor",
-          "youtube": "https://www.youtube.com/channel/UCMCcRBw_pFgfc2Ixd98iNaA",
-          "kofi": "https://ko-fi.com/Loqor"
+          "youtubeg": "https://www.youtube.com/channel/UCMCcRBw_pFgfc2Ixd98iNaA",
+          "kofig": "https://ko-fi.com/Loqor"
         },
         "quote": "From dust we came, to dust we shall return."
       },
@@ -92,8 +92,8 @@
         "socials": {
           "github": "https://github.com/drtheodor",
           "codeberg": "https://codeberg.org/drtheo",
-          "youtube": "https://www.youtube.com/channel/UC697odorPc6EM2FrvPg1Nfg",
-          "boosty": "https://boosty.to/dr.theo"
+          "youtubeg": "https://www.youtube.com/channel/UC697odorPc6EM2FrvPg1Nfg",
+          "boostyg": "https://boosty.to/dr.theo"
         },
         "quote": "theoretical"
       },
@@ -104,7 +104,7 @@
         "link": "https://duzo.is-a.dev/",
         "socials": {
           "github": "https://github.com/duzos",
-          "kofi": "https://ko-fi.com/duzoo"
+          "kofig": "https://ko-fi.com/duzoo"
         },
         "quote": "elite ball knowledge"
       },
@@ -126,7 +126,7 @@
         "socials": {
           "github": "https://github.com/addi3",
           "codeberg": "https://codeberg.org/addi3",
-          "kofi": "https://ko-fi.com/addi3dabaddie"
+          "kofig": "https://ko-fi.com/addi3dabaddie"
         },
         "quote": "Zhe bluetooth device has connected a-success fillet"
       },
@@ -180,7 +180,7 @@
         "socials": {
           "x": "https://x.com/Wazzakii_W",
           "codeberg": "https://codeberg.org/WazzakiWanzz",
-          "kofi": "https://ko-fi.com/wazzaki_wanzz"
+          "kofig": "https://ko-fi.com/wazzaki_wanzz"
         },
         "quote": "blue pink yellow whatever man just keep bringing me that shark (I like shark)"
       },
@@ -203,7 +203,7 @@
         "socials": {
           "github": "https://github.com/pandawanda123",
           "codeberg": "https://codeberg.org/mightyredpanda",
-          "kofi": "https://ko-fi.com/redpanda39441"
+          "kofig": "https://ko-fi.com/redpanda39441"
         },
         "quote": "would you like jellybaby?"
       },
@@ -221,7 +221,7 @@
         "avatar": "lucien.webp",
         "role": "Music & Sound Designer",
         "link": "https://linktr.ee/someone.den",
-        "quote": "We all change when you think about it. We're all different people, all through our lives, and that's okay, that's good, you've got to keep moving, so long as you remember all the people that time gave you."
+        "quote": "We all change when you think about it. We're all different people, all through our lives, and that's okay, that's good, you've got to keep moving, so long as you remember all the people that you used to be."
       },
       {
         "name": "RatZoomie",
@@ -256,8 +256,8 @@
         "role": "Team & Social Manager",
         "socials": {
           "github": "https://github.com/OgMzsty",
-          "youtube": "https://youtube.com/@tryzoffx",
-          "tiktok": "https://www.tiktok.com/@tryzoffx"
+          "youtubeg": "https://youtube.com/@tryzoffx",
+          "tiktokg": "https://www.tiktok.com/@tryzoffx"
         },
         "quote": "loqor on my mind"
       },
@@ -266,7 +266,7 @@
         "avatar": "ven.webp",
         "role": "Media Person",
         "socials": {
-          "youtube": "https://youtube.com/@VenWhoVian"
+          "youtubeg": "https://youtube.com/@VenWhoVian"
         },
         "quote": "What do I do again?"
       },
@@ -296,7 +296,7 @@
         "role": "Wiki Curator",
         "socials": {
           "github": "https://github.com/max7603",
-          "discord": "https://discord.com/channels/@me/1493494887130337470"
+          "discordg": "https://discord.com/channels/@me/1493494887130337470"
         },
         "quote": "We have an old wiki?"
       },
