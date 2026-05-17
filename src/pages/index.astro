@@ -129,6 +129,23 @@ import ASCII from "../data/ascii.txt?raw";
             </a>
         </div>
 
+        <div class="hero-actions">
+            <a href={links.youtube.url} class="btn btn-ghost" target="_blank" rel="noopener">
+                <Logo icon="youtubeg" width={16} height={16} loading="eager" />
+                Youtube
+            </a>
+            <a href={links.tiktok.url} class="btn btn-ghost" target="_blank" rel="noopener">
+                <Logo icon="tiktokg" width={16} height={16} loading="eager" />
+                TikTok
+            </a>
+            <a href={links.bluesky.url} class="btn btn-ghost" target="_blank" rel="noopener">
+                <Logo icon="bluesky" width={16} height={16} loading="eager" />
+                Bluesky
+            </a>
+        </div>
+         <div class="divider"></div>
+
+
         <div class="hero-scroll">
             <span class="hero-scroll-text">Scroll</span>
             <div class="hero-scroll-line"></div>
@@ -294,23 +311,6 @@ import ASCII from "../data/ascii.txt?raw";
 
     <!-- Connect Section -->
     <section class="section" id="connect">
-        <div class="animate-on-scroll">
-            <span class="section-label">05 // Connect</span>
-            <h2 class="section-title">Find us everywhere.</h2>
-        </div>
-
-        <div class="link-grid animate-on-scroll stagger-1">
-            {
-                Object.entries(links).map(([icon, link]) => (
-                    <a href={link.url} class="link-card social-link" target="_blank" rel="noopener">
-                        <Logo icon={icon} alt={link.name} class="link-icon" loading="lazy" />
-                        <span class="link-label">{link.name}</span>
-                        {link.description && <span class="link-desc" />}
-                    </a>
-                ))
-            }
-        </div>
-
         <div class="divider"></div>
 
         <div class="animate-on-scroll">

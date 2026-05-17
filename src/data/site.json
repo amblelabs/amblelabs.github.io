@@ -29,6 +29,16 @@
       "url": "https://www.youtube.com/@amble_labs?sub_confirmation=1",
       "name": "YouTube",
       "description": "Watch our YouTube videos"
+    },
+    "tiktok": {
+      "url": "https://www.tiktok.com/@amblelabss",
+      "name": "TikTok",
+      "description": "Watch our TikTok videos"
+    },
+    "bluesky": {
+      "url": "https://bsky.app/profile/amblelabs.bsky.social",
+      "name": "BlueSky",
+      "description": "See mod updates and teasers"
     }
   },
   "donations": [
