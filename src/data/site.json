@@ -256,7 +256,17 @@
         "socials": {
           "github": "https://github.com/nanuwo"
         },
+        "role": "Artist",
         "quote": "nonuwo"
+      },
+      {
+        "name": "K King",
+        "avatar": "k_king.webp",
+        "role": "Artist",
+        "socials": {
+          "x": "https://x.com/ItsKKing"
+        },
+        "quote": "LET ME OUT OF THIS WEBSITE PLEAS-"
       }
     ],
     "others": [
@@ -336,13 +346,21 @@
         "quote": "No, I don't have fries"
       },
       {
-        "name": "K King",
-        "avatar": "k_king.webp",
+        "name": "SteelCollarClover",
+        "avatar": "clover.webp",
         "socials": {
-          "x": "https://x.com/ItsKKing"
         },
-        "quote": "LET ME OUT OF THIS WEBSITE PLEAS-"
+        "quote": "I'm actually working on the mo- [life sign lost]"
+      },
+      {
+        "name": "Ikachap",
+        "avatar": "ikachap.webp",
+        "socials": {
+          "tumblrg": "https://ikachap.tumblr.com/"
+        },
+        "quote": "i am drawing a blank on a quote right now ill be so for real."
       }
+
     ]
   },
   "mods": [
