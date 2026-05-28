@@ -244,10 +244,13 @@
         "avatar": "ember.jpeg",
         "link": "https://emberspage.straw.page/",
         "socials": {
-          "codeberg": "https://codeberg.org/Ember808"
+          "codeberg": "https://codeberg.org/Ember808",
+          "github": "https://github.com/Ember808",
+          "bluesky": "https://bsky.app/profile/ember808.bsky.social",
+          "tumblr": "https://tumblr.com/blog/ember888"
         },
         "role": "Artist",
-        "quote": "yaoi <3"
+        "quote": "I am currently perpetrating many evil and gay crimes"
       },
       {
         "name": "Nanowu",
@@ -353,7 +356,9 @@
       {
         "name": "Ikachap",
         "avatar": "ikachap.webp",
-        "link": "https://ikachap.tumblr.com/",
+        "socials": {
+          "tumblr": "https://ikachap.tumblr.com/"
+        },
         "quote": "i am drawing a blank on a quote right now ill be so for real."
       }
 
