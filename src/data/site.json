@@ -144,8 +144,10 @@
         "name": "Monke",
         "avatar": "monke.webp",
         "role": "Developer",
+        "link": "https://monke.meme",
         "socials": {
-          "github": "https://github.com/rapbattlegod32"
+          "github": "https://github.com/rapbattlegod32",
+          "kofig": "https://ko-fi.com/monkedev"
         },
         "quote": "return to monke"
       },
