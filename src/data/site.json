@@ -62,9 +62,9 @@
     },
     {
       "name": "Addie",
-      "platform": "Ko-fi",
-      "url": "https://ko-fi.com/addi3dabaddie",
-      "icon": "kofi"
+      "platform": "Patreon",
+      "url": "https://www.patreon.com/cw/Addie_Astarr",
+      "icon": "patreon"
     },
     {
       "name": "Classic",
@@ -136,9 +136,9 @@
         "socials": {
           "github": "https://github.com/addi3",
           "codeberg": "https://codeberg.org/addi3",
-          "kofig": "https://ko-fi.com/addi3dabaddie"
+          "patreon": "https://www.patreon.com/cw/Addie_Astarr"
         },
-        "quote": "Zhe bluetooth device has connected a-success fillet"
+        "quote": "Stargate on my mind"
       },
       {
         "name": "Monke",
@@ -375,7 +375,7 @@
     {
       "name": "AIT Extras",
       "slug": "ait-extras",
-      "description": "Addon mod for Adventures in Time by AddieDaBaddie!"
+      "description": "Addon mod for Adventures in Time by Addie!"
     },
     {
       "name": "AmbleKit",
