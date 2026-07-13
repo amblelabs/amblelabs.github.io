@@ -160,6 +160,14 @@
           "codeberg": "https://codeberg.org/mansarde"
         },
         "quote": "Don't dwell in the past, always march onwards."
+      },
+      {
+        "name": "Segfault",
+        "avatar": "seg.webp",
+        "role": "Developer",
+        "socials": {
+        },
+        "quote": "Don't be a bitch, if you wanna learn programming, start with Assembly."
       }
     ],
     "artists": [
