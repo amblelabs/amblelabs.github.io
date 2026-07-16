@@ -117,18 +117,6 @@
         },
         "quote": "if you then is? Yes or the no of the what? Yes infact the. Hello, everybody my name is mark my pliars and in todays video we'll"
       },
-      /*{
-        "name": "Addie",
-        "avatar": "addie.webp",
-        "role": "Developer & Artist",
-        "link": "https://addi3.codeberg.page/",
-        "socials": {
-          "github": "https://github.com/addi3",
-          "codeberg": "https://codeberg.org/addi3",
-          "patreon": "https://www.patreon.com/cw/Addie_Astarr"
-        },
-        "quote": "Stargate on my mind"
-      }, */
       {
         "name": "Monke",
         "avatar": "monke.webp",
@@ -173,7 +161,7 @@
         "name": "Hailrake",
         "avatar": "hailrake.webp",
         "role": "Developer",
-        "socials": { /* i am not fucking adding a telegram icon */
+        "socials": {
         "discordg": "https://discord.com/users/375633631982387204"
         },
         "quote": "Sometimes, honestly admitting to yourself that everything is bad is far more brilliant than looking for reasons why everything is fine."

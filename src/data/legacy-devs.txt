@@ -1,0 +1,12 @@
+      {
+        "name": "Addie",
+        "avatar": "addie.webp",
+        "role": "Developer & Artist",
+        "link": "https://addi3.codeberg.page/",
+        "socials": {
+          "github": "https://github.com/addi3",
+          "codeberg": "https://codeberg.org/addi3",
+          "patreon": "https://www.patreon.com/cw/Addie_Astarr"
+        },
+        "quote": "Stargate on my mind"
+      },
