@@ -177,7 +177,7 @@
           "github": "https://github.com/Ouroboros-Games",
           "codeberg": "https://codeberg.org/ourogames"
         },
-        "quote": "Are you sure?"
+        "quote": "I'd rather be corny as myself than cool as somebody i'm not."
       },
       {
         "name": "Wanzz",
@@ -360,6 +360,11 @@
       {
         "name": "Circuinox",
         "avatar": "circle.webp"
+      },
+      {
+        "name": "Ember",
+        "avatar": "ember2.webp",
+        "quote": "The better Ember."
       }
     ]
   },
