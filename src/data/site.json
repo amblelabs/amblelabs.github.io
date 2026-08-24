@@ -258,6 +258,12 @@
           "x": "https://x.com/ItsKKing"
         },
         "quote": "LET ME OUT OF THIS WEBSITE PLEAS-"
+      },
+      {
+        "name": "Ember",
+        "avatar": "ember2.webp",
+        "role": "Artist",
+        "quote": "The better Ember."
       }
     ],
     "others": [
@@ -352,11 +358,6 @@
       {
         "name": "Circuinox",
         "avatar": "circle.webp"
-      },
-      {
-        "name": "Ember",
-        "avatar": "ember2.webp",
-        "quote": "The better Ember."
       }
     ]
   },
