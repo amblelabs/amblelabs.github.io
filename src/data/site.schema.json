@@ -1,0 +1,268 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "AmbleLabs site data",
+  "description": "Everything the site renders.",
+  "type": "object",
+  "required": [
+    "name",
+    "tagline",
+    "description",
+    "links",
+    "members",
+    "mods"
+  ],
+  "definitions": {
+    "socialKey": {
+      "description": "must match src/assets/icon/logo/<name>.svg",
+      "enum": [
+        "github",
+        "codeberg",
+        "modrinth",
+        "discord",
+        "discordg",
+        "youtube",
+        "youtubeg",
+        "tiktok",
+        "tiktokg",
+        "bluesky",
+        "tumblr",
+        "x",
+        "kofi",
+        "kofig",
+        "boosty",
+        "boostyg",
+        "patreon",
+        "site"
+      ]
+    },
+    "member": {
+      "type": "object",
+      "required": [
+        "name",
+        "avatar"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "display name"
+        },
+        "avatar": {
+          "type": "string",
+          "description": "file in src/assets/icon/team/, square",
+          "pattern": "^[\\w.-]+\\.(webp|png|jpg|jpeg|gif)$"
+        },
+        "role": {
+          "type": "string",
+          "description": "shown under the name, optional"
+        },
+        "quote": {
+          "type": "string",
+          "description": "optional"
+        },
+        "link": {
+          "type": "string",
+          "format": "uri",
+          "description": "personal site, shown at the bottom of the card"
+        },
+        "socials": {
+          "type": "object",
+          "description": "icon name -> profile url",
+          "propertyNames": {
+            "$ref": "#/definitions/socialKey"
+          },
+          "additionalProperties": {
+            "type": "string",
+            "format": "uri"
+          }
+        }
+      }
+    },
+    "linkCard": {
+      "type": "object",
+      "required": [
+        "url",
+        "name",
+        "description"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "tagline": {
+      "type": "string",
+      "description": "footer and meta description"
+    },
+    "description": {
+      "type": "string",
+      "description": "About paragraph and meta description"
+    },
+    "youtube_embed": {
+      "type": "string",
+      "description": "video id, not a url"
+    },
+    "commissions": {
+      "type": "string",
+      "format": "uri"
+    },
+    "links": {
+      "type": "object",
+      "description": "studio accounts, the buttons use discord/github/codeberg/modrinth",
+      "required": [
+        "discord",
+        "github",
+        "codeberg",
+        "modrinth"
+      ],
+      "propertyNames": {
+        "$ref": "#/definitions/socialKey"
+      },
+      "additionalProperties": {
+        "$ref": "#/definitions/linkCard"
+      }
+    },
+    "donations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "name",
+          "platform",
+          "url",
+          "icon"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "platform": {
+            "type": "string",
+            "description": "Ko-fi, Boosty, Patreon"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "icon": {
+            "$ref": "#/definitions/socialKey"
+          }
+        }
+      }
+    },
+    "members": {
+      "type": "object",
+      "required": [
+        "developers",
+        "artists",
+        "others",
+        "junior_developers"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "developers": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/member"
+          }
+        },
+        "artists": {
+          "description": "art, music and sound",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/member"
+          }
+        },
+        "others": {
+          "description": "community and wiki",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/member"
+          }
+        },
+        "junior_developers": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/member"
+          }
+        }
+      }
+    },
+    "mods": {
+      "type": "array",
+      "description": "first entry renders as the flagship",
+      "items": {
+        "type": "object",
+        "required": [
+          "name",
+          "slug",
+          "description"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "slug": {
+            "type": "string",
+            "description": "modrinth slug, also the icon name"
+          },
+          "description": {
+            "type": "string"
+          },
+          "icon": {
+            "description": "extension, only if not webp",
+            "enum": [
+              "png",
+              "jpg",
+              "jpeg",
+              "gif",
+              "webp"
+            ]
+          }
+        }
+      }
+    },
+    "wikis": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "name",
+          "description",
+          "url"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

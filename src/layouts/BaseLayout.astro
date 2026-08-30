@@ -2,153 +2,161 @@
 import { Image } from "astro:assets";
 import { AstroFont } from "astro-font";
 import ambleLogoSvg from "../assets/amblelabs_icon.svg";
-import "../assets/style.css";
 import Footer from "../components/Footer.astro";
+import Ph from "../components/Ph.astro";
+import "../assets/style.css";
+import siteData from "../data/site.json";
 
 export interface Props {
-  title?: string;
-  description?: string;
+    title?: string;
+    description?: string;
 }
 
-const { 
-  title = "AmbleLabs",
-  description = "amblelabs website"
-} = Astro.props;
+const { title = "AmbleLabs", description = siteData.tagline } = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site ?? "https://amblelabs.dev");
+
+const NAV = [
+    { id: "mods", label: "Mods" },
+    { id: "crew", label: "Crew" },
+    { id: "docs", label: "Docs" },
+    { id: "support", label: "Support" },
+];
 ---
 
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>{title}</title>
-  <meta content={title} property="og:title" />
-  <meta content={description} property="og:description" />
-  <meta content="https://amblelabs.dev" property="og:url" />
-  <meta content={description} name="description" />
-  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-  <link rel="icon" type="image/svg" href={ambleLogoSvg.src} />
-  <meta content="#FF9100" name="theme-color" />
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>{title}</title>
+        <meta name="description" content={description} />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        <link rel="canonical" href={canonical.href} />
+        <meta property="og:url" content={canonical.href} />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="AmbleLabs" />
+        <meta property="og:locale" content="en_GB" />
+        <meta name="twitter:card" content="summary" />
+        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/svg+xml" href={ambleLogoSvg.src} />
+        <meta name="theme-color" content="#000000" />
+        <link rel="preconnect" href="https://api.modrinth.com" />
 
-  <AstroFont
-    config={[
-      {
-        src: [],
-        name: "IBM Plex Mono",
-        googleFontsURL:
-          "https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap",
-        preload: true,
-        display: "swap",
-        fallback: "monospace",
-        fetch: true,
-      },
-      {
-        src: [],
-        name: "Outfit",
-        googleFontsURL:
-          "https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap",
-        preload: true,
-        display: "swap",
-        fallback: "sans-serif",
-        fetch: true,
-      },
-    ]}
-  />
-</head>
+        <script is:inline>
+            document.documentElement.classList.add("js");
+        </script>
 
+        <AstroFont
+            config={[
+                {
+                    src: [],
+                    name: "Unbounded",
+                    googleFontsURL:
+                        "https://fonts.googleapis.com/css2?family=Unbounded:wght@700&display=swap",
+                    preload: false,
+                    display: "swap",
+                    fallback: "sans-serif",
+                    fetch: true,
+                },
+                {
+                    src: [],
+                    name: "Manrope",
+                    googleFontsURL:
+                        "https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&display=swap",
+                    preload: false,
+                    display: "swap",
+                    fallback: "sans-serif",
+                    fetch: true,
+                },
+                {
+                    src: [],
+                    name: "IBM Plex Mono",
+                    googleFontsURL:
+                        "https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@700&display=swap",
+                    preload: false,
+                    display: "swap",
+                    fallback: "monospace",
+                    fetch: true,
+                },
+            ]}
+        />
+    </head>
 
+    <body>
+        <a href="#main" class="skip">Skip to content</a>
 
-<body>
-  <!-- Background crt fxs thingy -->
-  <div class="noise-overlay" aria-hidden="true"></div>
-  <div class="scan-line" aria-hidden="true"></div>
-  <div class="bg-effects" aria-hidden="true">
-    <div class="bg-gradient"></div>
-    <div class="bg-grid"></div>
-    <div class="bg-vignette"></div>
-  </div>
+        <nav class="nav" id="mainNav">
+            <div class="nav-inner">
+                <a href="/" class="nav-mark">
+                    <Image
+                        src={ambleLogoSvg}
+                        alt=""
+                        width={22}
+                        height={22}
+                        loading="eager"
+                        fetchpriority="high"
+                    />
+                    <span>AmbleLabs</span>
+                </a>
 
-  <!-- Top nav bar (empty but needed for homepage button format)-->
-  <nav class="nav" id="mainNav">
-    <a href="/" class="nav-logo">
-      <Image
-        src={ambleLogoSvg}
-        alt="AmbleLabs"
-        class="nav-logo-icon"
-        loading="eager"
-        fetchpriority="high"
-      />
-      <span class="nav-logo-text">AmbleLabs</span>
-    </a>
+                <ul class="nav-links">
+                    {
+                        NAV.map((item) => (
+                            <li>
+                                <a
+                                    class="nav-link"
+                                    href={`/#${item.id}`}
+                                    data-section={item.id}
+                                >
+                                    {item.label}
+                                </a>
+                            </li>
+                        ))
+                    }
+                </ul>
 
-    <button
-      class="nav-hamburger"
-      id="navHamburger"
-      aria-label="Open navigation"
-    >
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M4 6h16"></path>
-        <path d="M4 12h16"></path>
-        <path d="M4 18h16"></path>
-      </svg>
-    </button>
-  </nav>
+                <a
+                    class="btn btn-solid nav-cta"
+                    href={siteData.links.discord.url}
+                    target="_blank"
+                    rel="noopener">Discord</a
+                >
 
-  <div class="mobile-nav" id="mobileNav"></div>
+                <button
+                    class="nav-burger"
+                    id="navBurger"
+                    aria-label="Menu"
+                    aria-expanded="false"
+                    aria-controls="mobileNav"
+                >
+                    <Ph icon="list" size={20} />
+                </button>
+            </div>
+        </nav>
 
-  <main>
-    <slot />
-  </main>
-
-  <Footer />
-
-  <!-- Settings -->
-  <button
-    id="hamburgerBtn"
-    class="hamburger"
-    aria-expanded="false"
-    aria-controls="settingsMenu"
-    aria-label="Open settings"
-  >
-  </button>
-
-  <div id="settingsMenu" class="settings-menu" role="dialog" aria-modal="false" hidden>
-    <div class="settings-panel">
-      <header class="settings-header">
-        <h3>Settings</h3>
-        <button id="settingsClose" class="settings-close" aria-label="Close settings">&times;</button>
-      </header>
-      <div class="settings-body">
-        <div class="setting-row">
-          <label class="setting-label">Card Tilt</label>
-          <label class="switch"><input id="menuTiltToggle" type="checkbox" /><span class="slider round"></span></label>
+        <div class="mobile-nav" id="mobileNav">
+            {
+                NAV.map((item) => (
+                    <a class="nav-link" href={`/#${item.id}`}>
+                        {item.label}
+                    </a>
+                ))
+            }
+            <a
+                class="btn btn-solid"
+                href={siteData.links.discord.url}
+                target="_blank"
+                rel="noopener">Join the Discord</a
+            >
         </div>
-        <div class="setting-row">
-          <label class="setting-label">Saturn Mode</label>
-          <label class="switch"><input id="saturnToggle" type="checkbox" /><span class="slider round"></span></label>
-        </div>
-        <div class="setting-row">
-          <label class="setting-label">Party Mode <small class="warn-text">(EPILEPSY WARNING)</small></label>
-          <label class="switch"><input id="partyToggle" type="checkbox" /><span class="slider round"></span></label>
-        </div>
-      </div>
-      <footer class="settings-footer">
-        <small class="muted">Settings saved to your browser.</small>
-      </footer>
-    </div>
-  </div>
 
-  <script>
-    const hamburger = document.getElementById("navHamburger");
-    const mobileNav = document.getElementById("mobileNav");
-    if (hamburger && mobileNav) {
-      hamburger.addEventListener("click", () => {
-        mobileNav.classList.toggle("open");
-      });
-    }
-  </script>
+        <main id="main">
+            <slot />
+        </main>
 
-  <script src="../js/tilt.js"></script>
-  <script src="../js/settings.js"></script>
-</body>
+        <Footer />
+
+        <script src="../js/chrome.js"></script>
+    </body>
 </html>

@@ -10,7 +10,11 @@ type Props = {
     height?: number;
 } & ImgAttributes;
 
-const { icon } = Astro.props;
+const { icon, class: cls, ...rest } = Astro.props;
 ---
 
-<Icon {...Astro.props} icon={`logo/${icon}.svg`} />
+<Icon
+    {...rest}
+    class={`logo logo-${icon}${cls ? ` ${cls}` : ""}`}
+    icon={`logo/${icon}.svg`}
+/>

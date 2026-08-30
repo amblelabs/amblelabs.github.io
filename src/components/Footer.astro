@@ -1,6 +1,41 @@
 ---
+import Logo from "./Logo.astro";
+import siteData from "../data/site.json";
+
+const links = Object.entries(siteData.links) as [
+    string,
+    { url: string; name: string; description: string },
+][];
 ---
 
-<footer>
-  <p id="copyright">&copy; {new Date().getFullYear()} AmbleLabs</p>
+<footer class="footer">
+    <div class="wrap">
+        <div class="footer-top">
+            <div>
+                <div class="footer-mark">Amble<i>Labs</i></div>
+                <p class="footer-tag">{siteData.tagline}</p>
+            </div>
+
+            <nav class="footer-links" aria-label="Elsewhere">
+                {
+                    links.map(([icon, link]) => (
+                        <a
+                            href={link.url}
+                            target="_blank"
+                            rel="noopener"
+                            title={link.description}
+                        >
+                            <Logo icon={icon} alt="" width={15} height={15} loading="lazy" />
+                            {link.name}
+                        </a>
+                    ))
+                }
+            </nav>
+        </div>
+
+        <div class="footer-bottom">
+            <span>&copy; {new Date().getFullYear()} AmbleLabs</span>
+            <span>Made by the crew, not by a studio</span>
+        </div>
+    </div>
 </footer>

@@ -1,200 +1,68 @@
-// Fetch Modrinth project & version info and populate .meta spans inside mod cards
-// Adds a localStorage cache (12h) to avoid refetching on every page load
+const KEY = "amble_mods_v3";
+const TTL = 12 * 60 * 60 * 1000;
 
-document.addEventListener("DOMContentLoaded", () => {
-  const modCards = Array.from(document.querySelectorAll(".mod-card"));
-  if (!modCards.length) return;
+const rows = [...document.querySelectorAll("[data-slug]")];
 
-  const CACHE_KEY = "amble_mods_cache_v1";
-  const TTL = 1000 * 60 * 60 * 12; // 12 hours
+if (rows.length) {
+  const nf = new Intl.NumberFormat("en-US");
+  const short = (n) =>
+    n >= 1e6
+      ? (n / 1e6).toFixed(1) + "M"
+      : n >= 1e3
+        ? (n / 1e3).toFixed(1) + "k"
+        : String(n);
 
-  const fetchJSON = async (url) => {
-    const res = await fetch(url);
-    if (!res.ok) throw new Error(`${res.status} ${res.statusText}`);
-    return res.json();
-  };
+  const cached = read();
+  if (cached) paint(cached.counts);
 
-  const formatNumber = (n) =>
-    typeof n === "number" ? n.toLocaleString() : "\u2014";
+  if (!cached || Date.now() - cached.ts > TTL) {
+    fetchCounts()
+      .then((counts) => {
+        paint(counts);
+        write({ counts, ts: Date.now() });
+      })
+      .catch((err) => console.warn("modrinth:", err));
+  }
 
-  const loadCache = () => {
-    try {
-      const raw = localStorage.getItem(CACHE_KEY);
-      return raw ? JSON.parse(raw) : {};
-    } catch (e) {
-      return {};
+  function paint(counts) {
+    let total = 0;
+    for (const row of rows) {
+      const n = counts[row.dataset.slug];
+      if (typeof n !== "number") continue;
+      total += n;
+      row.querySelector(".meta-count").textContent = nf.format(n);
+      row.querySelector(".row-meta")?.classList.remove("loading");
     }
-  };
+    const el = document.getElementById("totalDownloads");
+    if (el && total > 0) el.textContent = short(total);
+  }
+}
 
-  const saveCache = (cache) => {
-    try {
-      localStorage.setItem(CACHE_KEY, JSON.stringify(cache));
-    } catch (e) {
-      // ignore quota errors
-    }
-  };
+async function fetchCounts() {
+  const ids = rows.map((r) => r.dataset.slug);
+  const res = await fetch(
+    "https://api.modrinth.com/v2/projects?ids=" +
+      encodeURIComponent(JSON.stringify(ids)),
+    { signal: AbortSignal.timeout(8000) },
+  );
+  if (!res.ok) throw new Error(res.status + " " + res.statusText);
 
-  const cache = loadCache();
+  const counts = {};
+  for (const p of await res.json())
+    for (const k of [p.slug, p.id]) if (k) counts[k] = p.downloads || 0;
+  return counts;
+}
 
-  const fetchForSlug = async (slug) => {
-    const project = await fetchJSON(
-      `https://api.modrinth.com/v2/project/${encodeURIComponent(slug)}`,
-    );
-    const downloads = project && project.downloads;
-    const icon =
-      project &&
-      (project.icon_url ||
-        project.icon ||
-        project.logo ||
-        project.logo_url ||
-        null);
+function read() {
+  try {
+    return JSON.parse(localStorage.getItem(KEY));
+  } catch {
+    return null;
+  }
+}
 
-    let versionLabel = "\u2014";
-    try {
-      const versions = await fetchJSON(
-        `https://api.modrinth.com/v2/project/${encodeURIComponent(slug)}/version`,
-      );
-      if (Array.isArray(versions) && versions.length) {
-        versions.sort(
-          (a, b) => new Date(b.date_published) - new Date(a.date_published),
-        );
-        const newest = versions[0];
-        versionLabel =
-          newest.version_number || newest.name || newest.id || "\u2014";
-      }
-    } catch (err) {
-      if (project && project.versions && project.versions.length)
-        versionLabel = project.versions[0];
-    }
-
-    return { version: versionLabel, downloads: downloads, icon };
-  };
-
-  let totalDownloads = 0;
-
-  (async function populateAll() {
-    for (const card of modCards) {
-      let slug = card.dataset.slug && String(card.dataset.slug).trim();
-      if (!slug) {
-        const a = card.querySelector(".card-link");
-        if (a) {
-          try {
-            const url = new URL(a.href);
-            const parts = url.pathname.split("/").filter(Boolean);
-            slug = parts[parts.length - 1];
-          } catch (e) {
-            // ignore
-          }
-        }
-      }
-
-      const meta = card.querySelector(".meta");
-      const avatarImg = card.querySelector(".mod-icon");
-      if (!meta) continue;
-      meta.classList.add("loading");
-      meta.textContent = "Loading\u2026";
-
-      if (!slug) {
-        meta.classList.remove("loading");
-        meta.textContent = "v\u2014 \u2022 \u2014 ";
-        continue;
-      }
-
-      const cached = cache[slug];
-      const now = Date.now();
-      if (cached && now - cached.ts < TTL) {
-        meta.classList.remove("loading");
-        meta.textContent = `v${cached.version} \u2022 ${formatNumber(cached.downloads)} `;
-        if (cached.downloads) totalDownloads += cached.downloads;
-        if (avatarImg && cached.icon) {
-          try {
-            avatarImg.src = cached.icon;
-          } catch (e) {
-            /* ignore */
-          }
-        }
-        await new Promise((r) => setTimeout(r, 60));
-        continue;
-      }
-
-      try {
-        const data = await fetchForSlug(slug);
-        cache[slug] = {
-          version: data.version,
-          downloads: data.downloads,
-          icon: data.icon || null,
-          ts: Date.now(),
-        };
-        saveCache(cache);
-        meta.classList.remove("loading");
-        console.log(meta.textContent);
-        meta.textContent = `v${data.version} \u2022 ${formatNumber(data.downloads)} `;
-        if (data.downloads) totalDownloads += data.downloads;
-
-        if (avatarImg && data.icon) {
-          const spinner = document.createElement("div");
-          spinner.className = "mod-avatar-spinner";
-          card.appendChild(spinner);
-
-          const onLoaded = () => {
-            try {
-              avatarImg.removeEventListener("load", onLoaded);
-            } catch (e) {}
-            try {
-              avatarImg.removeEventListener("error", onError);
-            } catch (e) {}
-            try {
-              spinner.remove();
-            } catch (e) {}
-          };
-
-          const onError = () => {
-            try {
-              avatarImg.removeEventListener("load", onLoaded);
-            } catch (e) {}
-            try {
-              avatarImg.removeEventListener("error", onError);
-            } catch (e) {}
-            try {
-              spinner.remove();
-            } catch (e) {}
-          };
-
-          avatarImg.addEventListener("load", onLoaded);
-          avatarImg.addEventListener("error", onError);
-
-          try {
-            avatarImg.src = data.icon;
-          } catch (e) {
-            spinner.remove();
-          }
-        }
-      } catch (err) {
-        if (cached) {
-          meta.classList.remove("loading");
-          meta.classList.add("stale");
-          meta.textContent = `v${cached.version} \u2022 ${formatNumber(cached.downloads)} `;
-          if (cached.downloads) totalDownloads += cached.downloads;
-          if (avatarImg && cached.icon) {
-            try {
-              avatarImg.src = cached.icon;
-            } catch (e) {
-              /* ignore */
-            }
-          }
-        } else {
-          meta.classList.remove("loading");
-          meta.textContent = "v\u2014 \u2022 \u2014 ";
-        }
-        console.warn("Failed to fetch Modrinth data for", slug, err);
-      }
-
-      await new Promise((r) => setTimeout(r, 120));
-    }
-
-    // Update total downloads in About section
-    if (typeof window._updateTotalDownloads === "function") {
-      window._updateTotalDownloads(totalDownloads);
-    }
-  })();
-});
+function write(v) {
+  try {
+    localStorage.setItem(KEY, JSON.stringify(v));
+  } catch {}
+}

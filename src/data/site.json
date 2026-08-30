@@ -1,4 +1,5 @@
 {
+  "$schema": "./site.schema.json",
   "name": "AmbleLabs",
   "tagline": "A Minecraft Mod and Game Development Studio.",
   "description": "We are a small Development team that mainly focuses on making mods for Minecraft revolving around Doctor Who, Stargate, and Super Heroes!",
