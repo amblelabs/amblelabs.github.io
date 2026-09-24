@@ -309,13 +309,14 @@
         "quote": "We have a wiki??"
       },
       {
-        "name": "Max",
+        "name": "vmbbi (Max)",
         "avatar": "max.webp",
         "role": "Wiki Curator",
         "socials": {
           "github": "https://github.com/max7603",
-          "discordg": "https://discord.com/channels/@me/1493494887130337470"
+          "codeberg": "https://codeberg.org/vmbbi"
         },
+        "link": "https:vmbbi.is-a.dev",
         "quote": "We do not have an old wiki"
       },
       {
