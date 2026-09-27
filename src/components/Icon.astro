@@ -8,9 +8,11 @@ type Props = {
     icon: string;
     width?: number;
     height?: number;
+    densities?: number[];
+    quality?: number;
 } & ImgAttributes;
 
-const { icon, ...attrs } = Astro.props;
+const { icon, densities, ...attrs } = Astro.props;
 const path = `/src/assets/icon/${icon}`;
 
 const images = import.meta.glob<{ default: ImageMetadata }>(
@@ -18,6 +20,18 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
 );
 
 if (!images[path]) throw new Error(`missing icon: src/assets/icon/${icon}`);
+
+const img = (await images[path]()).default;
+const top = Math.floor((img.width / (attrs.width ?? img.width)) * 100) / 100;
+const d = densities
+    ?.map((x) => Math.min(x, top))
+    .filter((x, i, a) => x >= 1 && a.indexOf(x) === i);
 ---
 
-<Image alt="" decoding="async" {...attrs} src={images[path]()} />
+<Image
+    alt=""
+    decoding="async"
+    {...attrs}
+    densities={d?.length ? d : undefined}
+    src={img}
+/>
