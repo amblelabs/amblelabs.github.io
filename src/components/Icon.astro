@@ -10,6 +10,7 @@ type Props = {
     height?: number;
     densities?: number[];
     quality?: number;
+    format?: "png" | "webp" | "avif" | "jpeg";
 } & ImgAttributes;
 
 const { icon, densities, ...attrs } = Astro.props;
