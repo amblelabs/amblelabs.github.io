@@ -119,6 +119,15 @@
         "quote": "if you then is? Yes or the no of the what? Yes infact the. Hello, everybody my name is mark my pliars and in todays video we'll"
       },
       {
+        "name": "Hailrake",
+        "avatar": "hailrake.webp",
+        "role": "Senior Developer",
+        "socials": {
+        "discordg": "https://discord.com/users/375633631982387204"
+        },
+        "quote": "Sometimes, honestly admitting to yourself that everything is bad is far more brilliant than looking for reasons why everything is fine."
+      },
+      {
         "name": "Monke",
         "avatar": "monke.webp",
         "role": "Developer",
@@ -149,15 +158,6 @@
           "codeberg": "https://codeberg.org/mansarde"
         },
         "quote": "Don't dwell in the past, always march onwards."
-      },
-      {
-        "name": "Hailrake",
-        "avatar": "hailrake.webp",
-        "role": "Developer",
-        "socials": {
-        "discordg": "https://discord.com/users/375633631982387204"
-        },
-        "quote": "Sometimes, honestly admitting to yourself that everything is bad is far more brilliant than looking for reasons why everything is fine."
       }
     ],
     "artists": [
