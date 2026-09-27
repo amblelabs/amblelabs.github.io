@@ -999,8 +999,8 @@ h4 {
 }
 
 .crew-wall {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    display: flex;
+    flex-wrap: wrap;
     gap: 6px;
     padding: 6px;
     background: var(--surface);
@@ -1009,6 +1009,7 @@ h4 {
 }
 
 .crew {
+    flex: 1 1 200px;
     display: flex;
     flex-direction: column;
     padding: 20px 18px 18px;
@@ -1061,6 +1062,7 @@ h4 {
 }
 
 .crew-quote {
+    max-width: 36ch;
     margin-top: 12px;
     padding-left: 11px;
     border-left: 1px solid var(--line);
@@ -1319,11 +1321,8 @@ h4 {
 }
 
 @media (max-width: 560px) {
-    .crew-wall {
-        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    }
-
     .crew {
+        flex-basis: 150px;
         padding: 18px 14px 16px;
     }
 
