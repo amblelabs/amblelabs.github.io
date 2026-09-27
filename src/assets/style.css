@@ -999,70 +999,37 @@ h4 {
 }
 
 .crew-wall {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 6px;
+    padding: 6px;
     background: var(--surface);
-    border: 1px solid var(--line);
-    border-radius: var(--r-panel);
-    box-shadow: var(--inset-top);
-    overflow: hidden;
+    border: 1px solid var(--line-soft);
+    border-radius: 14px;
 }
 
 .crew {
-    position: relative;
-    flex: 1 1 200px;
     display: flex;
     flex-direction: column;
-    padding: 26px 22px 22px;
-    background: var(--surface);
-
-    box-shadow:
-        1px 0 0 var(--line-soft),
-        0 1px 0 var(--line-soft);
-    overflow: hidden;
-    transition: background-color 0.25s var(--ease-std);
+    padding: 20px 18px 18px;
+    border-radius: 8px;
+    transition: background-color 0.15s var(--ease-std);
 }
 
 .crew:hover,
 .crew:focus-within {
-    background-color: var(--surface-2);
-}
-
-.crew::after {
-    content: "";
-    position: absolute;
-    inset: -1px;
-    pointer-events: none;
-    background: linear-gradient(
-        104deg,
-        transparent 42%,
-        rgba(255, 196, 120, 0.07) 50%,
-        transparent 58%
-    );
-    transform: translate3d(-110%, 0, 0);
-    transition: transform 0.85s var(--ease);
-}
-
-.crew:hover::after,
-.crew:focus-within::after {
-    transform: translate3d(110%, 0, 0);
+    background: #15181a;
 }
 
 .roundel {
-    position: relative;
-    z-index: 1;
     width: 72px;
     height: 72px;
     margin-bottom: 6px;
     border-radius: 50%;
-    outline: 1px solid var(--line-soft);
-    outline-offset: 6px;
     background: var(--bg);
     box-shadow: 0 0 0 1px var(--line-strong);
     overflow: hidden;
-    transition:
-        outline-color 0.3s var(--ease-std),
-        box-shadow 0.3s var(--ease-std);
+    transition: box-shadow 0.15s var(--ease-std);
 }
 
 .roundel img {
@@ -1074,10 +1041,7 @@ h4 {
 
 .crew:hover .roundel,
 .crew:focus-within .roundel {
-    outline-color: var(--accent-line);
-    box-shadow:
-        0 0 0 1px var(--accent),
-        0 0 18px -4px rgba(255, 140, 0, 0.55);
+    box-shadow: 0 0 0 1px var(--accent);
 }
 
 .crew-name {
@@ -1103,14 +1067,6 @@ h4 {
     color: var(--faint);
     font-size: 13.5px;
     line-height: 1.55;
-    transition:
-        color 0.25s var(--ease-std),
-        border-color 0.25s var(--ease-std);
-}
-
-.crew:hover .crew-quote {
-    color: var(--muted);
-    border-left-color: var(--accent-line);
 }
 
 .crew-foot {
@@ -1363,9 +1319,12 @@ h4 {
 }
 
 @media (max-width: 560px) {
+    .crew-wall {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+
     .crew {
-        flex-basis: 158px;
-        padding: 18px 16px;
+        padding: 18px 14px 16px;
     }
 
     .readout div {
