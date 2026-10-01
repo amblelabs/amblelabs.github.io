@@ -32,11 +32,35 @@
       {
         "type": 1,
         "components": [
-          { "type": 2, "style": 5, "url": "https://github.com/amblelabs", "label": "Github" },
-          { "type": 2, "style": 5, "url": "https://codeberg.org/amblelabs", "label": "Codeberg" },
-          { "type": 2, "style": 5, "url": "https://bsky.app/profile/amblelabs.bsky.social", "label": "Bluesky" },
-          { "type": 2, "style": 5, "url": "https://www.tiktok.com/@amblelabss", "label": "TikTok" },
-          { "type": 2, "style": 5, "url": "https://www.youtube.com/@amble_labs", "label": "Youtube" }
+          { "type": 2, "style": 5, "url": "https://github.com/amblelabs", "emoji": {
+              "id": "1555214045861118122",
+              "name": "al_github",
+              "animated": false
+            }, "label": "Github" },
+          { "type": 2, "style": 5, "url": "https://codeberg.org/amblelabs", 
+            "emoji": {
+              "id": "1555214092933931128",
+              "name": "al_codeberg",
+              "animated": false
+            }, "label": "Codeberg" },
+          { "type": 2, "style": 5, "url": "https://bsky.app/profile/amblelabs.bsky.social",
+            "emoji": {
+              "id": "1555214151565971497",
+              "name": "al_bluesky",
+              "animated": false
+            }, "label": "Bluesky" },
+          { "type": 2, "style": 5, "url": "https://www.tiktok.com/@amblelabss",
+            "emoji": {
+              "id": "1555213999904268289",
+              "name": "al_tiktok",
+              "animated": false
+            }, "label": "TikTok" },
+          { "type": 2, "style": 5, "url": "https://www.youtube.com/@amble_labs", 
+            "emoji": {
+              "id": "1555213918945673256",
+              "name": "al_youtube",
+              "animated": false
+            }, "label": "Youtube" }
         ]
       }
     ]
