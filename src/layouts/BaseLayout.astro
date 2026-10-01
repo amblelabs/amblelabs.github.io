@@ -9,13 +9,14 @@ import siteData from "../data/site.json";
 import embedData from '../data/discord-embed.json';
 import amblelabsGif from '../assets/amblelabs_icon.gif';
 
-// 1. Resolve the absolute URL for the src/assets image
 const amblelabsUrl = new URL(amblelabsGif.src, Astro.url).href;
 
 const discordFinalEmbed = structuredClone(embedData);
-const targetItem = discordFinalEmbed?.component?.components?.[0]?.items?.[0];
-if (targetItem?.media) {
-    targetItem.media.url = amblelabsUrl;
+const mediaGallery = discordFinalEmbed?.component?.components?.find(
+    (comp: any) => comp.type === 12
+);
+if (mediaGallery?.items?.[0]?.media) {
+    mediaGallery.items[0].media.url = amblelabsUrl;
 }
 export interface Props {
     title?: string;
