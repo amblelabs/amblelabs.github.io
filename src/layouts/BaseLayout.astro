@@ -6,7 +6,17 @@ import Footer from "../components/Footer.astro";
 import Ph from "../components/Ph.astro";
 import "../assets/style.css";
 import siteData from "../data/site.json";
+import embedData from '../data/discord-embed.json';
+import amblelabsGif from '../assets/amblelabs_icon.gif';
 
+// 1. Resolve the absolute URL for the src/assets image
+const amblelabsUrl = new URL(amblelabsGif.src, Astro.url).href;
+
+const discordFinalEmbed = structuredClone(embedData);
+const targetItem = discordFinalEmbed?.component?.components?.[0]?.items?.[0];
+if (targetItem?.media) {
+    targetItem.media.url = amblelabsUrl;
+}
 export interface Props {
     title?: string;
     description?: string;
@@ -46,7 +56,11 @@ const NAV = [
         <script is:inline>
             document.documentElement.classList.add("js");
         </script>
-
+        <script
+                id="discord:component-embed"
+                type="application/json"
+                set:html={JSON.stringify(discordFinalEmbed)}
+        />
         <AstroFont
             config={[
                 {

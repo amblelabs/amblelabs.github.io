@@ -1,0 +1,44 @@
+{
+  "component": {
+    "type": 17,
+    "spoiler": false,
+    "accent_color": 16615936,
+    "components": [
+      {
+        "type": 9,
+        "components": [
+          {
+            "type": 10,
+            "content": "# **[AmbleLabs](https://amblelabs.dev)**\nA Minecraft Mod and Game Development Studio.\nWe are a small Development team that mainly focuses on making mods for Minecraft revolving around Doctor Who, Stargate, and Super Heroes!"
+          }
+        ],
+        "accessory": {
+          "type": 2,
+          "style": 5,
+          "url": "https://amblelabs.dev/",
+          "label": "Open"
+        }
+      },
+      {
+        "type": 12,
+        "items": [
+          { "media": { "url": "amblelabs.gif" }, "description": "The logo of our team" }
+        ]
+      },
+      {
+        "type": 14,
+        "spacing": 1
+      },
+      {
+        "type": 1,
+        "components": [
+          { "type": 2, "style": 5, "url": "https://github.com/amblelabs", "label": "Github" },
+          { "type": 2, "style": 5, "url": "https://codeberg.org/amblelabs", "label": "Codeberg" },
+          { "type": 2, "style": 5, "url": "https://bsky.app/profile/amblelabs.bsky.social", "label": "Bluesky" },
+          { "type": 2, "style": 5, "url": "https://www.tiktok.com/@amblelabss", "label": "TikTok" },
+          { "type": 2, "style": 5, "url": "https://www.youtube.com/@amble_labs", "label": "Youtube" }
+        ]
+      }
+    ]
+  }
+}
