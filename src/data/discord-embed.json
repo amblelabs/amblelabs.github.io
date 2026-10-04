@@ -9,7 +9,7 @@
         "components": [
           {
             "type": 10,
-            "content": "# **[AmbleLabs](https://amblelabs.dev)**\nA Minecraft Mod and Game Development Studio.\n\nWe are a small Development team that mainly focuses on making mods for Minecraft revolving around Doctor Who, Stargate, and Super Heroes!"
+            "content": "# **[AmbleLabs](https://amblelabs.dev)**\nA Minecraft Mod and Game Development Studio."
           }
         ],
         "accessory": {
@@ -18,6 +18,14 @@
           "url": "https://amblelabs.dev/",
           "label": "Open"
         }
+      },
+      {
+        "type": 14,
+        "spacing": 1
+      },
+      {
+        "type": 10,
+        "contnet": "We are a small Development team that mainly focuses on making mods for Minecraft revolving around Doctor Who, Stargate, and Super Heroes!"
       },
       {
         "type": 12,
